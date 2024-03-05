@@ -1,0 +1,88 @@
+﻿GPIO:
+	0：摄像头复位 
+	1：AF 
+	2：小镜头复位 --> AF KEY 
+	3：usb检测 
+	4：LED_BUSY 低
+	5：闪光灯
+	6：SPI写保护
+	7：屏复位
+	8：AF KEY --> 功放使能 
+	9：屏背光 
+	10：看门狗 
+	
+DGPIO：
+	0：SD卡检测 
+	1：W1 KEY 
+	2: SHUTTER KEY
+	3: T1 KEY 
+SARIN:
+	0：
+		电池电压：
+			4.2 260
+			4.1 245
+			4.0 240
+			3.9 233
+			3.8 226
+			3.7 220
+			3.6 217
+			3.5 210
+		
+		PWR_ON KEY
+		
+		/*
+		按键：
+			USB：
+				LEFT KEY:1.55V		430
+				DEL KEY:2.6V		840
+				OK1 KEY:3.1V		1023
+				PWR_ON KEY: 2.0V	622
+			
+			4.2V
+				LEFT KEY:1.55V		400
+				DEL KEY:2.6V		810
+				OK1 KEY:3.1V		1023
+				PWR_ON KEY: 2.0V	600
+			
+			3.5V
+				LEFT KEY:1.55V		350
+				DEL KEY:2.6V		760
+				OK1 KEY:3.1V		1023
+				PWR_ON KEY: 2.0V	540
+		
+	
+
+	2:
+		按键：
+			MODE1 KEY
+			DEL1 KEY
+			DOWN1 KEY
+			RIGHT1 KEY
+			BACK1 KEY
+			UP1 KEY
+			OK1 KEY
+
+				
+
+	
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

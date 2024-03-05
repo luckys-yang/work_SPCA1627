@@ -1,0 +1,5 @@
+---- ID_ICON_PLAY_STS_RUN Matches (4 in 2 files) ----
+App_osd_icon.h (host\inc\app):#define ID_ICON_PLAY_STS_RUN		0x0096
+App_ui_osd.c (host\app_ui):			sp1kOsdIconShow(ID_ICON_PLAY_STS_RUN,ICON_SHOW);
+App_ui_osd.c (host\app_ui):				sp1kOsdIconShow(ID_ICON_PLAY_STS_RUN,ICON_CLEAR);
+App_ui_osd.c (host\app_ui):	//sp1kOsdIconShow(ID_ICON_PLAY_STS_RUN,ICON_SHOW);
