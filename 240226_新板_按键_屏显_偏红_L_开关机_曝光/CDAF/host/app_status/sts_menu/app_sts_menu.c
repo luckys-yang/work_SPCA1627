@@ -137,38 +137,40 @@ void appMenu(UINT16 msg) USING_0
 	UINT32 menuPos=0;
 //	powerBatLv_t batlv;
 	static UINT8 hotKeyFlag = 0;
-	static UINT16 preMsg = SP1K_MSG_NULL;
+	static UINT16 preMsg = SP1K_MSG_NULL;   // 上一次消息状态
 	uiPara_t* puiPara = appUiParaGet();
 
-	if(appCardErrFmtErrChk())
-	{
-
-		//uiOsdDialogDisp(ID_STR_CARD_ERROR, 10);
-		uiOsdDialogDisp(ID_STR_PLEASE_PLUG_OUT_CARD, 10);
-		if(msg ==SP1K_MSG_KEY_PRESS_POWER)
-		{
-
-		}
-		else	if((msg>SP1K_MSG_START_BTN)&&(msg<SP1K_MSG_KEY_MAX))
-		{
-			return;
-		}
-
-	}
-	
-	if (preMsg == SP1K_MSG_KEY_PRESS_S2 && msg == SP1K_MSG_KEY_PRESS_OK) {
-		//Enter the state of version show
+    if (appCardErrFmtErrChk())
+    {
+        // uiOsdDialogDisp(ID_STR_CARD_ERROR, 10);
+        uiOsdDialogDisp(ID_STR_PLEASE_PLUG_OUT_CARD, 10); // 显示消息对话框 --- 显示后10等待
+        if (msg == SP1K_MSG_KEY_PRESS_POWER)              // 【电源按键按下消息】
+        {
+        }
+        // 不是按键消息范围则退出
+        else if ((msg > SP1K_MSG_START_BTN) && (msg < SP1K_MSG_KEY_MAX))
+        {
+            return;
+        }
+    }
+    // 上一次消息状态 == S2 && 当前消息状态 == OK
+    if ((preMsg == SP1K_MSG_KEY_PRESS_S2) && (msg == SP1K_MSG_KEY_PRESS_OK)) 
+    {
+		// 输入版本显示状态
 		hotKeyFlag = 1;
-	} else if (hotKeyFlag && preMsg == SP1K_MSG_KEY_RELEASE_SNAP) {
-		//Exit the state of version show 		
+	}
+    // 上一次消息状态 == 快照按键释放消息
+    else if (hotKeyFlag && preMsg == SP1K_MSG_KEY_RELEASE_SNAP) 
+    {
+		// 退出版本显示状态 
 		hotKeyFlag = 0;
-		menuProcDisp();
+		menuProcDisp(); // 显示菜单
 		return;
 	}
 
 	menuPos = menuProcCurrPosGet();
 	
-	if (msg != SP1K_MSG_STATE_INIT)
+	if (msg != SP1K_MSG_STATE_INIT) // 消息 != 初始化消息
 	{
 		layer = menuProcLayerGet();
 		item = menuProcCurrItemGet(layer);
@@ -176,25 +178,28 @@ void appMenu(UINT16 msg) USING_0
 			return;
 	}
 	
-	switch (msg) {
-	case SP1K_MSG_STATE_INIT:
-		//printf("menu init\n");
-		menuInit();
-		menuProcDisp();
-		#if MSG_AUTO_SEND
-			if(dele)
-			{
-				osMsgPost(SP1K_MSG_KEY_PRESS_OK);
-			}
+	switch (msg) 
+    {
+    case SP1K_MSG_STATE_INIT:   // 【初始化消息】
+    {
+        // printf("menu init\n");
+        menuInit(); // 初始化菜单
+        menuProcDisp(); // 显示菜单
+#if MSG_AUTO_SEND
+        if (dele)
+        {
+            osMsgPost(SP1K_MSG_KEY_PRESS_OK);
+        }
 
-		#endif
-		break;
+#endif
+        break;
+    }
 
-	case SP1K_MSG_KEY_PRESS_S1:
+    case SP1K_MSG_KEY_PRESS_S1: // 【S1按键按下消息】
 		//printf("S1 on menu\n");
 		break;
 
-	case SP1K_MSG_KEY_PRESS_S2:
+	case SP1K_MSG_KEY_PRESS_S2: // 【S2按键按下消息】
 		break;
 	#if 0
 	case SP1K_MSG_KEY_PRESS_AF:
@@ -213,23 +218,26 @@ void appMenu(UINT16 msg) USING_0
 	#endif
 		
 //1 PressMenu
-	case SP1K_MSG_KEY_PRESS_MENU:
-	//case SP1K_MSG_KEY_PRESS_MODE:
-	//case SP1K_MSG_KEY_PRESS_AF:
-		if ((layer == MENU_LAYER_0) || (layer == MENU_LAYER_1))
-		{
-			menuExit();
-		}	
-		else if (layer == MENU_LAYER_2)
-		{
-			menuProcParent ();
-			menuProcDisp();
-		}
-		//osMsgPost(SP1K_MSG_STATE_TO_STILL_VIEW);
-
-		break;
-		
-	#if FUNC_HOST_TOUCH_PANEL
+    case SP1K_MSG_KEY_PRESS_MENU:   // 【DEL按键按下消息】
+    // case SP1K_MSG_KEY_PRESS_MODE:
+    // case SP1K_MSG_KEY_PRESS_AF:
+        {
+            // 如果当前层级为0或1，则退出菜单
+            if ((layer == MENU_LAYER_0) || (layer == MENU_LAYER_1))
+            {
+                menuExit();  // 菜单退出
+            }
+            // 如果当前层级为2，则返回上一级菜单并重新显示菜单
+            else if (layer == MENU_LAYER_2)
+            {
+                menuProcParent();   // 返回到上一级菜单
+                menuProcDisp(); // 显示菜单
+            }
+            // osMsgPost(SP1K_MSG_STATE_TO_STILL_VIEW);
+            break;
+        }
+// 【支持触摸面板的功能】
+#if FUNC_HOST_TOUCH_PANEL
 	case SP1K_MSG_GUI_PEN_SLIDE:
 		{
 		guiPix_t p0, p1;
@@ -254,71 +262,84 @@ void appMenu(UINT16 msg) USING_0
 		menuProcPageDown();
 		menuProcDisp();
 		break;
-	#endif
-	
-//1 PressUp
-	case SP1K_MSG_KEY_PRESS_UP:
-		menuProcMoveUp ();
-		menuProcDisp();
-		break;
+#endif
 
-//1 PressDown
-	case SP1K_MSG_KEY_PRESS_DOWN:
-	//case SP1K_MSG_KEY_PRESS_PB:
-		menuProcMoveDown ();
-		menuProcDisp();
-		break;
-	
+    // 1 PressUp
+    case SP1K_MSG_KEY_PRESS_UP: // 【上按键按下消息】
+    {
+        menuProcMoveUp(); // 菜单选项往上移动
+        menuProcDisp();   // 显示菜单
+        break;
+    }
 
-	case SP1K_MSG_KEY_PRESS_LEFT:
-//1 PressLeft
-		/*if (layer == MENU_LAYER_2)
-		{
-			menuProcParent ();
-			menuProcDisp();
-		}*/
-		break;
-	
-//1 PressRight
-	case SP1K_MSG_KEY_PRESS_RIGHT:		
-		/*subItem = menuProcSubItemGet(layer, item);
-		if (subItem > 0)
-		{
-			sel = menuProcParaGet(layer, item);
-			menuProcChild (sel);
-			menuProcDisp();
-		 }*/
-		break;
+    // 1 PressDown
+    case SP1K_MSG_KEY_PRESS_DOWN: // 【下按键按下消息】
+    // case SP1K_MSG_KEY_PRESS_PB:
+    {
+        menuProcMoveDown(); // 菜单选项往下移动
+        menuProcDisp();     // 显示菜单
+        break;
+    }
 
-//1 PressOk
-	//case SP1K_MSG_KEY_PRESS_SNAP:
-	case SP1K_MSG_KEY_PRESS_OK:
-		if (hotKeyFlag) {
-			#if 0
+    //1 PressLeft
+    case SP1K_MSG_KEY_PRESS_LEFT: // 【左按键按下消息】
+    {
+        /*if (layer == MENU_LAYER_2)
+        {
+            menuProcParent ();
+            menuProcDisp();
+        }*/
+        break;
+    }
+
+    // 1 PressRight
+    case SP1K_MSG_KEY_PRESS_RIGHT: // 【右按键按下消息】
+    {
+        /*subItem = menuProcSubItemGet(layer, item);
+        if (subItem > 0)
+        {
+            sel = menuProcParaGet(layer, item);
+            menuProcChild (sel);
+            menuProcDisp();
+        }*/
+        break;
+    }
+
+    // 1 PressOk
+    // case SP1K_MSG_KEY_PRESS_SNAP:    // 【快照按键按下消息】
+    case SP1K_MSG_KEY_PRESS_OK: // 【确认按键按下消息】
+    {
+        if (hotKeyFlag)
+        {
+#if 0
 			osMsgPost(SP1K_MSG_STATE_TO_CAL_MENU);
-			#else
-			appMenuEvent_VerShow();
-			#endif
-			break;
-		}
+#else
+            appMenuEvent_VerShow();
+#endif
+            break;
+        }
+    }
 
-	case SP1K_MSG_KEY_PRESS_F1:
-		subItem = menuProcSubItemGet(layer, item);
-		if (subItem > 0)
-		{
-			sel = menuProcParaGet(layer, item);
-			menuProcChild (sel);
-			menuProcDisp();
-		}
-		else if (layer >= MENU_LAYER_2)
-		{
-			menuProcParaSet(layer, item);
-			menuProcParent ();
-			menuProcDisp();
-		}
-		break;
+    case SP1K_MSG_KEY_PRESS_F1: // 【F1按键按下消息】
+    {
+        subItem = menuProcSubItemGet(layer, item);  // 获取子项目
 
-	case SP1K_MSG_KEY_PRESS_TELE:
+        if (subItem > 0)
+        {
+            sel = menuProcParaGet(layer, item);
+            menuProcChild(sel);
+            menuProcDisp();
+        }
+        else if (layer >= MENU_LAYER_2)
+        {
+            menuProcParaSet(layer, item);
+            menuProcParent();
+            menuProcDisp();
+        }
+        break;
+    }
+
+    case SP1K_MSG_KEY_PRESS_TELE:   // 【变焦放大按键按下消息】
 		break;
 		
 	case SP1K_MSG_KEY_PRESS_WIDE:
@@ -326,133 +347,163 @@ void appMenu(UINT16 msg) USING_0
 		
 	case SP1K_MSG_KEY_PRESS_DISP:
 		break;
-		
-	case SP1K_MSG_CARD_PLUG_IN:
 
-		#if 1//old method
-			appStorageMount(K_MEDIA_SDF);
-			//uiRemainPixInit();
-			//menuExit();	
-			//osMsgPost(SP1K_MSG_STATE_INIT);
-			//uiRemainPixInit();
-			//appStillOsdInit();
-		#else//new method
-			menuExit();	
-			osMsgPost(SP1K_MSG_CARD_PLUG_IN);
-		#endif
-		break;
-		
-	case SP1K_MSG_CARD_PLUG_OUT:
-		appCardErrFmtErrSet(0);
-		appCardErrFmtSta(0);
-		appStorageMount(K_MEDIA_NANDF);
-		uiRemainPixInit();
-		menuExit();
-		osMsgPost(SP1K_MSG_CARD_PLUG_OUT);
-		//osMsgPost(SP1K_MSG_STATE_INIT);
-		//uiRemainPixInit();
-		//appStillOsdInit();
-		//osMsgFlush(MSG_CTRL_FLUSH_HOST | MSG_CTRL_FLUSH_BTN);
-		//uiOsdDialogDisp(ID_STR_NO_CARD_);
-		break;
-		
-	case SP1K_MSG_CARD_NOT_SUPPORT:
-		menuExit();	
-		osMsgPost(SP1K_MSG_CARD_NOT_SUPPORT);
-		break;
-		
-	case SP1K_MSG_USB_PLUG_IN:
+    case SP1K_MSG_CARD_PLUG_IN: // 【SD卡插入消息】
+    {
+#if 1 // old method
+        appStorageMount(K_MEDIA_SDF);
+        // uiRemainPixInit();
+        // menuExit();
+        // osMsgPost(SP1K_MSG_STATE_INIT);
+        // uiRemainPixInit();
+        // appStillOsdInit();
+#else // new method
+        menuExit();
+        osMsgPost(SP1K_MSG_CARD_PLUG_IN);
+#endif
+        break;
+    }
 
-		if((1 == bUsbPwr && !prjDbgMode) ||appCardErrFmtChk())
-		{
-			break;
-		}
-		
-		if(AdapterCharge)//  1: USB contect power adapter charge   0:USB contect PC
-		{
-			break;
-		}
-		
-		#if 0
+    case SP1K_MSG_CARD_PLUG_OUT: // 【SD卡拔出消息】
+    {
+        appCardErrFmtErrSet(0);
+        appCardErrFmtSta(0);
+        appStorageMount(K_MEDIA_NANDF);
+        uiRemainPixInit();
+        menuExit();
+        osMsgPost(SP1K_MSG_CARD_PLUG_OUT);
+        // osMsgPost(SP1K_MSG_STATE_INIT);
+        // uiRemainPixInit();
+        // appStillOsdInit();
+        // osMsgFlush(MSG_CTRL_FLUSH_HOST | MSG_CTRL_FLUSH_BTN);
+        // uiOsdDialogDisp(ID_STR_NO_CARD_);
+        break;
+    }
+
+    case SP1K_MSG_CARD_NOT_SUPPORT: // 【SD卡不支持消息】
+    {
+        menuExit();
+        osMsgPost(SP1K_MSG_CARD_NOT_SUPPORT);
+        break;
+    }
+
+    case SP1K_MSG_USB_PLUG_IN: // 【USB插入消息】
+    {
+        if ((1 == bUsbPwr && !prjDbgMode) || appCardErrFmtChk())
+        {
+            break;
+        }
+
+        if (AdapterCharge) //  1: USB contect power adapter charge   0:USB contect PC
+        {
+            break;
+        }
+
+#if 0
 		if (storageReadyflag==SUCCESS) {
 			if (USB_DBG) {
 					sp1kHalUSBSwPlugIn();
-			} 
-			#if (FUNC_HOST_DPS == 1)
+			}
+#if (FUNC_HOST_DPS == 1)
 			else if ( puiPara->USBMode == USB_SIDC) {
 					osMsgPost(SP1K_MSG_STATE_TO_DPS);
-			} 
-			#endif					
+			}
+#endif					
 			else {
 					osMsgPost(SP1K_MSG_STATE_TO_USB);
 			}		
 		}
-		#endif
-		osMsgPost(SP1K_MSG_STATE_TO_STILL_VIEW);//SP1K_MSG_STATE_TO_VIDEO_VIEW
-		osMsgPost(SP1K_MSG_USB_PLUG_IN);
-		break;
-		
-    	case SP1K_MSG_USB_PLUG_OUT:
-    		//osMsgPost(SP1K_MSG_POWER_OFF);
-		break;
-		
-	case SP1K_MSG_BAT_LV_UPDATE://jintao.liu 2008-3-13 add for battery action
-		//uiUpdateBatteryLevel();
-		appBattStsHandle();
-		break;
-		
-	case SP1K_MSG_BAT_EMPTY:
-		sp1kOsdSelWinSet(-1, -1, -1, -1, 0, -1);
-		uiUpdateOSDBatEmpty();
-		osMsgPost(SP1K_MSG_POWER_OFF);
-		sp1kBtnDisableAll();//ready to power off, disable all button!
-		break;
+#endif
+        osMsgPost(SP1K_MSG_STATE_TO_STILL_VIEW); // 发送 拍照视图消息
+        osMsgPost(SP1K_MSG_USB_PLUG_IN);
+        break;
+    }
 
-	case SP1K_MSG_POWER_OFF:
-		//break;
-	case SP1K_MSG_KEY_REPEATE_POWER:
-		menuExit();
-		appPowerOffProc();
-		break;
-		
-	case SP1K_MSG_TV_PLUG_IN:
-	case SP1K_MSG_TV_PLUG_OUT:
-		menuExit();
-		appDispSet();
-		break;
-		
-	case SP1K_MSG_HDMI_PLUG_IN:
-		JpgCropFlag = 0;
-		osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
-		osMsgPost(SP1K_MSG_HDMI_PLUG_IN);
-		//appDispHdmiOpen();
-		break;
-		
-	case SP1K_MSG_HDMI_PLUG_OUT:
-		JpgCropFlag = 0;
-		osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
-		appDispSet();			
-		break;
-		
-	#if(FUNC_HOST_CAL ==1)
-	case SP1K_MSG_UPDATE_AF_WINDOW:
-		appCalAfOsdShow();
-		break;
-	#endif
+    case SP1K_MSG_USB_PLUG_OUT: // 【USB拔出消息】
+    {   
+        // osMsgPost(SP1K_MSG_POWER_OFF);
+        break;
+    }
+
+    case SP1K_MSG_BAT_LV_UPDATE: // 【电池电量更新消息】//jintao.liu 2008-3-13 add for battery action
+    {                            
+        // uiUpdateBatteryLevel();
+        appBattStsHandle();
+        break;
+    }
+
+    case SP1K_MSG_BAT_EMPTY:
+    {
+        sp1kOsdSelWinSet(-1, -1, -1, -1, 0, -1);
+        uiUpdateOSDBatEmpty();
+        osMsgPost(SP1K_MSG_POWER_OFF);
+        sp1kBtnDisableAll(); // ready to power off, disable all button!
+        break;
+    }
+
+    case SP1K_MSG_POWER_OFF: // 【关机消息】
+    {
+        // break;
+    }
+    case SP1K_MSG_KEY_REPEATE_POWER: // 【电源按键长按消息】
+    {
+        menuExit(); // 退出菜单
+        appPowerOffProc();  // 关机
+        break;
+    }
+
+    case SP1K_MSG_TV_PLUG_IN:   // 【TV插入消息】
+    case SP1K_MSG_TV_PLUG_OUT:  // 【TV拔出消息】
+    {
+        menuExit();
+        appDispSet();
+        break;
+    }
+
+    case SP1K_MSG_HDMI_PLUG_IN: // 【HDMI插入消息】
+    {
+        JpgCropFlag = 0;
+        osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
+        osMsgPost(SP1K_MSG_HDMI_PLUG_IN);
+        // appDispHdmiOpen();
+        break;
+    }
+
+    case SP1K_MSG_HDMI_PLUG_OUT: // 【HDMI拔出消息】
+    {
+        JpgCropFlag = 0;
+        osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
+        appDispSet();
+        break;
+    }
+
+#if(FUNC_HOST_CAL ==1)
+    case SP1K_MSG_UPDATE_AF_WINDOW: // 【更新自动对焦窗口消息】
+    {
+        appCalAfOsdShow();
+        break;
+    }
+#endif
 
 	#if SUPPORT_PANEL_PROTECT
-	case SP1K_MSG_PANEL_PROTECT:
-		appPanelAutoProt();
-		break;
-		
-	case SP1K_MSG_SYS_CLOSE_LCD_BACKLIGHT:
-		app_set_lcd_backlight_status(0);
-		break;
+    case SP1K_MSG_PANEL_PROTECT:    // 【面板保护消息】
+    {
+        appPanelAutoProt();
+        break;
+    }
 
-	case SP1K_MSG_SYS_OPEN_LCD_BACKLIGHT:
-		app_set_lcd_backlight_status(1);
-		break;
-	#endif
+    case SP1K_MSG_SYS_CLOSE_LCD_BACKLIGHT: // 【关闭屏幕背光消息】
+    {
+        app_set_lcd_backlight_status(0);
+        break;
+    }
+
+    case SP1K_MSG_SYS_OPEN_LCD_BACKLIGHT:   // 【打开屏幕背光消息】
+    {
+        app_set_lcd_backlight_status(1);
+        break;
+    }
+#endif
 	
 	default:
 
@@ -550,14 +601,17 @@ void appGuiMenuMainBgShow(UINT16 resId)
 }
 
 
-//-----------------------------------------------------------------------------
-//menuInit
-//-----------------------------------------------------------------------------
+/**
+* @param    None
+* @retval   None
+* @brief    初始化菜单
+**/
 void menuInit(void) USING_0
 {
-	UINT32 menuPos;
-	UINT8 ratX, ratY;
+	UINT32 menuPos; // 菜单位置
+	UINT8 ratX, ratY;   // 长宽比
 
+    // 显示主菜单背景
 	//appGuiMenuMainBgShow(0xb5);
 		
 	dispPnlAspectRatioGet(&ratX, &ratY);
@@ -566,25 +620,26 @@ void menuInit(void) USING_0
 		menuOsdFitScr(1);
 	}
 
-	
+	// 根据前一个状态设置菜单位置
 	switch ( appPreStateGet(0) )
 	{
-	case APP_STATE_STILL_VIEW:
+    // 如果前一个状态是静态视图，则设置菜单位置为静态菜单
+	case APP_STATE_STILL_VIEW:  
 		//menuPos = key_enter_AF_menu_flag ? MENU_MARK_AF : MENU_MARK_SETUP;
 		menuPos = MENU_MARK_STILL;
 		//menuPos = MENU_MARK_SETUP;
 		key_enter_AF_menu_flag = 0;
 		break;
-		
-	case APP_STATE_VIDEO_VIEW:	
+	// 如果前一个状态是视频视图，则设置菜单位置为视频菜单	
+	case APP_STATE_VIDEO_VIEW:  	
 		menuPos = MENU_MARK_VIDEO;
 		//menuPos = MENU_MARK_SETUP;
 		break;
-		
+	// 如果前一个状态是音频录制，则设置菜单位置为音频菜单	
 	case APP_STATE_AUDIO_REC:		
 		menuPos = MENU_MARK_AUDIO;
 		break;
-		
+	// 如果前一个状态是视频播放、静态播放或多重播放，则设置菜单位置为播放菜单
 	case APP_STATE_VIDEO_PLAY:			
 	case APP_STATE_STILL_PLAY:
 	case APP_STATE_MUTI_PLAY:
@@ -592,11 +647,12 @@ void menuInit(void) USING_0
 		menuPos = MENU_MARK_SETUP; 
 		//menuPos = delete_key_to_menu ? MENU_MARK_PLAYBACK : MENU_MARK_STILL;
 		break;
-
+    // 如果前一个状态是USB，则不设置菜单位置
 	case APP_STATE_USB:
 		break;
 		
 	#if (FUNC_HOST_DPS == 1)
+    // 如果前一个状态是DPS，则设置菜单位置为DPS菜单
 	case APP_STATE_DPS:
 		menuPos = MENU_MARK_DPS;
 		break;
@@ -605,7 +661,7 @@ void menuInit(void) USING_0
 	default:
 		menuPos = MENU_MARK_STILL;
 	}
-
+    // 如果存在删除操作，则设置菜单位置为删除单个确认
 	if(shtMenuChk()){
 		menuPos = shtMenuChk();
 		printf("menuPos:%lx\n",menuPos);
@@ -622,13 +678,18 @@ void menuInit(void) USING_0
 		menuPos=MENU_MARK_CALIBRATION;
 	#endif
 	
-	menuPosBackup = menuPos;
-	menuProcCurrPosSet (menuPos);
+	menuPosBackup = menuPos;    // 设置菜单位置备份
+	menuProcCurrPosSet (menuPos);   // 设置当前菜单位置
 }
 
 //-----------------------------------------------------------------------------
 //menuExit
 //-----------------------------------------------------------------------------
+/**
+* @param    None
+* @retval   None
+* @brief    菜单退出
+**/
 void menuExit(void) USING_0
 {
 	UINT16 msg;

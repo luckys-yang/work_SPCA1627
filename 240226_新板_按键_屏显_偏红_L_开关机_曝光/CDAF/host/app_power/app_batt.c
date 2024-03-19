@@ -1,34 +1,12 @@
-/**************************************************************************
- *         Copyright(c) 2007 by Sunplus mMedia  Technology Co., Ltd.       *
- *                                                                         *
- *  This software is copyrighted by and is the property of Sunplus mMedia  *
- *  Technology Co., Ltd. All rights are reserved by Sunplus mMedia Techno- *
- *  logy Co., Ltd. This software may only be used in accordance with the   *
- *  corresponding license agreement. Any unauthorized use, duplication,    *
- *  distribution, or disclosure of this software is expressly forbidden.   *
- *                                                                         *
- *  This Copyright notice "M U S T" not be removed or modified without     *
- *  prior written consent of Sunplus mMedia Technology  Co., Ltd.          *
- *                                                                         *
- *  Sunplus mMedia Technology Co., Ltd. reserves the right to modify this  *
- *  software without notice.                                               *
- *                                                                         *
- *  Sunplus mMedia Technology Co., Ltd.                                    *
- *  19-1, Innovation First Road, Science-Based Industrial Park,            *
- *  Hsin-Chu, Taiwan, R.O.C.                                               *
- *                                                                         *
- **************************************************************************/
-/**
- * @file		app_battery.c
- * @brief		battery detect releated api
- * @author	Phil Lin
- * @since		2008-07-01
- * @date		2008-07-01
- */
-
-/**************************************************************************
- *                            H E A D E R   F I L E S
- **************************************************************************/
+/***************************************************************************
+ * File: xxx.c
+ * Author: Yang
+ * Date: 2024-03-08 11:17:59
+ * description: 
+ -----------------------------------
+电池检测相关应用程序
+ -----------------------------------
+****************************************************************************/
 #include "general.h"
 
 #include "os_msg.h"
@@ -52,29 +30,18 @@
 #include "initio.h"
 #include "app_dev_usb.h"
 #include "app_ui_osd.h"
-/**************************************************************************
- *                           C O N S T A N T S                            *
- **************************************************************************/
- 
-/**************************************************************************
- *                              M A C R O S                               *
- **************************************************************************/
 
-/**************************************************************************
- *                          D A T A    T Y P E S                          *
- **************************************************************************/
- /*Define the gap value of battery detect*/
-#define BATT_DETECT_DEV	0//10
-/**************************************************************************
- *                         G L O B A L    D A T A                         *
- **************************************************************************/
+ /*定义电池检测的间隙值*/
+#define BATT_DETECT_DEV	0   //10
+
 /*
-Note: Customer define battery adc value here ,
-When the host receive the msg "SP1K_MSG_BAT_LV_UPDATE", 
-you can get the battery level by "appBatLvGet"
+注：客户在此定义电池电量、
+当主机收到 msg "SP1K_MSG_BAT_LV_UPDATE" 时
+您可以通过 "appBatLvGet "获取电池电量
 */
 
-static UINT16 xdata battAdcVal[] = {
+static UINT16 xdata battAdcVal[] = 
+{
 	POWER_BAT_LV_FULL,
 	POWER_BAT_LV_HALF,
 	POWER_BAT_LV_LOW,
@@ -83,120 +50,110 @@ static UINT16 xdata battAdcVal[] = {
 
 static powerBatLv_t xdata G_BatteryLevel = POWER_BAT_FULL;
 
-/**************************************************************************
- *                 E X T E R N A L    R E F E R E N C E S                 *
- **************************************************************************/
-
-
-/**************************************************************************
- *               F U N C T I O N    D E C L A R A T I O N S               *
- **************************************************************************/
-
 xdata UINT8 chargeMode;
-//-----------------------------------------------------------------------------
-//appBatLvGet
-//-----------------------------------------------------------------------------
+
+/* Public function prototypes=========================================================*/
+
+void appBatLvGet(powerBatLv_t* batlv);
+void appBattInit(void);
+UINT8 appBattStsHandle(void);
+
+
 /**
- * @brief	get battery level
- * @param	none
- * @retval	none
- * @see
- * @author	jintao.liu
- * @since	2008-02-23
- * @todo
- * @bug
-*/
+* @param    *batlv: 存储获取到的电池电量值
+* @retval   None
+* @brief    获取电池电量信息
+**/
 void appBatLvGet(powerBatLv_t* batlv)
 {
-	scanTag_t* pAdcHdl;
+    scanTag_t* pAdcHdl;
 
-	sp1kAdcHdlGet(&pAdcHdl);
+    // 获取ADC句柄
+    sp1kAdcHdlGet(&pAdcHdl);
 
-	*batlv = pAdcHdl->battAdc.battLvl;
-	//printf("Lv(%bu)\n", *batlv);
+    // 将电池电量值赋给传入的指针变量
+    *batlv = pAdcHdl->battAdc.battLvl;
+    //printf("Lv(%bu)\n", *batlv);
 }
 
-
-
-//-----------------------------------------------------------------------------
-//appBattInit
-//-----------------------------------------------------------------------------
 /**
- * @brief		appBattInit
- * @param	
- * @retval	NULL
- * @see
- * @author	Phil Lin
- * @since		2008-07-01
- * @todo		Something need to be done.
- * @bug		a bug need to be resolved.
-*/
-
+* @param    None
+* @retval   None
+* @brief    初始化电池检测功能
+**/
 void appBattInit(void)
 {
-	UINT8 battLv;
+	UINT8 battLv; // 定义一个无符号8位整数变量battLv，用于存储电池电量等级。
 
-	/*Battery detect configure*/	
-	battDetectCfg(sizeof(battAdcVal) / sizeof(UINT16), &battAdcVal[0], BATT_DETECT_DEV);
+	/*Battery detect configure*/
+	battDetectCfg(sizeof(battAdcVal) / sizeof(UINT16), &battAdcVal[0], BATT_DETECT_DEV); 
+	// 配置电池检测。计算battAdcVal数组的长度，并传递给电池检测配置函数，以及电池检测设备标识符。
 
 	/*Battery detect initialize, The value returned is the current battery level*/
-	battLv = battDetectInit();
+	battLv = battDetectInit(); 
+	// 初始化电池检测，并获取当前电池电量等级。
 
 	/*Enable battery detect function*/
-	sp1kBattEnable(1);
+	sp1kBattEnable(1); 
+	// 启用电池检测功能。参数1表示启用。
 
 	/*Disabled battery detect in power on process on EVB hw solution*/
-	//#if (_HW_SOLUTION_ != _HW_EVB_)
+	// 这里是条件编译部分，已被注释掉。在特定的硬件解决方案(EVB)中可能需要禁用开机时的电池检测。
 	if (sp1kUSB_PlugGet() != 0) {
 	// if (!gpioByteInGet(GPIO_BYTE_DISP0, 0x02, 1)) {
 		/*If power on with the USB power, disable the battery detect function*/
-		sp1kBattEnable(DISABLE);
+		sp1kBattEnable(DISABLE); 
+		// 如果是通过USB电源开机，禁用电池检测功能。DISABLE宏通常定义为0，表示禁用。
 	} else {
 		if (battLv >= POWER_BAT_BELOWEMPTY) {
 			/*Low battery detected in power on process*/
-			printf("Low battery!\n");
-			// appPowerShutDown();
+			printf("Low battery!\n"); 
+			// 在开机过程中检测到低电量，打印“Low battery!”信息。
 
-			appPowerHoldPullDown();
+			// appPowerShutDown(); 
+			// 如果需要，可以在这里调用电源关闭函数，但这行代码被注释了。
+
+			appPowerHoldPullDown(); 
+			// 执行低电量处理，具体动作依赖于此函数的实现，可能是进入电量保持状态。
 		}
 	}
 	//#endif
 }
 
 /**
- * @brief	appBattStsHandle
- * @param	none
- * @retval	none
- * @see
- * @author	phil.lin
- * @since	2008-02-23
- * @todo
- * @bug
- * @note
-*/
+* @param    None
+* @retval   None
+* @brief    处理电池状态
+**/
 UINT8 appBattStsHandle(void)
 {
-	powerBatLv_t batlv;
+    powerBatLv_t batlv;
 
-	appBatLvGet(&batlv);
+    // 获取电池电量信息
+    appBatLvGet(&batlv);
 
-	//battery empty flow
-	if (batlv >= POWER_BAT_BELOWEMPTY) {
+    // 如果电量低于或等于预设的阈值
+    if (batlv >= POWER_BAT_BELOWEMPTY) 
+    {
 #if BATT_LOW_PWR_OFF
-		/*check if the power off process is running*/
-		if (!sp1kPwrOffProcChk()) {
-			/*if not, configure and start the process*/
-			sp1kPwrOffCfg(1, BATT_LOW_PWR_OFF_DELAY);//5s
-		}
+        /* 检查是否正在执行关机流程 */
+        if (!sp1kPwrOffProcChk()) 
+        {
+            /* 如果没有，则配置并启动关机流程 */
+            sp1kPwrOffCfg(1, BATT_LOW_PWR_OFF_DELAY); // 5秒
+        }
 #else
-		uiUpdateOSDBatEmpty();
-		//sp1kHalGPIOBitSet(PWR_ON_EN, 0);//power off
-		osMsgPost(SP1K_MSG_POWER_OFF);
-		sp1kBtnDisableAll();//ready to power off, disable all button!
+        // 更新UI显示电池为空
+        uiUpdateOSDBatEmpty();
+        // 发送关机消息给操作系统
+        osMsgPost(SP1K_MSG_POWER_OFF);
+        // 关闭所有按钮
+        sp1kBtnDisableAll();
 #endif
-	}
+    }
 
-	return batlv;
+    // 返回电池电量
+    return batlv;
 }
 
 void appChargeModeChk(void)

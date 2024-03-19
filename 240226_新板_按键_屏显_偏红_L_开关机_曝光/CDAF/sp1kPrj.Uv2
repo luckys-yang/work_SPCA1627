@@ -81,7 +81,7 @@ File 15,1,<.\host\app_ui\app_gui_obj.c><app_gui_obj.c> 0x0
 File 15,1,<.\host\app_ui\app_tp_scan.c><app_tp_scan.c> 0x0 
 File 16,1,<.\kernel\ver_kernel.c><ver_kernel.c> 0x0 
 File 17,1,<.\drivers\display\drv_hdmi.c><drv_hdmi.c> 0x0 
-File 17,4,<.\drivers\display\drv_hdmi.lib><drv_hdmi.lib> 0x65E6D096 
+File 17,4,<.\drivers\display\drv_hdmi.lib><drv_hdmi.lib> 0x65E8669F 
 File 18,1,<.\drivers\display\tv\HDMI_ANA_ANX7150\disp_hdmi_ana_anx7150.c><disp_hdmi_ana_anx7150.c> 0x0 
 File 18,1,<.\drivers\display\tv\HDMI_EP_EP932\disp_hdmi_ep_ep932.c><disp_hdmi_ep_ep932.c> 0x0 
 File 19,1,<.\drivers\package\drv_package.c><drv_package.c> 0x0 
@@ -139,8 +139,8 @@ File 26,4,<.\kernel\lib\libCmd.LIB><libCmd.LIB> 0x62920DEB
 File 26,4,<.\kernel\lib\libCmdFunc.LIB><libCmdFunc.LIB> 0x54A10083 
 File 26,4,<.\kernel\lib\libCom.LIB><libCom.LIB> 0x54A0FFFB 
 File 26,4,<.\kernel\lib\libDbg.LIB><libDbg.LIB> 0x54A10088 
-File 26,4,<.\kernel\lib\libDisp.LIB><libDisp.LIB> 0x54A0FFFF 
-File 26,4,<.\kernel\lib\libDist.LIB><libDist.LIB> 0x54A10000 
+File 26,4,<.\kernel\lib\libDisp.LIB><libDisp.LIB> 0x65F26F0B 
+File 26,4,<.\kernel\lib\libDist.LIB><libDist.LIB> 0x65F26EFB 
 File 26,4,<.\kernel\lib\libDos32_A.LIB><libDos32_A.LIB> 0x54A10002 
 File 26,4,<.\kernel\lib\libDos32_B.LIB><libDos32_B.LIB> 0x54A10005 
 File 26,4,<.\kernel\lib\libDos32_C.LIB><libDos32_C.LIB> 0x54A10006 
@@ -175,7 +175,7 @@ File 26,4,<.\kernel\lib\liblog2.LIB><liblog2.LIB> 0x54A1001A
 File 26,4,<.\kernel\lib\libLscCal.LIB><libLscCal.LIB> 0x54A1001D 
 File 26,4,<.\kernel\lib\libMD.LIB><libMD.LIB> 0x54A1001E 
 File 26,4,<.\kernel\lib\libMsCal.LIB><libMsCal.LIB> 0x0 
-File 26,4,<.\kernel\lib\libOs.LIB><libOs.LIB> 0x54A10024 
+File 26,4,<.\kernel\lib\libOs.LIB><libOs.LIB> 0x65EEDE63 
 File 26,4,<.\kernel\lib\libOsd.LIB><libOsd.LIB> 0x54A10027 
 File 26,4,<.\kernel\lib\libPb.lib><libPb.lib> 0x5E0B039C 
 File 26,4,<.\kernel\lib\libPbEdit.lib><libPbEdit.lib> 0x5E0B039F 
@@ -189,7 +189,7 @@ File 26,4,<.\kernel\lib\libStorage_nor.LIB><libStorage_nor.LIB> 0x0
 File 26,4,<.\kernel\lib\libStorage_sd.LIB><libStorage_sd.LIB> 0x54A1003B 
 File 26,4,<.\kernel\lib\libStorage_spi.LIB><libStorage_spi.LIB> 0x5E1C08E3 
 File 26,4,<.\kernel\lib\libSysBoot.LIB><libSysBoot.LIB> 0x5D3EAE3C 
-File 26,4,<.\kernel\lib\libSysGlobal.LIB><libSysGlobal.LIB> 0x62AA9167 
+File 26,4,<.\kernel\lib\libSysGlobal.LIB><libSysGlobal.LIB> 0x65EBD830 
 File 26,4,<.\kernel\lib\libTimelapse.LIB><libTimelapse.LIB> 0x5E0B03C9 
 File 26,4,<.\kernel\lib\libUsbA.LIB><libUsbA.LIB> 0x54A1004C 
 File 26,4,<.\kernel\lib\libUsbB.LIB><libUsbB.LIB> 0x54A1004F 
@@ -388,7 +388,7 @@ Options 2,0,0  // Target 'SPI'
  C51MSC ()
  C51DEF (LIB_RELEASE, DISK_DRV_SPI)
  C51UDF ()
- INCC5 (.\kernel\inc;.\kernel\inc\hal;.\kernel\inc\middleware;.\kernel\inc\os;.\kernel\inc\sp1k;.\FPGA\inc;.\host\inc\app;.\host\inc\customization;.\drivers\display\inc)
+ INCC5 (.\kernel\inc;.\kernel\inc\hal;.\kernel\inc\middleware;.\kernel\inc\os;.\kernel\inc\sp1k;.\FPGA\inc;.\host\inc\app;.\host\inc\customization;.\drivers\display\inc;.\USER)
  AX51FL=4
  AX51MSC ()
  AX51SET ()

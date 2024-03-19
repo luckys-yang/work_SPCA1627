@@ -31,8 +31,8 @@
  *                        H E A D E R   F I L E S
  **************************************************************************/
 
- #include "general.h"
-	 
+#include "general.h"
+
 #include "solution.h"
 
 #include "app_ui_para.h"
@@ -45,101 +45,68 @@
 
 #include "sp1k_video_api.h"
 
-/**************************************************************************
- *                           C O N S T A N T S                            *
- **************************************************************************/
- 
-/**************************************************************************
- *                              M A C R O S                               *
- **************************************************************************/
- 
-/**************************************************************************
- *                          D A T A    T Y P E S                          *
- **************************************************************************/
- 
-/**************************************************************************
- *                         G L O B A L    D A T A                         *
- **************************************************************************/
- 
-/**************************************************************************
- *                 E X T E R N A L    R E F E R E N C E S                 *
- **************************************************************************/
- 
-/**************************************************************************
- *               F U N C T I O N    D E C L A R A T I O N S               *
- **************************************************************************/
 
 
-//-----------------------------------------------------------------------------
-//appAutoOffTimeReload
-//-----------------------------------------------------------------------------
+/* Public function prototypes=========================================================*/
+
+UINT8 appAutoOffTimeSet(void);
+void appAutoOffTimeReload(void);
+
+
 /**
- * @brief	reload auto off time
- * @param	none
- * @retval	void
- * @see
- * @author
- * @since	2008-02-23
- * @todo
- * @bug
-*/
+* @param    None
+* @retval   None
+* @brief    重新加载自动关闭时间
+**/
 void appAutoOffTimeReload(void)
 {
 	//here add time reload code
-	sp1kTmrSvc_APO_Rst();
+	sp1kTmrSvc_APO_Rst();   // 重置自动关机控制器
 	//printf("sdwAPOTimeVal = %ld\n",sdwAPOTimeVal);
 }
 
-//-----------------------------------------------------------------------------
-//appAutoOffTimeSet
-//-----------------------------------------------------------------------------
 /**
- * @brief	set auto off time from menu
- * @param	none
- * @retval	void
- * @see
- * @author
- * @since	2008-02-23
- * @todo
- * @bug
-*/
+* @param    None
+* @retval   None
+* @brief    设置自动关机时间
+**/
 UINT8 appAutoOffTimeSet(void)
 {
 	uiPara_t* uiPara;
 
-	uiPara = appUiParaGet();
+	uiPara = appUiParaGet(); // 获取UI参数
 
-	switch(uiPara->SleepTime)
+	switch (uiPara->SleepTime)
 	{
 		case POWER_SAVE_1MIN:
 			//printf(" : SAVE 1MIN\n");
-			sp1kTmrSvc_APO_ReloadSet(6000);
-			appAutoOffEn(1);
+			sp1kTmrSvc_APO_ReloadSet(6000); // 设置自动关闭时间为1分钟
+			appAutoOffEn(1); // 启用自动关闭功能
 			break;
 		case POWER_SAVE_3MIN:
 			//printf(" : SAVE 3MIN\n");
-			sp1kTmrSvc_APO_ReloadSet(18000);
-			appAutoOffEn(1);
+			sp1kTmrSvc_APO_ReloadSet(18000); // 设置自动关闭时间为3分钟
+			appAutoOffEn(1); // 启用自动关闭功能
 			break;
 		case POWER_SAVE_5MIN:
 			//printf(" : SAVE 5MIN\n");
-			sp1kTmrSvc_APO_ReloadSet(30000);
-			appAutoOffEn(1);
+			sp1kTmrSvc_APO_ReloadSet(30000); // 设置自动关闭时间为5分钟
+			appAutoOffEn(1); // 启用自动关闭功能
 			break;
 		case POWER_SAVE_OFF:
 			//printf(" : SAVE 5MIN\n");
-			appAutoOffEn(0);
+			appAutoOffEn(0); // 关闭自动关闭功能
 			break;
-			
 		default:
 			//printf(" : SAVE DEFT\n");
-			sp1kTmrSvc_APO_ReloadSet(18000);
-			appAutoOffEn(1);
+			sp1kTmrSvc_APO_ReloadSet(18000); // 设置默认自动关闭时间为3分钟
+			appAutoOffEn(1); // 启用自动关闭功能
 			break;
 	}
-	appAutoOffTimeReload();//2008-5-7 add for mantis 24152
+	appAutoOffTimeReload(); // 重新加载自动关闭时间 //2008-5-7 添加用于 mantis 24152
 	return SUCCESS;
 }
+
 
 //-----------------------------------------------------------------------------
 //appAutoOffEn

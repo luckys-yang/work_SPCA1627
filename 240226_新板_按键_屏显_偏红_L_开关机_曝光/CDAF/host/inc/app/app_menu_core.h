@@ -65,6 +65,7 @@ UINT8 menuLanguageGet(void);
 /**************************************************************************
  *               F U N C T I O N    D E C L A R A T I O N S               *
  **************************************************************************/
+
 UINT8	menuProcMoveUp (void);
 UINT8	menuProcMoveDown (void);
 UINT8	menuProcParent (void);

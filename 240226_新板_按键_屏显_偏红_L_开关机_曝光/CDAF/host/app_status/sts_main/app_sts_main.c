@@ -216,20 +216,22 @@ static UINT8 appComMsgParsing(UINT16 msg)
 		appVoicePlay(msg,VOICE_TYPE_BEEP, VOICE_PLAYLEVLE_LOW /*VOICE_PLAYLEVLE_LOW*/);
 	}
 
-	#if FUNC_HOST_TOUCH_PANEL
-	if((msg>=SP1K_MSG_TP_MODE_SWITCH)&&(msg<SP1K_MSG_TP_MAX))
-	{
-		appVoicePlay(SP1K_MSG_UNKNOWN_HOST,VOICE_TYPE_BEEP, VOICE_PLAYLEVLE_HIGH);
-	}
-	#endif
-	
-	if ((msg < SP1K_MSG_KEY_MAX)&&(msg > SP1K_MSG_START_BTN)) {
-		#if SUPPORT_NOCARD_OPERATION
+#if FUNC_HOST_TOUCH_PANEL
+    if ((msg >= SP1K_MSG_TP_MODE_SWITCH) && (msg < SP1K_MSG_TP_MAX))
+    {
+        appVoicePlay(SP1K_MSG_UNKNOWN_HOST, VOICE_TYPE_BEEP, VOICE_PLAYLEVLE_HIGH);
+    }
+#endif
+
+    if ((msg < SP1K_MSG_KEY_MAX)&&(msg > SP1K_MSG_START_BTN)) 
+    {
+        // 【支持无卡操作】
+		#if SUPPORT_NOCARD_OPERATION    
 		if((appSDPlugStatusGet()==0) && (sp1kDiskTypeGet()==DEV_TYPE_DISK_SPI) && (sp1kDosRamStsGet()==FALSE))
 		{
 			if(appCurrStateGet() !=	APP_STATE_MENU)
 			{
-				if(msg == SP1K_MSG_KEY_PRESS_OK || msg == SP1K_MSG_KEY_PRESS_SNAP /*|| msg == SP1K_MSG_KEY_REPEATE_SNAP*/)
+				if(msg == SP1K_MSG_KEY_PRESS_SNAP /*|| msg == SP1K_MSG_KEY_REPEATE_SNAP*/)
 					msg = SP1K_MSG_CARD_PLUG_OUT;
 			}
 		}
@@ -516,24 +518,20 @@ static UINT8 appStateSwitch(UINT16 msg)
 //-----------------------------------------------------------------------------
 //appPreStateGet
 //-----------------------------------------------------------------------------
+
 /**
- * @brief		Get previous state
- * @param	
- * @retval	NULL
- * @see
- * @author	Phil Lin
- * @since		2008-02-20
- * @todo		Something need to be done.
- * @bug		a bug need to be resolved.
- 
-*/
+* @param    PreLev: 
+* @retval   None
+* @brief    获取前一个状态
+**/
 UINT8 appPreStateGet(UINT8 PreLev)
 {
-	if (PreLev >= APP_STATE_BUFF_SIZE) {
-		return APP_STATE_UNKNOWN;
-	}
-	
-	return (stStateCtrl.PrevState[PreLev]);
+    if (PreLev >= APP_STATE_BUFF_SIZE)
+    {
+        return APP_STATE_UNKNOWN;
+    }
+
+    return (stStateCtrl.PrevState[PreLev]);
 }
 
 //-----------------------------------------------------------------------------

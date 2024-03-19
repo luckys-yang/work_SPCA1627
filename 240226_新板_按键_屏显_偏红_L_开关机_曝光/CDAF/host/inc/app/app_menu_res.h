@@ -21,7 +21,7 @@
  *  Author: Joe Zhao                                                        *
  *                                                                          *
  ****************************************************************************/
-/* Sunplus-prof   Joe Zhao   February,26,2024  14:43:45 For SPCA1628A */
+/* Sunplus-prof   Joe Zhao   March,18,2024  17:57:24 For SPCA1628A */
 /* This file is created by tool, don't modify it!!! */
 
 #ifndef _MENU_RES_H_

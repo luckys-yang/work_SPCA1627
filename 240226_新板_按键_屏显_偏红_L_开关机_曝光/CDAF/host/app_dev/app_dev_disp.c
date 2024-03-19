@@ -1,36 +1,13 @@
-/**************************************************************************
- *         Copyright(c) 2010 by i-Catch Technology Co., Ltd.              *
- *                                                                        *
- *  This software is copyrighted by and is the property of i-Catch Tech-  *
- *  nology Co., Ltd. All rights are reserved by i-Catch Technology Co.,   *
- *  Ltd. This software may only be used in accordance with the            *
- *  corresponding license agreement. Any unauthorized use, duplication,   *
- *  distribution, or disclosure of this software is expressly forbidden.  *
- *                                                                        *
- *  This Copyright notice "M U S T" not be removed or modified without    *
- *  prior written consent of i-Catch Technology Co., Ltd.                 *
- *                                                                        *
- *  i-Catch Technology Co., Ltd. reserves the right to modify this        *
- *  software without notice.                                              *
- *                                                                        *
- *  i-Catch Technology Co., Ltd.                                          *
- *  19-1, Innovation First Road, Science-Based Industrial Park,           *
- *  Hsin-Chu, Taiwan, R.O.C.                                              *
- *                                                                        *
- *************************************************************************/
-
-/**
- * @file      File name
- * @brief     Brief
- * @author    Author's name
- * @since     2010-01-01
- * @date      2010-01-01
-*/
-
-/**************************************************************************
- *                        H E A D E R   F I L E S
- **************************************************************************/
- #include "general.h"
+/***************************************************************************
+ * File: xxx.c
+ * Author: Yang
+ * Date: 2024-03-09 15:58:13
+ * description: 
+ -----------------------------------
+应用程序设备配置
+ -----------------------------------
+****************************************************************************/
+#include "general.h"
 
 #include "solution.h"
 #include "initio.h"
@@ -93,22 +70,15 @@
 #include "app_menu.h"
 #include "app_gui_obj.h"
 #include "rsc_id.h"
-/**************************************************************************
- *                           C O N S T A N T S                            *
- **************************************************************************/
+
+/*-------------------- USER CODE: Include Begin --------------------*/
+
+#include "User_Config.h"
+
+/*-------------------- USER CODE: Include End --------------------*/
+
 #define __FILE	  __FILE_ID_APP_DEV_DISP__
 
-/**************************************************************************
- *                              M A C R O S                               *
- **************************************************************************/
-
-/**************************************************************************
- *                          D A T A    T Y P E S                          *
- **************************************************************************/
-
-/**************************************************************************
- *                         G L O B A L    D A T A                         *
- **************************************************************************/
 panelStatus_t xdata G_PanelStatus = PANEL_STATUS_LCD;//0:LCD  1:NTSC  2:PAL
 #if SUPPORT_PANEL_PROTECT
 xdata UINT16 G_AutoOffPanelTime;
@@ -124,22 +94,24 @@ static UINT8 lcd_backlight_status = 1;
  */
 UINT8 flash_led_snap_adj_exp = 0;
 
-
-/**************************************************************************
- *                 E X T E R N A L    R E F E R E N C E S                 *
- **************************************************************************/
-
 extern xdata UINT8 G_PCCAM;
 extern UINT8 TV_Open;
 extern UINT16 currPos;
 extern UINT8 sensor_switch;
 
-
-
-/**************************************************************************
- *               F U N C T I O N    D E C L A R A T I O N S               *
- **************************************************************************/
 extern void sp1kDispPnlOpen(UINT8);
+
+/*-------------------- USER CODE: Custom Begin --------------------*/
+
+void appAFCtrl(UINT8 flag);
+void app_set_led(UINT8 falg);
+void appSetGpio6SpiWP(UINT8 falg);
+void appFlashLedSet(UINT8 flag);
+void appSnapFlashLed(UINT8 flag);
+void app_set_lcd_backlight_status(UINT8 status);
+void appSetWTDHeartbeat(UINT8 falg);
+
+/*-------------------- USER CODE: Custom End --------------------*/
 
 //-----------------------------------------------------------------------------
 //appTVOutDetect
@@ -963,78 +935,112 @@ void appWhiteLedCtrl(void)
 }
 #endif /*WHITE_LED*/
 
-void app_set_led(UINT8 falg){
-	// gpio 4
-	#if !DBG_MODE
-	gpioByteFuncSet(GPIO_BYTE_GEN0, (1 << (4 & 0x07)), (1 << (4 & 0x07)));
-	gpioByteOutSet(GPIO_BYTE_GEN0, (1 << (4 & 0x07)), falg ? 0x00 : (1 << (4 & 0x07)));
-	gpioByteDirSet(GPIO_BYTE_GEN0, (1 << (4 & 0x07)), (1 << (4 & 0x07)));
-	#endif
-}
+
 
 #if SUPPORT_PANEL_PROTECT
-void appPanelAutoProt() {
-	uiPara_t* puiPara;
-	puiPara = appUiParaGet();
+/**
+* @param    None
+* @retval   None
+* @brief    自动保护面板
+**/
+void appPanelAutoProt()
+{
+    uiPara_t *puiPara;
+    puiPara = appUiParaGet();
 
-	if(puiPara->ProtTime == PANEL_TIME_OFF)
-	{
-		G_AutoOffPanelTime = 0xffff;
-	}
-  	else
-  	{
-		if((!G_AutoOffPanelTime)&&(app_get_lcd_backlight_status()))
-		{
-			osMsgPost(SP1K_MSG_SYS_CLOSE_LCD_BACKLIGHT);
-			G_AutoOffPanelTime = 0;
-		}
-  	}
+    if (puiPara->ProtTime == PANEL_TIME_OFF) // 如果保护时间为关闭状态
+    {
+        G_AutoOffPanelTime = 0xffff;
+    }
+    else
+    {
+        if ((!G_AutoOffPanelTime) && (app_get_lcd_backlight_status())) // 如果G_AutoOffPanelTime为0且LCD背光状态为开启
+        {
+            osMsgPost(SP1K_MSG_SYS_CLOSE_LCD_BACKLIGHT); // 发送关闭LCD背光的消息
+            G_AutoOffPanelTime = 0;
+        }
+    }
 }
 #endif
 
-void app_set_lcd_backlight_status(UINT8 status) {
-	// gpio 5
-	
-	lcd_backlight_status = (status ? 1 : 0);
-	if (lcd_backlight_status){
-		gpioByteFuncSet(GPIO_BYTE_GEN1, 0x01 << (9 & 0x07), 0x01 << (9 & 0x07));
-		gpioByteDirSet(GPIO_BYTE_GEN1, 0x01 << (9 & 0x07), 0x01 << (9 & 0x07));
-		gpioByteOutSet(GPIO_BYTE_GEN1, 0x01 << (9 & 0x07), 0x01 << (9 & 0x07));
-		
-		#if SUPPORT_PANEL_PROTECT
-		app_set_close_lcd_backlight_time();
-		#endif
+/**
+* @param    status: LCD_LED_ON -- 使能 LCD_LED_OFF -- 失能
+* @retval   None
+* @brief    设置 屏幕LCD 背光的状态
+**/
+void app_set_lcd_backlight_status(UINT8 status)
+{
+    /* GPIO 9 */ 
 
-		appAutoOffTimeReload();
-	} else {
-		gpioByteFuncSet(GPIO_BYTE_GEN1, 0x01 << (9 & 0x07), 0x01 << (9 & 0x07));
-		gpioByteDirSet(GPIO_BYTE_GEN1, 0x01 << (9 & 0x07), 0x01 << (9 & 0x07));
-		gpioByteOutSet(GPIO_BYTE_GEN1, 0x01 << (9 & 0x07), 0 << (9 & 0x07));
-	}
+    // 设置 lcd_backlight_status 变量为 status 的布尔值（1 或 0）
+    lcd_backlight_status = (status ? LCD_LED_ON : LCD_LED_OFF);
+
+    // 如果 lcd_backlight_status 为真（开启状态）
+    if (lcd_backlight_status)
+    {
+        // 设置 GPIO 为功能模式，使能对应引脚的输出功能
+        gpioByteFuncSet(GPIO_BYTE_GEN1, GPIO_PIN_2, GPIO_PIN_2);
+        // 设置 GPIO 为输出模式，使能对应引脚的输出功能
+        gpioByteDirSet(GPIO_BYTE_GEN1, GPIO_PIN_2, GPIO_PIN_2);
+        // 设置 GPIO 输出高电平，开启 LCD 背光
+        gpioByteOutSet(GPIO_BYTE_GEN1, GPIO_PIN_2, GPIO_PIN_2_SET);
+
+// 如果支持面板保护功能，则执行关闭 LCD 背光保护的操作
+#if SUPPORT_PANEL_PROTECT
+        app_set_close_lcd_backlight_time();
+#endif
+
+        // 重新加载自动关机时间
+        appAutoOffTimeReload();
+    }
+    // 如果 lcd_backlight_status 为假（关闭状态）
+    else
+    {
+        // 设置 GPIO 为功能模式，使能对应引脚的输出功能
+        gpioByteFuncSet(GPIO_BYTE_GEN1, GPIO_PIN_2, GPIO_PIN_2);
+        // 设置 GPIO 为输出模式，使能对应引脚的输出功能
+        gpioByteDirSet(GPIO_BYTE_GEN1, GPIO_PIN_2, GPIO_PIN_2);
+        // 设置 GPIO 输出低电平，关闭 LCD 背光
+        gpioByteOutSet(GPIO_BYTE_GEN1, GPIO_PIN_2, GPIO_PIN_RESET);
+    }
 }
 
-UINT8 app_get_lcd_backlight_status() {
-	return lcd_backlight_status;
+/**
+* @param    None
+* @retval   None
+* @brief    获取屏幕背光状态
+**/
+UINT8 app_get_lcd_backlight_status()
+{
+    return lcd_backlight_status;
 }
 
 #if SUPPORT_PANEL_PROTECT
-void app_set_close_lcd_backlight_time() {
-	uiPara_t* puiPara = appUiParaGet();
-	
-	if(puiPara->ProtTime == PANEL_TIME_30S)
-	{
-		G_AutoOffPanelTime = 30;
-	}	
-	else if(puiPara->ProtTime ==  PANEL_TIME_1MIN)
-	{
-		G_AutoOffPanelTime = 60;
-	}	
-	else  if(puiPara->ProtTime ==  PANEL_TIME_3MIN)
-	{
-		G_AutoOffPanelTime = 300;//180;
-	}
+/**
+* @param    None
+* @retval   None
+* @brief    根据用户界面参数设置关闭 LCD 背光时间
+**/
+void app_set_close_lcd_backlight_time() 
+{
+    uiPara_t* puiPara = appUiParaGet(); // 获取用户界面参数指针
+    
+    // 根据用户界面参数中的屏幕保护时间设置关闭 LCD 背光时间
+    if (puiPara->ProtTime == PANEL_TIME_30S) 
+    {
+        G_AutoOffPanelTime = 30; // 设置关闭 LCD 背光时间为 30 秒
+    } 
+    else if (puiPara->ProtTime == PANEL_TIME_1MIN) 
+    {
+        G_AutoOffPanelTime = 60; // 设置关闭 LCD 背光时间为 60 秒
+    } 
+    else if (puiPara->ProtTime == PANEL_TIME_3MIN) 
+    {
+        G_AutoOffPanelTime = 300; // 设置关闭 LCD 背光时间为 300 秒
+    }
 }
 #endif
+
 
 #if SUPPORT_UPDATE_LED
 void appUpdateStatsLightStatus() {
@@ -1060,14 +1066,7 @@ void appUpdateStatsLightStatus() {
 }
 #endif
 
-#if SUPPORT_SPI_WRITE_CONTROL
-void appSetGpio6SpiWP(UINT8 falg) {
-	// gpio6
-	gpioByteFuncSet(GPIO_BYTE_GEN0, 0x40, 0x40);
-	gpioByteOutSet(GPIO_BYTE_GEN0, 0x40, falg ? 0x40 : 0x00);
-	gpioByteDirSet(GPIO_BYTE_GEN0, 0x40, 0x40);
-}
-#endif
+
 
 #if SUPPORT_SPEAKER_CONTROL
 void app_set_speaker(UINT8 falg) {
@@ -1088,18 +1087,22 @@ void app_set_speaker(UINT8 falg) {
 }
 #endif
 
-#if SUPPORT_MCU_WTD
-void appSetWTDHeartbeat(UINT8 falg) {
+#if SUPPORT_MCU_WTD // 【支持MCU做看门狗】
+/**
+* @param    falg: WTD_DOG_SET WTD_DOG_RESET
+* @retval   None
+* @brief    设置WTD看门狗心跳
+**/
+void appSetWTDHeartbeat(UINT8 falg) 
+{
 	// gpio 10
-	gpioByteFuncSet(GPIO_BYTE_GEN1, 0x04, 0x04);
-	gpioByteDirSet(GPIO_BYTE_GEN1, 0x04, 0x04);
-	gpioByteOutSet(GPIO_BYTE_GEN1, 0x04, falg ? 0x04 : 0x00);
+	gpioByteFuncSet(GPIO_BYTE_GEN1, GPIO_PIN_3, GPIO_PIN_3);
+	gpioByteDirSet(GPIO_BYTE_GEN1, GPIO_PIN_3, GPIO_PIN_3);
+	gpioByteOutSet(GPIO_BYTE_GEN1, GPIO_PIN_3, falg ? GPIO_PIN_3_SET : GPIO_PIN_RESET);
 }
 #endif
 
 //#if SUPPORT_SENSOR_SWITCH
-// �ߵ�ƽ: ���ľ�ͷ
-// �͵�ƽ: ��ͷ
 void appSensorPWDNSwitch(UINT8 falg) {
 	// gpio 2
 	//gpioByteFuncSet(GPIO_BYTE_GEN0, 1 << (0 & 0x07), 1 << (0 & 0x07));
@@ -1108,169 +1111,248 @@ void appSensorPWDNSwitch(UINT8 falg) {
 }
 //#endif
 
-void appAFCtrl(UINT8 flag) {
-	
-	// gpio 0
-	sp1kPullEnSet(4, 0x04, 0x04);
-	sp1kPullSelSet(2, 0x40, flag ? 0 : 0x40);
-	gpioByteFuncSet(GPIO_BYTE_GEN0, 1 << (1 & 0x07), 1 << (1 & 0x07));
-	gpioByteDirSet(GPIO_BYTE_GEN0, 1 << (1 & 0x07), 1 << (1 & 0x07));
-	gpioByteOutSet(GPIO_BYTE_GEN0, 1 << (1 & 0x07), flag ? 0 << (1 & 0x07) : 1 << (1 & 0x07));
-	
+
+/*-------------------- USER CODE: Custom Begin --------------------*/
+
+/**
+* @param    flag: AF_CTRL_ENABLE/AF_CTRL_DISABL
+* @retval   None
+* @brief    AF自动对焦电源控制(低电平导通)
+**/
+void appAFCtrl(UINT8 flag) 
+{
+	sp1kPullEnSet(4, 0x04, 0x04);   // 使能 GPIO1 内部上下拉
+	sp1kPullSelSet(2, 0x40, flag ? 0 : 0x40);   // 选择上拉/下拉 --- AF_CTRL_ENABLE则下拉 AF_CTRL_DISABL则上拉
+	gpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_2, GPIO_PIN_2);
+	gpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_2, GPIO_PIN_2);
+	gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_2, flag ? GPIO_PIN_RESET : GPIO_PIN_2);
 }
 
+/**
+* @param    falg: LED_BUSY_ON 亮 LED_BUSY_OFF 灭
+* @retval   None
+* @brief    忙指示灯控制
+**/
+void app_set_led(UINT8 falg)
+{
+#if !DBG_MODE
+    gpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_5, GPIO_PIN_5);                            // gpio初始化
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_5, falg ? GPIO_PIN_RESET : GPIO_PIN_5_SET); // 输出电平 --- LED_BUSY_ON->低电平 LED_BUSY_OFF->高电平
+    gpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_5, GPIO_PIN_5);                             // 方向
+#endif
+}
 
-void appFlashLedSet(UINT8 flag) {
+#if SUPPORT_SPI_WRITE_CONTROL
+/**
+* @param    falg: FLASH_SPI_LOCK--使能 FLASH_SPI_UNLOCK--失能
+* @retval   None
+* @brief    SPI写保护引脚配置
+**/
+void appSetGpio6SpiWP(UINT8 falg)
+{
+    gpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_7, GPIO_PIN_7);
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_7, falg ? GPIO_PIN_7_SET : GPIO_PIN_RESET);
+    gpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_7, GPIO_PIN_7);
+}
+#endif
+
+/**
+* @param    flag: SPARK_LED_ON--亮 SPARK_LED_OFF--灭
+* @retval   None
+* @brief    闪光灯控制
+**/
+void appFlashLedSet(UINT8 flag) 
+{
 	// gpio 5
 	sp1kPullEnSet(4,0x40,0x00);
-	gpioByteFuncSet(GPIO_BYTE_GEN0, 1 << (5 & 0x07), 1 << (5 & 0x07));
-	gpioByteDirSet(GPIO_BYTE_GEN0, 1 << (5 & 0x07), 1 << (5 & 0x07));
-	gpioByteOutSet(GPIO_BYTE_GEN0, 1 << (5 & 0x07), flag ? 1 << (5 & 0x07) : 0 << (5 & 0x07));
+	gpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_6, GPIO_PIN_6);
+	gpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_6, GPIO_PIN_6);
+	gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_6, flag ? GPIO_PIN_6_SET : GPIO_PIN_RESET);
 }
 
-/*
-	0xff:reset
-	0:flash off
-	1:flash force on
-	2:flash auto 
-*/
+/*-------------------- USER CODE: Custom End --------------------*/
+
+
 extern UINT8 appContrastSet(UINT8 ContrastValue);
-void appSnapFlashAdjustsAe(UINT8 flag) {
-	uiPara_t* puiPara = appUiParaGet();
-	static UINT8 val = 0;
+/**
+* @param    flag (0xff: reset 0:flash off 1:flash force on 2:flash auto)
+* @retval   None
+* @brief    调整拍摄闪光灯并调整曝光 色彩校正参数
+**/
+void appSnapFlashAdjustsAe(UINT8 flag)
+{
+    // 获取相机UI参数结构体指针
+    uiPara_t *puiPara = appUiParaGet();
+    // 静态变量初始化
+    static UINT8 val = 0;
 
-	return;
+    return; // 返回，此处可能是错误，因为在此之后有未执行的代码
 
-	switch (flag) {
-	case 0:
-		sp1kAeStatusGet(SP1K_AE_LowLight, &val);
-		
-		if (val) {
-			appEVSet(PRV_COMP_P20EV);
-			
-			/*
-				��Ӧ�����������������ƫ��
-				���տ������֮ǰ ��OB����ɫ����
-			*/
-			XBYTE[0x2118] = 0xf4;	// r
-			XBYTE[0x211a] = 0xf4;	// gr
-			XBYTE[0x211c] = 0xf4;	// b
-			XBYTE[0x211e] = 0xf4;	// gb
+    // 根据标志位进行不同的操作
+    switch (flag)
+    {
+    // 标志位为0时执行以下操作
+    case 0:
+    { // 获取低光状态
+        sp1kAeStatusGet(SP1K_AE_LowLight, &val);
 
-			XBYTE[0x2154] = 0x5e;	// r
-			XBYTE[0x2155] = 0x00;	// r
-			
-			XBYTE[0x2156] = 0x40;	// gr
-			XBYTE[0x2157] = 0x00;	// gr
-			
-			XBYTE[0x2158] = 0x50;	// b
-			XBYTE[0x2159] = 0x00;	// b
-			
-			XBYTE[0x215a] = 0x40;	// gb
-			XBYTE[0x215b] = 0x00;	// gb
-		}
-		break;
+        // 若低光状态为真
+        if (val)
+        {
+            // 设置曝光补偿为P20EV
+            appEVSet(PRV_COMP_P20EV);
 
-	case 1:
-	case 2:
-	case 3:
-		sp1kAeStatusGet(SP1K_AE_LowLight, &val);
-		
-		if (val) {
-			appEVSet(PRV_COMP_P20EV);
+            // 设置色彩校正参数
+            XBYTE[0x2118] = 0xf4; // r
+            XBYTE[0x211a] = 0xf4; // gr
+            XBYTE[0x211c] = 0xf4; // b
+            XBYTE[0x211e] = 0xf4; // gb
 
-			appContrastSet(PRV_CONTRAST_MIDDLE);
-			
-			/*
-				��Ӧ�����������������ƫ��
-				���տ������֮ǰ ��OB����ɫ����
-			*/
-			XBYTE[0x2118] = 0xf4;
-			XBYTE[0x211a] = 0xf4;
-			XBYTE[0x211c] = 0xf3;
-			XBYTE[0x211e] = 0xf4;
-			
-			XBYTE[0x2154] = 0x5e;	// r
-			XBYTE[0x2155] = 0x00;	// r
-			
-			XBYTE[0x2156] = 0x34;	// gr
-			XBYTE[0x2157] = 0x00;	// gr
-			
-			XBYTE[0x2158] = 0x5b;	// b
-			XBYTE[0x2159] = 0x00;	// b
-			
-			XBYTE[0x215a] = 0x34;	// gb
-			XBYTE[0x215b] = 0x00;	// gb
-		}
-		break;
+            XBYTE[0x2154] = 0x5e; // r
+            XBYTE[0x2155] = 0x00; // r
 
-	case 0xff:
-	default:
-		if (val) {
-			val = 0;
-			
-			/*
-				��Ӧ�����������������ƫ��
-				���ս���֮�� ��OB����ɫ��ԭ
-			*/
-			XBYTE[0x2118] = 0xf4;
-			XBYTE[0x211a] = 0xfa;
-			XBYTE[0x211c] = 0xf4;
-			XBYTE[0x211e] = 0xfa;
+            XBYTE[0x2156] = 0x40; // gr
+            XBYTE[0x2157] = 0x00; // gr
 
+            XBYTE[0x2158] = 0x50; // b
+            XBYTE[0x2159] = 0x00; // b
 
+            XBYTE[0x215a] = 0x40; // gb
+            XBYTE[0x215b] = 0x00; // gb
+        }
+        break;
+    }
 
-			XBYTE[0x2154] = 0x5e;	// r
-			XBYTE[0x2155] = 0x00;	// r
-			
-			XBYTE[0x2156] = 0x40;	// gr
-			XBYTE[0x2157] = 0x00;	// gr
-			
-			XBYTE[0x2158] = 0x50;	// b
-			XBYTE[0x2159] = 0x00;	// b
-			
-			XBYTE[0x215a] = 0x40;	// gb
-			XBYTE[0x215b] = 0x00;	// gb
+    // 标志位为1、2或3时执行以下操作
+    case 1:
+    case 2:
+    case 3:
+    { // 获取低光状态
+        sp1kAeStatusGet(SP1K_AE_LowLight, &val);
 
-			appEVSet(PRV_COMP_0EV);
+        // 若低光状态为真
+        if (val)
+        {
+            // 设置曝光补偿为P20EV
+            appEVSet(PRV_COMP_P20EV);
 
-			appContrastSet(PRV_CONTRAST_OFF);
-		}
-		break;
-	}
+            // 设置对比度为中等
+            appContrastSet(PRV_CONTRAST_MIDDLE);
+
+            // 设置色彩校正参数
+            XBYTE[0x2118] = 0xf4;
+            XBYTE[0x211a] = 0xf4;
+            XBYTE[0x211c] = 0xf3;
+            XBYTE[0x211e] = 0xf4;
+
+            XBYTE[0x2154] = 0x5e; // r
+            XBYTE[0x2155] = 0x00; // r
+
+            XBYTE[0x2156] = 0x34; // gr
+            XBYTE[0x2157] = 0x00; // gr
+
+            XBYTE[0x2158] = 0x5b; // b
+            XBYTE[0x2159] = 0x00; // b
+
+            XBYTE[0x215a] = 0x34; // gb
+            XBYTE[0x215b] = 0x00; // gb
+        }
+        break;
+    }
+
+    // 标志位为0xff或默认情况下执行以下操作
+    case 0xff:
+    default:
+    { // 若低光状态为真
+        if (val)
+        {
+            // 将val置为0
+            val = 0;
+
+            // 设置色彩校正参数
+            XBYTE[0x2118] = 0xf4;
+            XBYTE[0x211a] = 0xfa;
+            XBYTE[0x211c] = 0xf4;
+            XBYTE[0x211e] = 0xfa;
+
+            XBYTE[0x2154] = 0x5e; // r
+            XBYTE[0x2155] = 0x00; // r
+
+            XBYTE[0x2156] = 0x40; // gr
+            XBYTE[0x2157] = 0x00; // gr
+
+            XBYTE[0x2158] = 0x50; // b
+            XBYTE[0x2159] = 0x00; // b
+
+            XBYTE[0x215a] = 0x40; // gb
+            XBYTE[0x215b] = 0x00; // gb
+
+            // 设置曝光补偿为0EV
+            appEVSet(PRV_COMP_0EV);
+
+            // 设置对比度为关闭
+            appContrastSet(PRV_CONTRAST_OFF);
+        }
+        break;
+    }
+    }
 }
 
-void appSnapFlashLed(UINT8 flag) {
-	uiPara_t* puiPara = appUiParaGet();
-	UINT8 val = 0;
+/**
+* @param    flag: 0-关闭 1-常开 2-自动
+* @retval   None
+* @brief    快门时闪光灯控制
+**/
+void appSnapFlashLed(UINT8 flag)
+{
+    // 获取UI参数
+    uiPara_t *puiPara = appUiParaGet();
+    UINT8 val = 0;
 
-	sp1kAeStatusGet(SP1K_AE_LowLight, &val);
+    // 获取SP1K_AE_LowLight状态
+    sp1kAeStatusGet(SP1K_AE_LowLight, &val);
 
-	if (0 == puiPara->FlashLed) { // off
-		appFlashLedSet(0);
-		exifFlashModeSet(0);
-		flash_led_snap_adj_exp = 0;
-	} else if (2 == puiPara->FlashLed) { // auto
-		if (flag) {
-			appFlashLedSet(val ? 1 : 0);
-			exifFlashModeSet(2);
-			flash_led_snap_adj_exp = val ? 1 : 0;
-		} else {
-			appFlashLedSet(0);
-			exifFlashModeSet(0);
-			flash_led_snap_adj_exp = 0;
-		}
-	} else if (3 == puiPara->FlashLed) { // force on
-		appFlashLedSet(flag);
-		exifFlashModeSet(2);
-		flash_led_snap_adj_exp = (flag && val) ? 1 : 0;
-	}else { // on
-		appFlashLedSet(flag);
-		exifFlashModeSet(1);
-		flash_led_snap_adj_exp = (flag && val) ? 1 : 0;
-	}
-
+    // 闪光灯关闭
+    if (0 == puiPara->FlashLed)
+    {
+        appFlashLedSet(0); // 关闭闪光灯
+        exifFlashModeSet(0); // 设置exif中的闪光灯模式为关闭
+        flash_led_snap_adj_exp = 0; // 闪光灯调整曝光为0
+    }
+    // 闪光灯自动模式
+    else if (2 == puiPara->FlashLed)
+    {
+        // 如果flag为真，根据光照情况开启或关闭闪光灯
+        if (flag)
+        {
+            appFlashLedSet(val ? 1 : 0); // 根据光照情况开启或关闭闪光灯
+            exifFlashModeSet(2); // 设置exif中的闪光灯模式为自动
+            flash_led_snap_adj_exp = val ? 1 : 0; // 根据光照情况调整曝光
+        }
+        else
+        {
+            appFlashLedSet(0); // 关闭闪光灯
+            exifFlashModeSet(0); // 设置exif中的闪光灯模式为关闭
+            flash_led_snap_adj_exp = 0; // 闪光灯调整曝光为0
+        }
+    }
+#if 0    // 闪光灯强制开启(暂时没有这个)
+    else if (3 == puiPara->FlashLed)
+    {
+        appFlashLedSet(flag); // 根据flag参数设置闪光灯状态
+        exifFlashModeSet(2); // 设置exif中的闪光灯模式为强制开启
+        flash_led_snap_adj_exp = (flag && val) ? 1 : 0; // 根据光照情况调整曝光
+    }
+#endif
+    // 闪光灯常开
+    else
+    {
+        appFlashLedSet(flag); // 闪光灯控制
+        exifFlashModeSet(1); // 设置exif中的闪光灯模式为常开
+        flash_led_snap_adj_exp = (flag && val) ? 1 : 0; // 根据光照情况调整曝光
+    }
 }
+
 
 #if SUPPORT_AF
 static UINT16 postion = 0;
@@ -1352,23 +1434,32 @@ UINT16 AF_GetPos(void) {
 	return postion;
 }
 
-#if SUPPORT_FIXED_AF
-void AF_Switch(void) {
-	uiPara_t* puiPara = appUiParaGet();
+#if SUPPORT_FIXED_AF    // 【支持两段式固定焦距】
+/**
+* @param    None
+* @retval   None
+* @brief    切换自动对焦功能的开关
+**/
+void AF_Switch(void) 
+{
+	uiPara_t* puiPara = appUiParaGet();  // 获取UI参数
 
-	//if (!sensor_switch) return;
+	//if (!sensor_switch) return;  // 如果传感器开关未打开，则返回
 
-	puiPara->AFMode = !puiPara->AFMode;
+	puiPara->AFMode = !puiPara->AFMode;  // 切换自动对焦模式
 
-	appAFCtrl(puiPara->AFMode);
-	
-	if (puiPara->AFMode) {
-		AF_Set(431);//puiPara->AdjustMacro);//431);
-	} else {
-		AF_Set(0);
+	appAFCtrl(puiPara->AFMode);  // 控制自动对焦
+
+	if (puiPara->AFMode)    // 如果自动对焦模式为真
+    {  
+		AF_Set(431);  // 设置自动对焦为431
+	} 
+    else 
+    {
+		AF_Set(0);  // 设置自动对焦为0
 	}
 
-	AF_uiAfIconShow();
+	AF_uiAfIconShow();  // 显示对焦图标
 }
 #endif
 

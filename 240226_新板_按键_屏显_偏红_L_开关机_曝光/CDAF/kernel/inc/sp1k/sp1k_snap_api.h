@@ -79,7 +79,7 @@ typedef enum {
 	SP1K_SNAP_PARAM_STAMP_DT_DEFAULT_LOCATION_OPT,
 	//SP1K_SNAP_PARAM_QV_WIDTH,
 	//SP1K_SNAP_PARAM_QV_HEIGHT,
-	SP1K_SNAP_PARAM_BLINK,				/* 1:blinking enable  0:blinking disable  0xFF: get msg of blinking */
+	SP1K_SNAP_PARAM_BLINK,				/* 1:启用闪烁 0:禁用闪烁 0xFF：获取闪烁信息 */
 	//------INTERNAL OPTION------//
 	//SP1K_SNAP_PARAM_AUTO_POST_WB_OPT, /* will : delete it */
     SP1K_SNAP_PARAM_DZOOM_OPT,   	   	/* will: it's just for FPGA verification*/
@@ -124,9 +124,9 @@ typedef enum {
 } snapInfo_e;
 
 typedef enum {
-	SP1K_SNAP_PRE_REDO_DISABLE = 0,
-	SP1K_SNAP_POST_WB,
-	SP1K_SNAP_PRE_REDO,
+	SP1K_SNAP_PRE_REDO_DISABLE = 0, // 禁用快照预重做操作的选项
+	SP1K_SNAP_POST_WB,  // 快照后的后期白平衡操作有关
+	SP1K_SNAP_PRE_REDO, // 快照预重做操作
 	SP1K_SNAP_PRE_REDO_DARKSUB,
 	SP1K_SNAP_GET_WBGAIN,
 } snapPreRedo_e;

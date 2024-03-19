@@ -1,0 +1,254 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (NAND), 0x0000 // Tools: 'MCS-51'
+Target (SPI), 0x0000 // Tools: 'MCS-51'
+GRPOPT 1,(project),0,0,0
+GRPOPT 2,(app_sts_idle),0,0,0
+GRPOPT 3,(app_sts_main),0,0,0
+GRPOPT 4,(app_sts_menu),0,0,0
+GRPOPT 5,(app_sts_onoff),0,0,0
+GRPOPT 6,(app_sts_play),0,0,0
+GRPOPT 7,(app_sts_usb),0,0,0
+GRPOPT 8,(app_sts_view),1,0,0
+GRPOPT 9,(app_init),1,0,0
+GRPOPT 10,(app_cal),0,0,0
+GRPOPT 11,(app_cmd),0,0,0
+GRPOPT 12,(app_dev),1,0,0
+GRPOPT 13,(app_para),1,0,0
+GRPOPT 14,(app_power),1,0,0
+GRPOPT 15,(app_ui),1,0,0
+GRPOPT 16,(main),1,0,0
+GRPOPT 17,(drv_hdmi),1,0,0
+GRPOPT 18,(hdmi_list),1,0,0
+GRPOPT 19,(drv_package),1,0,0
+GRPOPT 20,(package_list),1,0,0
+GRPOPT 21,(drv_panel),1,0,0
+GRPOPT 22,(panel_list),1,0,0
+GRPOPT 23,(drv_sensor),1,0,0
+GRPOPT 24,(sensor_list),1,0,0
+GRPOPT 25,(func_ptr),1,0,0
+GRPOPT 26,(lib),1,0,0
+GRPOPT 27,(absolute),1,0,0
+
+OPTFFF 1,1,5,805306368,0,0,0,0,<.\script\disp_install.bat><disp_install.bat> 
+OPTFFF 1,2,5,788529152,0,0,0,0,<.\script\front_install.bat><front_install.bat> 
+OPTFFF 1,3,5,318767104,0,0,0,0,<.\script\hdmi_install.bat><hdmi_install.bat> 
+OPTFFF 1,4,5,318767104,0,0,0,0,<.\script\package_install.bat><package_install.bat> 
+OPTFFF 1,5,5,0,0,0,0,0,<.\script\dev_install.bat><dev_install.bat> 
+OPTFFF 1,6,5,50331648,0,0,0,0,<.\sp1kPrj.lin><sp1kPrj.lin> 
+OPTFFF 2,7,1,0,0,0,0,0,<.\host\app_status\sts_idle\app_sts_idle.c><app_sts_idle.c> 
+OPTFFF 3,8,1,0,0,0,0,0,<.\host\app_status\sts_main\app_sts_main.c><app_sts_main.c> 
+OPTFFF 4,9,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_sts_menu.c><app_sts_menu.c> 
+OPTFFF 4,10,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_api.c><app_menu_api.c> 
+OPTFFF 4,11,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_core.c><app_menu_core.c> 
+OPTFFF 4,12,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_disp.c><app_menu_disp.c> 
+OPTFFF 4,13,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_tab.c><app_menu_tab.c> 
+OPTFFF 4,14,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_tab1.c><app_menu_tab1.c> 
+OPTFFF 4,15,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_tab2.c><app_menu_tab2.c> 
+OPTFFF 4,16,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_active.c><app_menu_active.c> 
+OPTFFF 4,17,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_disp1.c><app_menu_disp1.c> 
+OPTFFF 5,18,1,0,0,0,0,0,<.\host\app_status\sts_onff\app_sts_pwroff.c><app_sts_pwroff.c> 
+OPTFFF 5,19,1,0,0,0,0,0,<.\host\app_status\sts_onff\app_sts_pwron.c><app_sts_pwron.c> 
+OPTFFF 5,20,1,0,0,0,0,0,<.\host\app_status\sts_onff\app_suspend.c><app_suspend.c> 
+OPTFFF 6,21,1,0,0,0,0,0,<.\host\app_status\sts_play\app_sts_audioplay.c><app_sts_audioplay.c> 
+OPTFFF 6,22,1,0,0,0,0,0,<.\host\app_status\sts_play\app_sts_multiplay.c><app_sts_multiplay.c> 
+OPTFFF 6,23,1,0,0,0,0,0,<.\host\app_status\sts_play\app_sts_panshow.c><app_sts_panshow.c> 
+OPTFFF 6,24,1,0,0,0,0,0,<.\host\app_status\sts_play\app_sts_slideshow.c><app_sts_slideshow.c> 
+OPTFFF 6,25,1,0,0,0,0,0,<.\host\app_status\sts_play\app_sts_videoplay.c><app_sts_videoplay.c> 
+OPTFFF 6,26,1,0,0,0,0,0,<.\host\app_status\sts_play\app_sts_stillplay.c><app_sts_stillplay.c> 
+OPTFFF 7,27,1,0,0,0,0,0,<.\host\app_status\sts_usb\app_sts_dps.c><app_sts_dps.c> 
+OPTFFF 7,28,1,0,0,0,0,0,<.\host\app_status\sts_usb\app_sts_usb.c><app_sts_usb.c> 
+OPTFFF 8,29,1,0,0,0,0,0,<.\host\app_status\sts_view\app_sts_audiorec.c><app_sts_audiorec.c> 
+OPTFFF 8,30,1,0,0,0,0,0,<.\host\app_status\sts_view\app_sts_stillview.c><app_sts_stillview.c> 
+OPTFFF 8,31,1,2,0,1,1,0,<.\host\app_status\sts_view\app_sts_videoview.c><app_sts_videoview.c> { 44,0,0,0,2,0,0,0,3,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,104,0,0,0,104,0,0,0,254,3,0,0,101,1,0,0 }
+OPTFFF 9,32,1,0,0,10,10,0,<.\host\app_init\app_init.c><app_init.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,104,0,0,0,104,0,0,0,250,3,0,0,97,1,0,0 }
+OPTFFF 9,33,1,0,0,0,0,0,<.\host\app_init\dev_init.c><dev_init.c> 
+OPTFFF 10,34,1,0,0,0,0,0,<.\host\app_cal\app_cal_api.c><app_cal_api.c> 
+OPTFFF 10,35,1,0,0,0,0,0,<.\host\app_cal\app_menu_cal.c><app_menu_cal.c> 
+OPTFFF 11,36,1,0,0,0,0,0,<.\host\app_sample\app_cus_cmd.c><app_cus_cmd.c> 
+OPTFFF 11,37,1,0,0,0,0,0,<.\host\app_sample\app_cmd_def.c><app_cmd_def.c> 
+OPTFFF 12,38,1,0,0,1,14,0,<.\host\app_dev\app_dev_disp.c><app_dev_disp.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,52,0,0,0,52,0,0,0,202,3,0,0,49,1,0,0 }
+OPTFFF 12,39,1,0,0,0,0,0,<.\host\app_dev\app_dev_storage.c><app_dev_storage.c> 
+OPTFFF 12,40,1,0,0,0,0,0,<.\host\app_dev\app_dev_usb.c><app_dev_usb.c> 
+OPTFFF 13,41,1,0,0,0,0,0,<.\host\app_para\app_ui_para.c><app_ui_para.c> 
+OPTFFF 14,42,1,0,0,0,0,0,<.\host\app_power\app_batt.c><app_batt.c> 
+OPTFFF 14,43,1,0,0,0,0,0,<.\host\app_power\app_pwr_mgr.c><app_pwr_mgr.c> 
+OPTFFF 15,44,1,0,0,0,0,0,<.\host\app_ui\app_ui_osd.c><app_ui_osd.c> 
+OPTFFF 15,45,1,0,0,0,0,0,<.\host\app_ui\app_key_scan.c><app_key_scan.c> 
+OPTFFF 15,46,1,0,0,0,0,0,<.\host\app_ui\app_gui_obj.c><app_gui_obj.c> 
+OPTFFF 15,47,1,0,0,0,0,0,<.\host\app_ui\app_tp_scan.c><app_tp_scan.c> 
+OPTFFF 16,48,1,536870912,0,0,0,0,<.\kernel\ver_kernel.c><ver_kernel.c> 
+OPTFFF 17,49,1,0,0,0,0,0,<.\drivers\display\drv_hdmi.c><drv_hdmi.c> 
+OPTFFF 17,50,4,0,0,0,0,0,<.\drivers\display\drv_hdmi.lib><drv_hdmi.lib> 
+OPTFFF 18,51,1,0,0,0,0,0,<.\drivers\display\tv\HDMI_ANA_ANX7150\disp_hdmi_ana_anx7150.c><disp_hdmi_ana_anx7150.c> 
+OPTFFF 18,52,1,0,0,0,0,0,<.\drivers\display\tv\HDMI_EP_EP932\disp_hdmi_ep_ep932.c><disp_hdmi_ep_ep932.c> 
+OPTFFF 19,53,1,0,0,0,0,0,<.\drivers\package\drv_package.c><drv_package.c> 
+OPTFFF 20,54,1,0,0,0,0,0,<.\drivers\package\package_1627.c><package_1627.c> 
+OPTFFF 20,55,1,0,0,0,0,0,<.\drivers\package\package_1628.c><package_1628.c> 
+OPTFFF 20,56,1,637534208,0,0,0,0,<.\drivers\package\package_1626.c><package_1626.c> 
+OPTFFF 21,57,1,0,0,0,0,0,<.\drivers\display\drv_panel.c><drv_panel.c> 
+OPTFFF 21,58,1,0,0,0,0,0,<.\drivers\display\tv\disp_composite_tv_ntsc.c><disp_composite_tv_ntsc.c> 
+OPTFFF 21,59,1,0,0,0,0,0,<.\drivers\display\tv\disp_composite_tv_pal.c><disp_composite_tv_pal.c> 
+OPTFFF 22,60,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a015an02_ups052.c><disp_auo_a015an02_ups052.c> 
+OPTFFF 22,61,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a015an04_ups051.c><disp_auo_a015an04_ups051.c> 
+OPTFFF 22,62,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a015an04_ups052.c><disp_auo_a015an04_ups052.c> 
+OPTFFF 22,63,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a015bl01_ups052.c><disp_auo_a015bl01_ups052.c> 
+OPTFFF 22,64,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a025bn01_ccir.c><disp_auo_a025bn01_ccir.c> 
+OPTFFF 22,65,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a025bn01_ups051.c><disp_auo_a025bn01_ups051.c> 
+OPTFFF 22,66,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a025bn01_ups052.c><disp_auo_a025bn01_ups052.c> 
+OPTFFF 22,67,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a025dl01_ups052.c><disp_auo_a025dl01_ups052.c> 
+OPTFFF 22,68,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a030dl01_ups052.c><disp_auo_a030dl01_ups052.c> 
+OPTFFF 22,69,1,0,0,0,0,0,<.\drivers\display\lcd\disp_gp_gp015sqct4b_ups052.c><disp_gp_gp015sqct4b_ups052.c> 
+OPTFFF 22,70,1,0,0,0,0,0,<.\drivers\display\lcd\disp_ss_ltv160q1_ups051.c><disp_ss_ltv160q1_ups051.c> 
+OPTFFF 22,71,1,0,0,0,0,0,<.\drivers\display\lcd\disp_ss_ltv160q1_ups052.c><disp_ss_ltv160q1_ups052.c> 
+OPTFFF 22,72,1,0,0,0,0,0,<.\drivers\display\lcd\disp_tp_td015theb2_ups052.c><disp_tp_td015theb2_ups052.c> 
+OPTFFF 22,73,1,0,0,0,0,0,<.\drivers\display\lcd\disp_tp_td020theg1_ups052.c><disp_tp_td020theg1_ups052.c> 
+OPTFFF 22,74,1,0,0,0,0,0,<.\drivers\display\lcd\disp_tp_td025theea_ups052.c><disp_tp_td025theea_ups052.c> 
+OPTFFF 23,75,1,0,0,0,0,0,<.\drivers\front\drv_sensor.c><drv_sensor.c> 
+OPTFFF 24,76,1,0,0,0,0,0,<.\drivers\front\OV_OV5620_RAW\front_ov_ov5620_raw.c><front_ov_ov5620_raw.c> 
+OPTFFF 24,77,1,0,0,0,0,0,<.\drivers\front\OV_OV5610_RAW\front_ov_ov5610_raw.c><front_ov_ov5610_raw.c> 
+OPTFFF 24,78,1,0,0,0,0,0,<.\drivers\front\OV_OV5633_RAW\front_ov_ov5633_raw.c><front_ov_ov5633_raw.c> 
+OPTFFF 24,79,1,0,0,0,0,0,<.\drivers\front\MI_MI5130_RAW\front_mi_mi5130_raw.c><front_mi_mi5130_raw.c> 
+OPTFFF 24,80,1,0,0,0,0,0,<.\drivers\front\MI_MI5130_RAW_REV3\front_mi_mi5130_raw_rev3.c><front_mi_mi5130_raw_rev3.c> 
+OPTFFF 24,81,1,0,0,0,0,0,<.\drivers\front\MI_MI5130_RAW_REV4\front_mi_mi5130_raw_rev4.c><front_mi_mi5130_raw_rev4.c> 
+OPTFFF 25,82,1,0,0,0,0,0,<.\host\func_ptr\func_tmr0_def.c><func_tmr0_def.c> 
+OPTFFF 25,83,1,0,0,0,0,0,<.\host\func_ptr\func_tmr1_def.c><func_tmr1_def.c> 
+OPTFFF 25,84,1,0,0,0,0,0,<.\host\func_ptr\func_intr_def.c><func_intr_def.c> 
+OPTFFF 25,85,1,0,0,0,0,0,<.\host\func_ptr\func_init_def.c><func_init_def.c> 
+OPTFFF 25,86,1,0,0,0,0,0,<.\host\func_ptr\func_os_def.c><func_os_def.c> 
+OPTFFF 25,87,1,0,0,0,0,0,<.\host\func_ptr\func_msg_def.c><func_msg_def.c> 
+OPTFFF 25,88,1,419430400,0,30,30,0,<.\host\func_ptr\func_ptr.c><func_ptr.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,26,0,0,0,26,0,0,0,176,3,0,0,23,1,0,0 }
+OPTFFF 25,89,1,0,0,0,0,0,<.\host\func_ptr\func_gui_def.c><func_gui_def.c> 
+OPTFFF 26,90,4,0,0,0,0,0,<.\kernel\lib\libAe.LIB><libAe.LIB> 
+OPTFFF 26,91,4,0,0,0,0,0,<.\kernel\lib\libAf.LIB><libAf.LIB> 
+OPTFFF 26,92,4,0,0,0,0,0,<.\kernel\lib\libApi3A.LIB><libApi3A.LIB> 
+OPTFFF 26,93,4,0,0,0,0,0,<.\kernel\lib\libApiAud.LIB><libApiAud.LIB> 
+OPTFFF 26,94,4,0,0,0,0,0,<.\kernel\lib\libApiDisp.LIB><libApiDisp.LIB> 
+OPTFFF 26,95,4,0,0,0,0,0,<.\kernel\lib\libApiDS.LIB><libApiDS.LIB> 
+OPTFFF 26,96,4,0,0,0,0,0,<.\kernel\lib\libApiGpio.LIB><libApiGpio.LIB> 
+OPTFFF 26,97,4,0,0,0,0,0,<.\kernel\lib\libApiRtc.LIB><libApiRtc.LIB> 
+OPTFFF 26,98,4,0,0,0,0,0,<.\kernel\lib\libAudio.LIB><libAudio.LIB> 
+OPTFFF 26,99,4,0,0,0,0,0,<.\kernel\lib\libAwb.LIB><libAwb.LIB> 
+OPTFFF 26,100,4,0,0,0,0,0,<.\kernel\lib\libBp.LIB><libBp.LIB> 
+OPTFFF 26,101,4,0,0,0,0,0,<.\kernel\lib\libCal.LIB><libCal.LIB> 
+OPTFFF 26,102,4,0,0,0,0,0,<.\kernel\lib\libcdsp.LIB><libcdsp.LIB> 
+OPTFFF 26,103,4,0,0,0,0,0,<.\kernel\lib\libcdspFilter.lib><libcdspFilter.lib> 
+OPTFFF 26,104,4,0,0,0,0,0,<.\kernel\lib\libCmd.LIB><libCmd.LIB> 
+OPTFFF 26,105,4,0,0,0,0,0,<.\kernel\lib\libCmdFunc.LIB><libCmdFunc.LIB> 
+OPTFFF 26,106,4,0,0,0,0,0,<.\kernel\lib\libCom.LIB><libCom.LIB> 
+OPTFFF 26,107,4,0,0,0,0,0,<.\kernel\lib\libDbg.LIB><libDbg.LIB> 
+OPTFFF 26,108,4,0,0,0,0,0,<.\kernel\lib\libDisp.LIB><libDisp.LIB> 
+OPTFFF 26,109,4,0,0,0,0,0,<.\kernel\lib\libDist.LIB><libDist.LIB> 
+OPTFFF 26,110,4,0,0,0,0,0,<.\kernel\lib\libDos32_A.LIB><libDos32_A.LIB> 
+OPTFFF 26,111,4,0,0,0,0,0,<.\kernel\lib\libDos32_B.LIB><libDos32_B.LIB> 
+OPTFFF 26,112,4,0,0,0,0,0,<.\kernel\lib\libDos32_C.LIB><libDos32_C.LIB> 
+OPTFFF 26,113,4,0,0,0,0,0,<.\kernel\lib\libDos32_D.LIB><libDos32_D.LIB> 
+OPTFFF 26,114,4,0,0,0,0,0,<.\kernel\lib\libDpof.LIB><libDpof.LIB> 
+OPTFFF 26,115,4,0,0,0,0,0,<.\kernel\lib\libDS.LIB><libDS.LIB> 
+OPTFFF 26,116,4,0,0,0,0,0,<.\kernel\lib\libExif.LIB><libExif.LIB> 
+OPTFFF 26,117,4,0,0,0,0,0,<.\kernel\lib\libFd.LIB><libFd.LIB> 
+OPTFFF 26,118,4,0,0,0,0,0,<.\kernel\lib\libFront.LIB><libFront.LIB> 
+OPTFFF 26,119,4,0,0,0,0,0,<.\kernel\lib\libGpio.LIB><libGpio.LIB> 
+OPTFFF 26,120,4,0,0,0,0,0,<.\kernel\lib\libGprm.LIB><libGprm.LIB> 
+OPTFFF 26,121,4,0,0,0,0,0,<.\kernel\lib\libGui.LIB><libGui.LIB> 
+OPTFFF 26,122,4,0,0,0,0,0,<.\kernel\lib\libHalAud.LIB><libHalAud.LIB> 
+OPTFFF 26,123,4,0,0,0,0,0,<.\kernel\lib\libHalCard.LIB><libHalCard.LIB> 
+OPTFFF 26,124,4,0,0,0,0,0,<.\kernel\lib\libHalCdsp.LIB><libHalCdsp.LIB> 
+OPTFFF 26,125,4,0,0,0,0,0,<.\kernel\lib\libHalDisp.LIB><libHalDisp.LIB> 
+OPTFFF 26,126,4,0,0,0,0,0,<.\kernel\lib\libHalDist.LIB><libHalDist.LIB> 
+OPTFFF 26,127,4,0,0,0,0,0,<.\kernel\lib\libHalDram.lib><libHalDram.lib> 
+OPTFFF 26,128,4,0,0,0,0,0,<.\kernel\lib\libHalFd.LIB><libHalFd.LIB> 
+OPTFFF 26,129,4,0,0,0,0,0,<.\kernel\lib\libHalFlash.LIB><libHalFlash.LIB> 
+OPTFFF 26,130,4,0,0,0,0,0,<.\kernel\lib\libHalFront.LIB><libHalFront.LIB> 
+OPTFFF 26,131,4,0,0,0,0,0,<.\kernel\lib\libHalGlobal.LIB><libHalGlobal.LIB> 
+OPTFFF 26,132,4,0,0,0,0,0,<.\kernel\lib\libHalGpio.LIB><libHalGpio.LIB> 
+OPTFFF 26,133,4,0,0,0,0,0,<.\kernel\lib\libHalGprm.LIB><libHalGprm.LIB> 
+OPTFFF 26,134,4,0,0,0,0,0,<.\kernel\lib\libHalJpeg.LIB><libHalJpeg.LIB> 
+OPTFFF 26,135,4,0,0,0,0,0,<.\kernel\lib\libHalMoe.LIB><libHalMoe.LIB> 
+OPTFFF 26,136,4,0,0,0,0,0,<.\kernel\lib\libHalPb.LIB><libHalPb.LIB> 
+OPTFFF 26,137,4,0,0,0,0,0,<.\kernel\lib\libHalUsb.LIB><libHalUsb.LIB> 
+OPTFFF 26,138,4,0,0,0,0,0,<.\kernel\lib\libICat.LIB><libICat.LIB> 
+OPTFFF 26,139,4,0,0,0,0,0,<.\kernel\lib\libIntr.lib><libIntr.lib> 
+OPTFFF 26,140,4,0,0,0,0,0,<.\kernel\lib\liblog2.LIB><liblog2.LIB> 
+OPTFFF 26,141,4,0,0,0,0,0,<.\kernel\lib\libLscCal.LIB><libLscCal.LIB> 
+OPTFFF 26,142,4,0,0,0,0,0,<.\kernel\lib\libMD.LIB><libMD.LIB> 
+OPTFFF 26,143,4,0,0,0,0,0,<.\kernel\lib\libMsCal.LIB><libMsCal.LIB> 
+OPTFFF 26,144,4,0,0,0,0,0,<.\kernel\lib\libOs.LIB><libOs.LIB> 
+OPTFFF 26,145,4,0,0,0,0,0,<.\kernel\lib\libOsd.LIB><libOsd.LIB> 
+OPTFFF 26,146,4,0,0,0,0,0,<.\kernel\lib\libPb.lib><libPb.lib> 
+OPTFFF 26,147,4,0,0,0,0,0,<.\kernel\lib\libPbEdit.lib><libPbEdit.lib> 
+OPTFFF 26,148,4,0,0,0,0,0,<.\kernel\lib\libPbGlobal.LIB><libPbGlobal.LIB> 
+OPTFFF 26,149,4,0,0,0,0,0,<.\kernel\lib\libPv.LIB><libPv.LIB> 
+OPTFFF 26,150,4,0,0,0,0,0,<.\kernel\lib\libSnap.LIB><libSnap.LIB> 
+OPTFFF 26,151,4,0,0,0,0,0,<.\kernel\lib\libSpe.lib><libSpe.lib> 
+OPTFFF 26,152,4,0,0,0,0,0,<.\kernel\lib\libStorage_com.LIB><libStorage_com.LIB> 
+OPTFFF 26,153,4,0,0,0,0,0,<.\kernel\lib\libStorage_nand.LIB><libStorage_nand.LIB> 
+OPTFFF 26,154,4,0,0,0,0,0,<.\kernel\lib\libStorage_nor.LIB><libStorage_nor.LIB> 
+OPTFFF 26,155,4,0,0,0,0,0,<.\kernel\lib\libStorage_sd.LIB><libStorage_sd.LIB> 
+OPTFFF 26,156,4,0,0,0,0,0,<.\kernel\lib\libStorage_spi.LIB><libStorage_spi.LIB> 
+OPTFFF 26,157,4,0,0,0,0,0,<.\kernel\lib\libSysBoot.LIB><libSysBoot.LIB> 
+OPTFFF 26,158,4,0,0,0,0,0,<.\kernel\lib\libSysGlobal.LIB><libSysGlobal.LIB> 
+OPTFFF 26,159,4,0,0,0,0,0,<.\kernel\lib\libTimelapse.LIB><libTimelapse.LIB> 
+OPTFFF 26,160,4,0,0,0,0,0,<.\kernel\lib\libUsbA.LIB><libUsbA.LIB> 
+OPTFFF 26,161,4,0,0,0,0,0,<.\kernel\lib\libUsbB.LIB><libUsbB.LIB> 
+OPTFFF 26,162,4,0,0,0,0,0,<.\kernel\lib\libUsbC.LIB><libUsbC.LIB> 
+OPTFFF 26,163,4,0,0,0,0,0,<.\kernel\lib\libUsbD.LIB><libUsbD.LIB> 
+OPTFFF 26,164,4,0,0,0,0,0,<.\kernel\lib\libUsbGlobal.LIB><libUsbGlobal.LIB> 
+OPTFFF 26,165,4,0,0,0,0,0,<.\kernel\lib\libUtil.LIB><libUtil.LIB> 
+OPTFFF 26,166,4,0,0,0,0,0,<.\kernel\lib\libVideoClip.LIB><libVideoClip.LIB> 
+OPTFFF 26,167,4,0,0,0,0,0,<.\kernel\lib\libVideoPb.LIB><libVideoPb.LIB> 
+OPTFFF 26,168,4,0,0,0,0,0,<.\kernel\lib\libVidCapture.LIB><libVidCapture.LIB> 
+OPTFFF 26,169,4,0,0,0,0,0,<.\kernel\lib\libZoom.LIB><libZoom.LIB> 
+OPTFFF 27,170,3,0,0,0,0,0,<.\kernel\lib\absolute\booter.obj><booter.obj> 
+OPTFFF 27,171,3,0,0,0,0,0,<.\kernel\lib\absolute\jump_main.obj><jump_main.obj> 
+OPTFFF 27,172,3,0,0,0,0,0,<.\kernel\lib\absolute\L51_BANK.obj><L51_BANK.obj> 
+OPTFFF 27,173,3,0,0,0,0,0,<.\kernel\lib\absolute\STARTUP.obj><STARTUP.obj> 
+OPTFFF 27,174,3,0,0,0,0,0,<.\kernel\lib\absolute\INIT.obj><INIT.obj> 
+
+ExtF <E:\code\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\kernel\inc\os\os_msg.h> 116,116,0,{ 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,78,0,0,0,78,0,0,0,228,3,0,0,75,1,0,0 }
+
+TARGOPT 1, (NAND)
+ CLK51=18000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 120,65,8,<.\lst\>
+  OPTOX 16
+  OPTLT 0,0,1,0,0,0,0,0,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,0
+  OPTAX 0
+  OPTDL (S8051.DLL)()(DP51.DLL)(-p320)(S8051.DLL)()(TP51.DLL)(-p320)
+  OPTDBG 48125,-1,()()()()()()()()()() ()()()()
+  OPTDF 0x0
+  OPTLE <>
+  OPTLC <>
+EndOpt
+
+TARGOPT 2, (SPI)
+ CLK51=18000000
+  OPTTT 1,1,1,0
+  OPTHX 1,65535,0,0,0
+  OPTLX 120,65,8,<.\lst\>
+  OPTOX 16
+  OPTLT 0,0,1,0,0,0,0,0,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 0
+  OPTDL (S8051.DLL)()(DP51.DLL)(-p320)(S8051.DLL)()(TP51.DLL)(-p320)
+  OPTDBG 48125,-1,()()()()()()()()()() ()()()()
+  OPTBB 0,0,1099,1,0,0,0,0,0,0,<APP_STS_VIDEOVIEW.C>()()
+  OPTDF 0x0
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

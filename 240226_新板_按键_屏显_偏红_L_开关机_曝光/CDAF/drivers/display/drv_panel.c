@@ -157,176 +157,143 @@ static code dispCapabDesc_t dispCapabDesc = {
 
 
 static code UINT32 dispPwrOnCmdTbl[] = {
-	DISP_LCM_CMD_WAIT | 120,						//ms
-	
+    DISP_LCM_CMD_INST | 0xB4, //2 dot inversion
+    DISP_LCM_CMD_PARA | 0x80,
+
+	DISP_LCM_CMD_INST | 0xB5,	  
+	DISP_LCM_CMD_PARA | 0x5f,//0x5f	 
+	DISP_LCM_CMD_PARA | 0x5f,//0x5f
+	DISP_LCM_CMD_PARA | 0x0a,	 
+	DISP_LCM_CMD_PARA | 0x14,
+    
+    DISP_LCM_CMD_INST | 0xB7, //pump ratio 1
+    DISP_LCM_CMD_PARA | 0xFF,
+    DISP_LCM_CMD_PARA | 0x44,
+    DISP_LCM_CMD_PARA | 0x04,
+    DISP_LCM_CMD_PARA | 0x44,
+    DISP_LCM_CMD_PARA | 0x04,
+    DISP_LCM_CMD_PARA | 0x02,
+    DISP_LCM_CMD_PARA | 0x04,
+
+    DISP_LCM_CMD_INST | 0xBA, //P1=VCOM P2=VRH P3=VDV
+    DISP_LCM_CMD_PARA | 0x1f,
+    DISP_LCM_CMD_PARA | 0x11,
+    DISP_LCM_CMD_PARA | 0x20,
+
+    DISP_LCM_CMD_INST | 0xBB, //P1=VGH&VGL
+    DISP_LCM_CMD_PARA | 0x74,
+    DISP_LCM_CMD_PARA | 0x77,
+    DISP_LCM_CMD_PARA | 0x33,
+
+    DISP_LCM_CMD_INST | 0xCD, //pump ratio 2
+    DISP_LCM_CMD_PARA | 0x26,
+    DISP_LCM_CMD_PARA | 0x26,
+    DISP_LCM_CMD_PARA | 0x00,
+
+    DISP_LCM_CMD_INST | 0x3A, //
+    DISP_LCM_CMD_PARA | 0x55,
+
+    DISP_LCM_CMD_INST | 0xE8, //
+    DISP_LCM_CMD_PARA | 0x11,
+    DISP_LCM_CMD_PARA | 0x11,
+    DISP_LCM_CMD_PARA | 0x33,
+    DISP_LCM_CMD_PARA | 0x11,
+    DISP_LCM_CMD_PARA | 0x55,
+
+    DISP_LCM_CMD_INST | 0xE9, //
+    DISP_LCM_CMD_PARA | 0x40,
+    DISP_LCM_CMD_PARA | 0x84,
+    DISP_LCM_CMD_PARA | 0x65,
+    DISP_LCM_CMD_PARA | 0x30,
+    DISP_LCM_CMD_PARA | 0xC0,
+    DISP_LCM_CMD_PARA | 0x00,
+    DISP_LCM_CMD_PARA | 0xFF,
+    DISP_LCM_CMD_PARA | 0x00,
+    DISP_LCM_CMD_PARA | 0x88,
+
+    DISP_LCM_CMD_INST | 0xEA, //Gate pulse modulation
+    DISP_LCM_CMD_PARA | 0x03,
+    DISP_LCM_CMD_PARA | 0x22,
+    DISP_LCM_CMD_PARA | 0x18,
+    DISP_LCM_CMD_PARA | 0xE2,
+    DISP_LCM_CMD_PARA | 0x04,
+    DISP_LCM_CMD_PARA | 0x00,
+    DISP_LCM_CMD_PARA | 0x00,
+
+    DISP_LCM_CMD_INST | 0xec, //Advance gamma correction
+    DISP_LCM_CMD_PARA | 0x48,
+
+    DISP_LCM_CMD_INST | 0xF2, //Low power frequency control
+    DISP_LCM_CMD_PARA | 0x00,
+    DISP_LCM_CMD_PARA | 0x00,
+
+    DISP_LCM_CMD_INST | 0xF5, //Advance gamma correction
+    DISP_LCM_CMD_PARA | 0xBB,
+
+    DISP_LCM_CMD_INST | 0xE4, //P gamma
+    DISP_LCM_CMD_PARA | 0x00,
+    DISP_LCM_CMD_PARA | 0x0b,
+    DISP_LCM_CMD_PARA | 0x11,
+    DISP_LCM_CMD_PARA | 0x03,
+    DISP_LCM_CMD_PARA | 0x10,
+    DISP_LCM_CMD_PARA | 0x06,
+    DISP_LCM_CMD_PARA | 0x37,
+    DISP_LCM_CMD_PARA | 0x36,
+    DISP_LCM_CMD_PARA | 0x4c,
+    DISP_LCM_CMD_PARA | 0x02,
+    DISP_LCM_CMD_PARA | 0x0b,
+    DISP_LCM_CMD_PARA | 0x0A,
+    DISP_LCM_CMD_PARA | 0x2d,
+    DISP_LCM_CMD_PARA | 0x34,
+    DISP_LCM_CMD_PARA | 0x0d,
+
+    DISP_LCM_CMD_INST | 0xE5, //N gamma
+    DISP_LCM_CMD_PARA | 0x00,
+    DISP_LCM_CMD_PARA | 0x0b,
+    DISP_LCM_CMD_PARA | 0x11,
+    DISP_LCM_CMD_PARA | 0x04,
+    DISP_LCM_CMD_PARA | 0x0f,
+    DISP_LCM_CMD_PARA | 0x06,
+    DISP_LCM_CMD_PARA | 0x37,
+    DISP_LCM_CMD_PARA | 0x45,
+    DISP_LCM_CMD_PARA | 0x4c,
+    DISP_LCM_CMD_PARA | 0x02,
+    DISP_LCM_CMD_PARA | 0x0a,
+    DISP_LCM_CMD_PARA | 0x0a,
+    DISP_LCM_CMD_PARA | 0x2D,
+    DISP_LCM_CMD_PARA | 0x34,
+    DISP_LCM_CMD_PARA | 0x0D,
+
+	DISP_LCM_CMD_INST | 0x36, //设置方向   
+	DISP_LCM_CMD_PARA | 0x60,//0xA0
+
+	DISP_LCM_CMD_INST | 0x3A,   //设置屏幕数据格式
+	DISP_LCM_CMD_PARA | 0x55,
+
+	DISP_LCM_CMD_INST | 0x35,//打开TE
+	DISP_LCM_CMD_PARA | 0x00,
+
+
+// window set
+	DISP_LCM_CMD_INST | 0x2a,  //
+	DISP_LCM_CMD_PARA | 0x00, 			  
+	DISP_LCM_CMD_PARA | 0x00, 				  
+	DISP_LCM_CMD_PARA | 0x01, 	  
+	DISP_LCM_CMD_PARA | 0x3f,   //mv=1, 013f ;mv=0 ef			  
+		   
+	DISP_LCM_CMD_INST | 0x2b,  
+	DISP_LCM_CMD_PARA | 0x00, 			  
+	DISP_LCM_CMD_PARA | 0x00, 				  
+	DISP_LCM_CMD_PARA | 0x00,//0x01, 	  
+	DISP_LCM_CMD_PARA | 0xef,//0x3f,
+	//----------------------------------end display window ----------------------------------------//
 	
 	DISP_LCM_CMD_INST | 0x11,
-	DISP_LCM_CMD_WAIT | 220,//DISP_LCM_CMD_WAIT 120ms
-	//--------------------------------------Display Setting------------------------------------------//
-	DISP_LCM_CMD_INST | 0x36,
-	DISP_LCM_CMD_PARA | 0x70,
-	DISP_LCM_CMD_INST | 0x3a,
-	DISP_LCM_CMD_PARA | 0x55,
-	DISP_LCM_CMD_INST | 0x21,
-	//--------------------------------ST7789V Frame rate setting----------------------------------//
-	DISP_LCM_CMD_INST | 0xb2,
-	DISP_LCM_CMD_PARA | 0x7F,
-	DISP_LCM_CMD_PARA | 0x7F,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0x33,
-	DISP_LCM_CMD_PARA | 0x33,
-	
-	DISP_LCM_CMD_INST | 0xb7,
-	DISP_LCM_CMD_PARA | 0x35,
-	//---------------------------------ST7789V Power setting--------------------------------------//
-	DISP_LCM_CMD_INST | 0xb8,
-	DISP_LCM_CMD_PARA | 0x2f,
-	DISP_LCM_CMD_PARA | 0x2b,
-	DISP_LCM_CMD_PARA | 0x2f,
-	DISP_LCM_CMD_INST | 0xbb,
-	DISP_LCM_CMD_PARA | 0x1b,//0x20
-	
-	DISP_LCM_CMD_INST | 0xc0,
-	DISP_LCM_CMD_PARA | 0x2c,
-	
-	DISP_LCM_CMD_INST | 0xc2,
-	DISP_LCM_CMD_PARA | 0x01,
-	
-	DISP_LCM_CMD_INST | 0xc3,
-	DISP_LCM_CMD_PARA | 0x1b,//0x13//0x0b,
-	
-	DISP_LCM_CMD_INST | 0xc4,
-	DISP_LCM_CMD_PARA | 0x20,
-	DISP_LCM_CMD_INST | 0xc6,
-	DISP_LCM_CMD_PARA | 0x11,
-	DISP_LCM_CMD_INST | 0xd0,
-	DISP_LCM_CMD_PARA | 0xa4,
-	DISP_LCM_CMD_PARA | 0xa1,
-	DISP_LCM_CMD_INST | 0xe8,
-	DISP_LCM_CMD_PARA | 0x03,
-	DISP_LCM_CMD_INST | 0xe9,
-	DISP_LCM_CMD_PARA | 0x0d,
-	DISP_LCM_CMD_PARA | 0x12,
-	DISP_LCM_CMD_PARA | 0x00,
-	
-	DISP_LCM_CMD_INST | (0x35),
-	DISP_LCM_CMD_PARA | (0x00),
-	
-	//-------------------------------ST7789V gamma setting---------------------------------------//
-	#if 0 //org
-	DISP_LCM_CMD_INST | 0xe0,
-	DISP_LCM_CMD_PARA | 0xd0,
-	DISP_LCM_CMD_PARA | 0x06,
-	DISP_LCM_CMD_PARA | 0x0b,
-	DISP_LCM_CMD_PARA | 0x0a,
-	DISP_LCM_CMD_PARA | 0x09,
-	DISP_LCM_CMD_PARA | 0x05,
-	DISP_LCM_CMD_PARA | 0x2e,
-	DISP_LCM_CMD_PARA | 0x43,
-	DISP_LCM_CMD_PARA | 0x44,
-	DISP_LCM_CMD_PARA | 0x09,
-	DISP_LCM_CMD_PARA | 0x16,
-	DISP_LCM_CMD_PARA | 0x15,
-	DISP_LCM_CMD_PARA | 0x23,
-	DISP_LCM_CMD_PARA | 0x27,
-	DISP_LCM_CMD_INST | 0xe1,
-	DISP_LCM_CMD_PARA | 0xd0,
-	DISP_LCM_CMD_PARA | 0x06,
-	DISP_LCM_CMD_PARA | 0x0b,
-	DISP_LCM_CMD_PARA | 0x09,
-	DISP_LCM_CMD_PARA | 0x08,
-	DISP_LCM_CMD_PARA | 0x06,
-	DISP_LCM_CMD_PARA | 0x2e,
-	DISP_LCM_CMD_PARA | 0x44,
-	DISP_LCM_CMD_PARA | 0x44,
-	DISP_LCM_CMD_PARA | 0x3a,
-	DISP_LCM_CMD_PARA | 0x15,
-	DISP_LCM_CMD_PARA | 0x15,
-	DISP_LCM_CMD_PARA | 0x23,
-	DISP_LCM_CMD_PARA | 0x26,
-	#elif 1 //1021 ���� 1 7789+BOE2.4-IPS
-	DISP_LCM_CMD_INST | 0xe0,
-	DISP_LCM_CMD_PARA | 0xd0,
-	DISP_LCM_CMD_PARA | 0x08,
-	DISP_LCM_CMD_PARA | 0x11,
-	DISP_LCM_CMD_PARA | 0x08,
-	DISP_LCM_CMD_PARA | 0x0c,
-	DISP_LCM_CMD_PARA | 0x15,
-	DISP_LCM_CMD_PARA | 0x39,
-	DISP_LCM_CMD_PARA | 0x33,
-	DISP_LCM_CMD_PARA | 0x50,
-	DISP_LCM_CMD_PARA | 0x36,
-	DISP_LCM_CMD_PARA | 0x13,
-	DISP_LCM_CMD_PARA | 0x14,
-	DISP_LCM_CMD_PARA | 0x29,
-	DISP_LCM_CMD_PARA | 0x2d,
-	DISP_LCM_CMD_INST | 0xe1,
-	DISP_LCM_CMD_PARA | 0xd0,
-	DISP_LCM_CMD_PARA | 0x08,
-	DISP_LCM_CMD_PARA | 0x10,
-	DISP_LCM_CMD_PARA | 0x08,
-	DISP_LCM_CMD_PARA | 0x06,
-	DISP_LCM_CMD_PARA | 0x06,
-	DISP_LCM_CMD_PARA | 0x39,
-	DISP_LCM_CMD_PARA | 0x44,
-	DISP_LCM_CMD_PARA | 0x51,
-	DISP_LCM_CMD_PARA | 0x0b,
-	DISP_LCM_CMD_PARA | 0x16,
-	DISP_LCM_CMD_PARA | 0x14,
-	DISP_LCM_CMD_PARA | 0x2f,
-	DISP_LCM_CMD_PARA | 0x31,
-	#else //1021 ���� 2 BOE2.0+7789
-	DISP_LCM_CMD_INST | 0xe0,
-	DISP_LCM_CMD_PARA | 0xd0,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0x02,
-	DISP_LCM_CMD_PARA | 0x07,
-	DISP_LCM_CMD_PARA | 0x0b,
-	DISP_LCM_CMD_PARA | 0x1a,
-	DISP_LCM_CMD_PARA | 0x31,
-	DISP_LCM_CMD_PARA | 0x54,
-	DISP_LCM_CMD_PARA | 0x40,
-	DISP_LCM_CMD_PARA | 0x29,
-	DISP_LCM_CMD_PARA | 0x12,
-	DISP_LCM_CMD_PARA | 0x12,
-	DISP_LCM_CMD_PARA | 0x12,
-	DISP_LCM_CMD_PARA | 0x17,
-	DISP_LCM_CMD_INST | 0xe1,
-	DISP_LCM_CMD_PARA | 0xd0,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0x02,
-	DISP_LCM_CMD_PARA | 0x07,
-	DISP_LCM_CMD_PARA | 0x05,
-	DISP_LCM_CMD_PARA | 0x25,
-	DISP_LCM_CMD_PARA | 0x2d,
-	DISP_LCM_CMD_PARA | 0x44,
-	DISP_LCM_CMD_PARA | 0x45,
-	DISP_LCM_CMD_PARA | 0x1c,
-	DISP_LCM_CMD_PARA | 0x18,
-	DISP_LCM_CMD_PARA | 0x16,
-	DISP_LCM_CMD_PARA | 0x1c,
-	DISP_LCM_CMD_PARA | 0x1d,
-	#endif
+	DISP_LCM_CMD_WAIT | 120,
 	
 	DISP_LCM_CMD_INST | 0x29,
-	
-	DISP_LCM_CMD_INST | 0x2a,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0x01,
-	DISP_LCM_CMD_PARA | 0x3f,
-	
-	DISP_LCM_CMD_INST | 0x2b,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0x00,
-	DISP_LCM_CMD_PARA | 0xef,
-	
-	DISP_LCM_CMD_INST | 0x29,	  //Display on
-	
 	DISP_LCM_CMD_INST | 0x2c,
-
-
+	
 	DISP_LCM_CMD_STOP,
 };
 
@@ -434,15 +401,19 @@ dispOpPowerOn(
 		XBYTE[REG_Disp_Rsv0] &= ~0x04;
 	}
 
-	/* gpio 9 LCM reset */
-	gpioByteFuncSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	gpioByteDirSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	gpioByteOutSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	sp1kHalWait(50);
-	gpioByteOutSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x00 << (7 & 0x07));
-	sp1kHalWait(110);
-	gpioByteOutSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	sp1kHalWait(100);
+    /*-------------------- USER CODE: Custom Begin --------------------*/
+
+    /* gpio 7 REST */
+    gpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8);    // 初始化GPIO
+    gpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8);     // 方向 -- 输出
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8_SET); // 拉高
+    sp1kHalWait(50);
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_RESET); // 拉低
+    sp1kHalWait(110);
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8_SET); // 再拉高，完成复位
+    sp1kHalWait(100);
+
+    /*-------------------- USER CODE: Custom End --------------------*/
 	
 	/* set clk and type. */
 	dispParaSet(DISP_PARA_CLK_CFG, CLK_SRC, CLK_DIVNX, CLK_DIV1X, 0, 0);

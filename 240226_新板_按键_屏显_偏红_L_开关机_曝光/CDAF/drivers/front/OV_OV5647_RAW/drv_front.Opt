@@ -14,7 +14,7 @@ Target (src), 0x0000 // Tools: 'MCS-51'
 Target (prj), 0x0000 // Tools: 'MCS-51'
 GRPOPT 1,(main),1,0,0
 
-OPTFFF 1,1,1,0,0,0,0,0,<.\front_OV_OV5647_RAW.c><front_OV_OV5647_RAW.c> 
+OPTFFF 1,1,1,2,0,2442,2443,0,<.\front_OV_OV5647_RAW.c><front_OV_OV5647_RAW.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,144,2,0,0,112,0,0,0 }
 
 
 TARGOPT 1, (src)

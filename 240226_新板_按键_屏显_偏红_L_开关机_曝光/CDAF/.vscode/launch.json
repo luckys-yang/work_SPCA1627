@@ -5,6 +5,5 @@
     "servertype": "keil",
     "preLaunchTask": "build",
     "cwd": "${workspaceFolder}",
-    "program": "${workspaceFolder}/MDK-ARM/Balance_V1/Balance_V1.axf",
     "ignore": ["WarningNumber1", "WarningNumber2","-Winvalid-source-encoding"]
 }

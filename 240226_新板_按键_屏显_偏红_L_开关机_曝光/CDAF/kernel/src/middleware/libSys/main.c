@@ -344,82 +344,64 @@ UINT8 xdata G_FPGAMemPool[0x3000] _at_ 0xc000;
 #endif
 
 extern code UINT16 pkgChipId;
-//=============================================================================
-//Program
-//=============================================================================
-/**
- * @brief     main
- * @param     NONE
- * @retval    NONE
- * @see       none
- * @author    Phil Lin
- * @since     2010-01-01
- * @todo      N/A
- * @bug       N/A
-*/
-void
-__main(
-	void
-)
+
+/*----------------------------- 应用层 ---------------------------------*/
+
+void __main(void)
 {
-	globalInit();
-	
-	mainJobDo();
+    globalInit();   // 进行全局初始化操作
+    mainJobDo();    // 执行主要的任务操作
 }
 
 /**
- * @brief     mainJobDo
- * @param     NONE
- * @retval    NONE
- * @see       none
- * @author    Phil Lin
- * @since     2010-01-01
- * @todo      N/A
- * @bug       N/A
-*/
-void
-mainJobDo(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    主任务执行函数 -- 2010-01-01
+**/
+void mainJobDo(void)
 {
-	UINT32 mainCnt = 0;
+    UINT32 mainCnt = 0;
 
-	#if SUPPORT_MCU_WTD
-	static UINT8 flag = 0;
-	static UINT32 dleay_cnt = 0;
-	#endif
-	
-	/*
-		Note: The uart interrupt always be disabled.
-		The cmd line request handled by flag pooling
-	*/
-	ES0 = 0;
-	while (1) {
-		mainCnt++;
+#if SUPPORT_MCU_WTD
+    static UINT8 flag = 0;
+    static UINT32 dleay_cnt = 0;
+#endif
 
-		/* feed the watch dog */
-		dbgWdtFeed(-1);
-		
-		/* Check if there's any Message in Msg-Que */
-		if (osMsgQuery() == TRUE) {
-			osMsgRcv();		
-		}
+    /*
+        注意：串口中断始终被禁用。
+        命令行请求由标志轮询处理
+    */
+    ES0 = 0;
+    while (1)
+    {
+        mainCnt++;
 
-		/* Task schedule */
-		osSched();
+        /* 喂狗 */
+        dbgWdtFeed(-1);
 
-		/* system service */
-		sysSvcSched(&mainCnt);
+        /* 检查消息队列中是否有消息 */
+        if (osMsgQuery() == TRUE)
+        {
+            osMsgRcv();
+        }
 
-		#if SUPPORT_MCU_WTD
-		if (check_usb_msdc_flag) {
-			if (++dleay_cnt == 200/*0xA2C2A*/) {
-				dleay_cnt = 0;
-				appSetWTDHeartbeat(flag);
-				flag = !flag;
-			}
-		}
-		#endif
-	}
+        /* 任务调度 */
+        osSched();
+
+        /* 系统服务 */
+        sysSvcSched(&mainCnt);
+
+#if SUPPORT_MCU_WTD
+        if (check_usb_msdc_flag)
+        {
+            if (++dleay_cnt == 200 /*0xA2C2A*/)
+            {
+                dleay_cnt = 0;
+                appSetWTDHeartbeat(flag);
+                flag = !flag;
+            }
+        }
+#endif
+    }
 }
 

@@ -42,6 +42,13 @@
 #include "gpio_api.h"
 #include "sys_mem_init.h"
 #include "solution.h"
+
+/*-------------------- USER CODE: Include Begin --------------------*/
+
+#include "User_Config.h"
+
+/*-------------------- USER CODE: Include End --------------------*/
+
 /**************************************************************************
  *                            G L O B A L   D A T A
  **************************************************************************/
@@ -125,17 +132,18 @@ code pkgDedicateGpio_t pkgDedicateGpioTbl[] = {
 };
 
 #else
+/*-------------------- USER CODE: Custom Begin --------------------*/
 
 code pkgDedicateGpio_t pkgDedicateGpioTbl[] = {
-	{PKG_DEDICATE_PIN_PWR_HOLD,   	GPIO_BYTE_GEN0,  	(1 << (7 & 0x07)), 			ACTIVE_HIGH},
+	{PKG_DEDICATE_PIN_PWR_HOLD,   	GPIO_BYTE_GEN0,  	(1 << (7 & 0x07)), 			ACTIVE_HIGH},// 没用到这个引脚!-2024.3.11
 	{PKG_DEDICATE_PIN_S2,         	GPIO_BYTE_NULL, 	NULL, 						ACTIVE_HIGH},
 	{PKG_DEDICATE_PIN_ST_TRIG,    	GPIO_BYTE_NULL,  	NULL, 						ACTIVE_HIGH},
 	{PKG_DEDICATE_PIN_ST_CHG_EN,  	GPIO_BYTE_NULL,  	NULL, 						ACTIVE_HIGH},
 	{PKG_DEDICATE_PIN_ST_CHG_RDY, 	GPIO_BYTE_NULL,  	NULL, 						ACTIVE_HIGH},
-	{PKG_DEDICATE_PIN_SD_CD,      	GPIO_BYTE_DISP0,  	(1 << (0 & 0x07)), 			ACTIVE_HIGH},
-	{PKG_DEDICATE_PIN_SD_WP,      	GPIO_BYTE_DISP0,  	(1 << (0 & 0x07)), 			ACTIVE_HIGH},
+	{PKG_DEDICATE_PIN_SD_CD,      	GPIO_BYTE_DISP0,  	GPIO_PIN_1, 			ACTIVE_HIGH},
+	{PKG_DEDICATE_PIN_SD_WP,      	GPIO_BYTE_DISP0,  	GPIO_PIN_1, 			ACTIVE_HIGH},
 	{PKG_DEDICATE_PIN_PWMDACA,    	GPIO_BYTE_NULL,  	NULL, 						ACTIVE_HIGH},
-	{PKG_DEDICATE_PIN_USB_PLUG,   	GPIO_BYTE_GEN0,  	(1 << (3 & 0x07)), 			ACTIVE_HIGH},
+	{PKG_DEDICATE_PIN_USB_PLUG,   	GPIO_BYTE_GEN0,  	GPIO_PIN_4, 			ACTIVE_HIGH},
 	{PKG_DEDICATE_PIN_LCD_SEN,	  	GPIO_BYTE_NULL,		NULL, 						ACTIVE_HIGH},
 	{PKG_DEDICATE_PIN_TV_PLUG,    	GPIO_BYTE_NULL,  	NULL, 						ACTIVE_HIGH},
 	{PKG_DEDICATE_PIN_HDMI_PLUG,  	GPIO_BYTE_NULL,  	NULL, 						ACTIVE_HIGH},
@@ -150,6 +158,7 @@ code pkgDedicateGpio_t pkgDedicateGpioTbl[] = {
 	{PKG_DEDICATE_PIN_MLC_SDEN,		GPIO_BYTE_NULL,  	NULL, 						ACTIVE_HIGH},	
 };
 
+/*-------------------- USER CODE: Custom End --------------------*/
 
 
 #endif

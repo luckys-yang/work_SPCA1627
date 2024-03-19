@@ -32,22 +32,22 @@ typedef enum _PRV_MEDIATYPE
 	PRV_TYPE_MAX			= (unsigned char) 0x03,
 } PRV_MEDIATYPE;
 
-/* Preview Snap Mode		*/
+/* Preview Snap Mode(拍摄模式枚举)		*/
 typedef enum _PRV_SNAPMODE
 {
-	PRV_SNAP_SINGLE				= (unsigned char) 0x00,
-	PRV_SNAP_SELF_2S			= (unsigned char) 0x01,
-	PRV_SNAP_SELF_5S			= (unsigned char) 0x02,
-	PRV_SNAP_SELF_10S			= (unsigned char) 0x03,
-	PRV_SNAP_BURST				= (unsigned char) 0x04,
-	PRV_SNAP_MAX				= (unsigned char) 0x05,
-	
-	PRV_SNAP_CYC_2S			,
-	PRV_SNAP_CYC_5S			,
-	PRV_SNAP_CYC_10S		,
+    PRV_SNAP_SINGLE = (unsigned char)0x00,   // 关闭
+    PRV_SNAP_SELF_2S = (unsigned char)0x01,  // 自拍2S
+    PRV_SNAP_SELF_5S = (unsigned char)0x02,  // 自拍5S
+    PRV_SNAP_SELF_10S = (unsigned char)0x03, // 自拍10S
+    PRV_SNAP_BURST = (unsigned char)0x04,    // 连拍
+    PRV_SNAP_MAX = (unsigned char)0x05,
+
+    PRV_SNAP_CYC_2S,
+    PRV_SNAP_CYC_5S,
+    PRV_SNAP_CYC_10S,
 } PRV_SNAPMODE;
 
-/* Preview Image size		*/
+/* Preview Image size(ImageSize图像大小)		*/
 typedef enum _PRV_SIZE
 {
 	PRV_SIZE_START		= (unsigned char) 0x00,
@@ -88,32 +88,33 @@ typedef enum _PRV_SIZE
 } PRV_SIZE;
 
 
-// Quality Items
+// Quality Items(ImageQuality图像质量)
 typedef enum _PRV_QUALITY
 {
-	PRV_QUAL_SUPER		= (unsigned char) 0x00,
-	PRV_QUAL_FINE		= (unsigned char) 0x01,
-	PRV_QUAL_NORMAL		= (unsigned char) 0x02,
-	PRV_QUAL_MAX		= (unsigned char) 0x03,
+    PRV_QUAL_SUPER = (unsigned char)0x00,   // 超好
+    PRV_QUAL_FINE = (unsigned char)0x01,    // 好
+    PRV_QUAL_NORMAL = (unsigned char)0x02,  // 正常
+    PRV_QUAL_MAX = (unsigned char)0x03,
 } PRV_QUALITY;
-//Stamp Items
+
+//Stamp Items(日戳)(StampMode)
 typedef enum _PRV_STAMP
 {
-	PRV_STAMP_OFF 		= (unsigned char) 0x00,
-	PRV_STAMP_DATETIME	= (unsigned char) 0x01,
+	PRV_STAMP_OFF 		= (unsigned char) 0x00, // 关闭
+	PRV_STAMP_DATETIME	= (unsigned char) 0x01, // 打开
 	PRV_STAMP_MAX		= (unsigned char) 0x02,
 	
 	PRV_STAMP_DATE		,
 } PRV_STAMP;
 
 
-/*	Preview Edge		*/
+/*	Preview Edge(锐度)(Sharpness)		*/
 typedef enum _PRV_SHARPNESS
 {
-	PRV_EDGE_HARD				= (unsigned char) 0x00,
-	PRV_EDGE_NORMAL				= (unsigned char) 0x01,
-	PRV_EDGE_SOFT				= (unsigned char) 0x02,
-	PRV_EDGE_MAX				= (unsigned char) 0x03,
+    PRV_EDGE_HARD = (unsigned char)0x00,    // 超好
+    PRV_EDGE_NORMAL = (unsigned char)0x01,  // 好
+    PRV_EDGE_SOFT = (unsigned char)0x02,    // 正常
+    PRV_EDGE_MAX = (unsigned char)0x03,
 } PRV_SHARPNESS;
 
 typedef enum _PRV_FLASH
@@ -125,60 +126,59 @@ typedef enum _PRV_FLASH
 } PRV_FLASH;
 
 
-/*	Preview	ISO		*/
+/*	Preview	ISO(Iso)	*/
 typedef enum _PRV_ISO
 {
-	PRV_ISO_AUTO			= (unsigned char) 0x00,
-	PRV_ISO_100				= (unsigned char) 0x01,
-	PRV_ISO_200				= (unsigned char) 0x02,
-	PRV_ISO_400				= (unsigned char) 0x03,
-	PRV_ISO_800				= (unsigned char) 0x04,
+	PRV_ISO_AUTO			= (unsigned char) 0x00, // 自动
+	PRV_ISO_100				= (unsigned char) 0x01, // 100
+	PRV_ISO_200				= (unsigned char) 0x02, // 200
+	PRV_ISO_400				= (unsigned char) 0x03, // 400
+	PRV_ISO_800				= (unsigned char) 0x04, // 800
 	PRV_ISO_MAX				= (unsigned char) 0x05,
 
 } PRV_ISO;
 
-/*	Preview	FREQ	*/
+/*	Preview	FREQ(电源频率)(LightFreq)	*/
 typedef enum _PRV_FREQ
 {
-	PRV_FREQ_50			= (unsigned char) 0x00,
-	PRV_FREQ_60			= (unsigned char) 0x01,
+	PRV_FREQ_50			= (unsigned char) 0x00, // 50
+	PRV_FREQ_60			= (unsigned char) 0x01, // 60
 	PRV_FREQ_MAX		= (unsigned char) 0x02,
 	
 } PRV_FREQ;
 
-/*	Preview	WB Mode		*/
+/*	Preview	WB Mode(WBMode白平衡)		*/
 typedef enum _PRV_WB
 {
-	PRV_WB_AUTO				= (unsigned char) 0x00,
-	PRV_WB_DAYLIGHT			= (unsigned char) 0x01,
-	PRV_WB_CLOUDY			= (unsigned char) 0x02,
-	PRV_WB_FLUORESCENT_H		= (unsigned char) 0x03,
-	PRV_WB_TUNGSTEN		= (unsigned char) 0x04,
-	/*PRV_WB_FLUORESCENT_L	= (unsigned char) 0x05,*/
-	PRV_WB_MAX				= (unsigned char) 0x05,
+    PRV_WB_AUTO = (unsigned char)0x00,  // 自动
+    PRV_WB_DAYLIGHT = (unsigned char)0x01,  // 日光
+    PRV_WB_CLOUDY = (unsigned char)0x02,    // 阴天
+    PRV_WB_FLUORESCENT_H = (unsigned char)0x03, // 荧光灯
+    PRV_WB_TUNGSTEN = (unsigned char)0x04,  // 钨丝灯
+    /*PRV_WB_FLUORESCENT_L	= (unsigned char) 0x05,*/
+    PRV_WB_MAX = (unsigned char)0x05,
 } PRV_WB;
-/*	Preview	Effect		*/
 
+/*	Preview	Effect(摄像头效果 特效 滤镜)(ImageEffect)		*/
 typedef enum _PRV_EFFECT
 {
-	PRV_EFFECT_NORNAL 		= (unsigned char) 0x00,
-	PRV_EFFECT_BLACKWHITE	= (unsigned char) 0x01,
-	PRV_EFFECT_SEPIA		= (unsigned char) 0x02,
-	PRV_EFFECT_NEGATIVE		= (unsigned char) 0x03,
-	PRV_EFFECT_RED			= (unsigned char) 0x04,
-	PRV_EFFECT_GREEN		= (unsigned char) 0x05,
-	PRV_EFFECT_BLUE			= (unsigned char) 0x06,
-	PRV_EFFECT_MAX			= (unsigned char) 0x07,
-	
+    PRV_EFFECT_NORNAL = (unsigned char)0x00,     // 正常
+    PRV_EFFECT_BLACKWHITE = (unsigned char)0x01, // 黑白
+    PRV_EFFECT_SEPIA = (unsigned char)0x02,      // 复古
+    PRV_EFFECT_NEGATIVE = (unsigned char)0x03,   // 负片
+    PRV_EFFECT_RED = (unsigned char)0x04,        // 红色
+    PRV_EFFECT_GREEN = (unsigned char)0x05,      // 绿色
+    PRV_EFFECT_BLUE = (unsigned char)0x06,       // 蓝色
+    PRV_EFFECT_MAX = (unsigned char)0x07,
+
 } PRV_EFFECT;
 
-
-/*	Preview	AE Metering		*/
+/*	Preview	AE Metering(测光模式)(AEMetering)		*/
 typedef enum _PRV_METER
 {
-	PRV_METER_CENTER		= (unsigned char) 0x00,
-	PRV_METER_MULTI			= (unsigned char) 0x01,
-	PRV_METER_SPOT			= (unsigned char) 0x02,
+	PRV_METER_CENTER		= (unsigned char) 0x00, // 中央测光
+	PRV_METER_MULTI			= (unsigned char) 0x01, // 多点测光
+	PRV_METER_SPOT			= (unsigned char) 0x02, // 点测光
 	PRV_METER_MAX 			= (unsigned char) 0x04,
 	PRV_METER_FP			= (unsigned char) 0x03,//Face Priority
 } PRV_METER;
@@ -194,73 +194,69 @@ typedef enum _PRV_FOCUS
 	PRV_AF_MANUAL,
 } PRV_FOCUS;
 
-/*	Preview	AF Mode		*/
+/*	Preview	AF Mode(Scene Mode场景)		*/
 
 typedef enum _PRV_SCENE
-{	
-	PRV_SCENE_AUTO				= (unsigned char) 0x00,
-	PRV_SCENE_LANDSCAPE			= (unsigned char) 0x01,
-	PRV_SCENE_NIGHTSCENERY		= (unsigned char) 0x02,
-	PRV_SCENE_PORTRAIT			= (unsigned char) 0x03,
-	PRV_SCENE_NIGHTPORTRAIT		= (unsigned char) 0x04,
-	PRV_SCENE_BEACH				= (unsigned char) 0x05,
-	PRV_SCENE_SPORT				= (unsigned char) 0x06,
-	PRV_SCENE_DINNER				= (unsigned char) 0x07,
-	PRV_SCENE_MAX					= (unsigned char) 0x08,
+{
+    PRV_SCENE_AUTO = (unsigned char)0x00,          // 自动
+    PRV_SCENE_LANDSCAPE = (unsigned char)0x01,     // 风景
+    PRV_SCENE_NIGHTSCENERY = (unsigned char)0x02,  // 夜景
+    PRV_SCENE_PORTRAIT = (unsigned char)0x03,      // 肖像
+    PRV_SCENE_NIGHTPORTRAIT = (unsigned char)0x04, // 夜画像
+    PRV_SCENE_BEACH = (unsigned char)0x05,         // 海滩
+    PRV_SCENE_SPORT = (unsigned char)0x06,         // 运动
+    PRV_SCENE_DINNER = (unsigned char)0x07,        // 宴会
+    PRV_SCENE_MAX = (unsigned char)0x08,
 } PRV_SCENE;
-/*	Preview	AF Mode		*/
 
-
+/*	Preview	AF Mode(人脸测光)(FDMetering)	*/
 typedef enum _FD_AE_
-{	
-	FD_AE_ON				= (unsigned char) 0x00,
-	FD_AE_OFF			= (unsigned char) 0x01,
-	FD_AE_MAX					= (unsigned char) 0x08,
+{
+    FD_AE_ON = (unsigned char)0x00, // 打开
+    FD_AE_OFF = (unsigned char)0x01,    // 关闭
+    FD_AE_MAX = (unsigned char)0x08,
 } _FD_AE;
 
-
-
-
+/*曝光(AEMode)*/
 typedef enum _PRV_EV
 {		
-	PRV_COMP_N20EV		= (unsigned char) 0x00, 		
-	PRV_COMP_N17EV		= (unsigned char) 0x01, 
-	PRV_COMP_N13EV		= (unsigned char) 0x02, 		
-	PRV_COMP_N10EV		= (unsigned char) 0x03, 		
-	PRV_COMP_N07EV		= (unsigned char) 0x04, 
-	PRV_COMP_N03EV		= (unsigned char) 0x05, 		
-	PRV_COMP_0EV		= (unsigned char) 0x06, 		
-	PRV_COMP_P03EV		= (unsigned char) 0x07, 
-	PRV_COMP_P07EV		= (unsigned char) 0x08, 		
-	PRV_COMP_P10EV		= (unsigned char) 0x09, 		
-	PRV_COMP_P13EV		= (unsigned char) 0x0A, 
-	PRV_COMP_P17EV		= (unsigned char) 0x0B, 		
-	PRV_COMP_P20EV		= (unsigned char) 0x0C, 		
+	PRV_COMP_N20EV		= (unsigned char) 0x00, // -2.0
+	PRV_COMP_N17EV		= (unsigned char) 0x01, // -1.7
+	PRV_COMP_N13EV		= (unsigned char) 0x02, // -1.3	
+	PRV_COMP_N10EV		= (unsigned char) 0x03, // -1.0		
+	PRV_COMP_N07EV		= (unsigned char) 0x04, // -0.7
+	PRV_COMP_N03EV		= (unsigned char) 0x05, // -0.3		
+	PRV_COMP_0EV		= (unsigned char) 0x06, // +0.0		
+	PRV_COMP_P03EV		= (unsigned char) 0x07, // +0.3
+	PRV_COMP_P07EV		= (unsigned char) 0x08, // +0.7		
+	PRV_COMP_P10EV		= (unsigned char) 0x09, // +1.0		
+	PRV_COMP_P13EV		= (unsigned char) 0x0A, // +1.3
+	PRV_COMP_P17EV		= (unsigned char) 0x0B, // +1.7		
+	PRV_COMP_P20EV		= (unsigned char) 0x0C, // 2.0		
 	PRV_COMP_MAX		= (unsigned char) 0x0D,           
 } PRV_EV;
 
-// contrast Items
+// contrast Items(对比度)(Contrast)
 typedef enum _PRV_CONTRAST
 {
-	PRV_CONTRAST_HIGH			= (unsigned char) 0x00,
-	PRV_CONTRAST_MIDDLE			= (unsigned char) 0x01,
-	PRV_CONTRAST_LOW			= (unsigned char) 0x02,
+    PRV_CONTRAST_HIGH = (unsigned char)0x00,   // 高
+    PRV_CONTRAST_MIDDLE = (unsigned char)0x01, // 中等
+    PRV_CONTRAST_LOW = (unsigned char)0x02,    // 低
 
-	PRV_CONTRAST_OFF			= (unsigned char) 0x03,
-	
-	PRV_CONTRAST_MAX			= (unsigned char) 0x04,
-	
+    PRV_CONTRAST_OFF = (unsigned char)0x03, // 关闭
+
+    PRV_CONTRAST_MAX = (unsigned char)0x04,
 
 } PRV_CONTRAST;
-// saturation Items
+
+// saturation Items(饱和度)(Saturation)
 typedef enum _PRV_SATURATION
 {
-	PRV_SATURATION_HIGH			= (unsigned char) 0x00,
-	PRV_SATURATION_MIDDLE		= (unsigned char) 0x01,
-	PRV_SATURATION_LOW			= (unsigned char) 0x02,
-	PRV_SATURATION_MAX			= (unsigned char) 0x03,
+    PRV_SATURATION_HIGH = (unsigned char)0x00,  // 高饱和度
+    PRV_SATURATION_MIDDLE = (unsigned char)0x01,    // 中等饱和度
+    PRV_SATURATION_LOW = (unsigned char)0x02,   // 低饱和度
+    PRV_SATURATION_MAX = (unsigned char)0x03,
 } PRV_SATURATION;
-
 
 // Self Timer Items
 typedef enum _PRV_SELF_TIMER
@@ -273,13 +269,13 @@ typedef enum _PRV_SELF_TIMER
 	SELF_TIMER_BURST_SHOOT	= (unsigned char) 0x05,
 } PRV_SELF_TIMER;
 
-
+/*相框*/
 typedef enum _PRV_PHOTO_FRAME
 {
-	PRV_PHOTO_FRAME_OFF		= (unsigned char) 0x00,
+	PRV_PHOTO_FRAME_OFF		= (unsigned char) 0x00, // 关闭
 
-	PRV_PHOTO_FRAME_A		= (unsigned char) 0x01,
-	PRV_PHOTO_FRAME_B		= (unsigned char) 0x02,
+	PRV_PHOTO_FRAME_A		= (unsigned char) 0x01, // 相框A
+	PRV_PHOTO_FRAME_B		= (unsigned char) 0x02, // 相框B
 	PRV_PHOTO_FRAME_C		= (unsigned char) 0x03,
 	PRV_PHOTO_FRAME_D		= (unsigned char) 0x04,
 	PRV_PHOTO_FRAME_5		= (unsigned char) 0x05,
@@ -324,10 +320,11 @@ typedef enum _PRV_VIDEORECORDMODE
 } PRV_VIDEORECORDMODE;
 // SIZE Items
 
+/*视频格式(VideoSize)*/
 typedef enum _PRV_VIDEOSIZE
 {
-    MOV_SIZE_1080P      = (unsigned char) 0x00,
-	MOV_SIZE_HD         = (unsigned char) 0x01,
+    MOV_SIZE_1080P      = (unsigned char) 0x00, // 1920x1080
+	MOV_SIZE_HD         = (unsigned char) 0x01, 
 	MOV_SIZE_VGA		= (unsigned char) 0x02,
 	
 	MOV_SIZE_MAX		= (unsigned char) 0x03,
@@ -349,11 +346,12 @@ typedef enum _MOV_QUALITY
 } MOV_QUALITY;
 
 // Quality Items
+/*帧率(FrameRate)*/
 typedef enum _MOV_FRMRATE
 {
-	MOV_FRM_HIGH= (unsigned char) 0x00,
-	MOV_FRM_MIDDLE=(unsigned char)0x01,
-	MOV_FRM_LOW	= (unsigned char) 0x02,
+	MOV_FRM_HIGH= (unsigned char) 0x00, // 高
+	MOV_FRM_MIDDLE=(unsigned char)0x01, // 中等
+	MOV_FRM_LOW	= (unsigned char) 0x02, // 低
 	MOV_FRM_MAX = (unsigned char) 0x03,	
 } MOV_FRMRATE;
 
@@ -413,13 +411,13 @@ typedef enum _PB_EFFECT
 	PB_EFFECT_MAX 			= (unsigned char) 0x0B,
 } PB_EFFECT;
 
-// storage Items
+// storage Items(开机画面)(OpenPic)
 typedef enum _PRV_OPENPIC
 {
-	PB_OPENPIC_OFF 			= (unsigned char) 0x00,
-	PB_OPENPIC_DEFAULT		= (unsigned char) 0x01,
-	PB_OPENPIC_USER_DEF		= (unsigned char) 0x02,
-	PB_OPENPIC_MAX			= (unsigned char) 0x03,
+    PB_OPENPIC_OFF = (unsigned char)0x00,      // 无
+    PB_OPENPIC_DEFAULT = (unsigned char)0x01,  // 系统
+    PB_OPENPIC_USER_DEF = (unsigned char)0x02, // 自定义
+    PB_OPENPIC_MAX = (unsigned char)0x03,
 } PRV_OPENPIC;
 
 // slide interval Items
@@ -456,34 +454,36 @@ typedef enum _PRV_MEDIA_TYPE{
 	MEDIA_MAX		= (unsigned char) 0x02,
 } PRV_MEDIA_TYPE;
 
-/*	Setup Menu QUICK VIEW		*/
+/*	Setup Menu QUICK VIEW(自动回放)(AutoReviewTime)		*/
 typedef enum _QUICKVIEW
 {
-	QUICKVIEW_OFF		= (unsigned char) 0x00,
-	QUICKVIEW_1S		= (unsigned char) 0x01,
-	QUICKVIEW_3S		= (unsigned char) 0x02,
+	QUICKVIEW_OFF		= (unsigned char) 0x00, // 关闭
+	QUICKVIEW_1S		= (unsigned char) 0x01, // 1s
+	QUICKVIEW_3S		= (unsigned char) 0x02, // 3s
 	QUICKVIEW_MAX		= (unsigned char) 0x03,
 } QUICKVIEW;
 
+/*按键声音(BeepSound)*/
 typedef enum _BEEPSOUND
 {
-	BEEP_ON			= (unsigned char) 0x00,
-	BEEP_OFF		= (unsigned char) 0x01,
+	BEEP_ON			= (unsigned char) 0x00, // 打开
+	BEEP_OFF		= (unsigned char) 0x01, // 关闭
 	BEEP_MAX		= (unsigned char) 0x02,
 } BEEPSOUND;
 
+/*眨眼检测(BlinkMode)*/
 typedef enum _BLINKMODE
 {
-	BLINKMODE_ON		= (unsigned char) 0x00,
-	BLINKMODE_OFF		= (unsigned char) 0x01,
+	BLINKMODE_ON		= (unsigned char) 0x00, // 打开
+	BLINKMODE_OFF		= (unsigned char) 0x01, // 关闭
 	BLINKMODE_MAX		= (unsigned char) 0x02,
 } BLINKMODE;
 
-
+/*微笑拍照(SmileMode)*/
 typedef enum _SMILEMODE
 {
-	SMILEMODE_ON		= (unsigned char) 0x00,
-	SMILEMODE_OFF		= (unsigned char) 0x01,
+	SMILEMODE_ON		= (unsigned char) 0x00, // 打开
+	SMILEMODE_OFF		= (unsigned char) 0x01, // 关闭
 	SMILEMODE_MAX		= (unsigned char) 0x02,
 } SMILEMODE;
 
@@ -501,38 +501,41 @@ typedef enum _WDRMODE
 	WDRMODE_MAX		= (unsigned char) 0x02,
 } WDRMODE;
 
+/*脸部检测枚举*/
 typedef enum _FDMODE
 {
-	FDMODE_ON		= (unsigned char) 0x00,
-	FDMODE_OFF			= (unsigned char) 0x01,
+	FDMODE_ON		= (unsigned char) 0x00, // 脸部检测打开
+	FDMODE_OFF			= (unsigned char) 0x01, // 脸部检测关闭
 	FDMODE_MAX		= (unsigned char) 0x02,
 } FDMODE;
 
-
+/*DIS(DisMode)*/
 typedef enum _DISMODE
 {
-	DISMODE_ON		= (unsigned char) 0x00,
-	DISMODE_OFF			= (unsigned char) 0x01,
+	DISMODE_ON		= (unsigned char) 0x00, // 打开
+	DISMODE_OFF			= (unsigned char) 0x01, // 关闭
 	DISMODE_MAX		= (unsigned char) 0x02,
 } DISMODE;
 
-
+/*开机声音(StartupSound)*/
 typedef enum _STARTSOUND
 {
-	STARTSOUND_NONE		= (unsigned char) 0x00,
-	STARTSOUND_1		= (unsigned char) 0x01,
-	STARTSOUND_2		= (unsigned char) 0x02,
-	STARTSOUND_3		= (unsigned char) 0x03,
+	STARTSOUND_NONE		= (unsigned char) 0x00, // 无
+	STARTSOUND_1		= (unsigned char) 0x01, // 声音1
+	STARTSOUND_2		= (unsigned char) 0x02, // 声音2
+	STARTSOUND_3		= (unsigned char) 0x03, // 声音3
 	STARTSOUND_MAX		= (unsigned char) 0x04,
 } STARTSOUND;
 
+/*快门声音(ShutterSound)*/
 typedef enum _SHUTTERSOUND
 {
-	SHUTTER_ON		= (unsigned char) 0x00,
-	SHUTTER_OFF		= (unsigned char) 0x01,
+	SHUTTER_ON		= (unsigned char) 0x00, // 打开
+	SHUTTER_OFF		= (unsigned char) 0x01, // 关闭
 	SHUTTER_MAX		= (unsigned char) 0x02,
 } SHUTTERSOUND;
 
+/*音量(Volume)*/
 typedef enum _VOLUME
 {
 	VOLUME_0		= (unsigned char) 0x00,
@@ -549,10 +552,11 @@ typedef enum _VOLUME
 	VOLUME_MAX		= (unsigned char) 0x0b,
 } VOLUME;
 
+/*电视(TVMode)*/
 typedef enum _TVMODE
 {
-	TVMODE_NTSC		= (unsigned char) 0x00,
-	TVMODE_PAL		= (unsigned char) 0x01,
+	TVMODE_NTSC		= (unsigned char) 0x00, // NTSC
+	TVMODE_PAL		= (unsigned char) 0x01, // PAL
 	TVMODE_MAX		= (unsigned char) 0x02,
 } TVMODE;
 
@@ -572,64 +576,69 @@ typedef enum _STARTIMAGE
 	STARTIMAGE_MAX		= (unsigned char) 0x04,
 } STARTIMAGE;
 
+/*语言(Language)*/
 typedef enum _LANGUAGE
 {
-	ENGLISH				= (unsigned char) 0x00,
-	S_CHINESE			= (unsigned char) 0x01,
-	T_CHINESE			= (unsigned char) 0x02,
-	French 				= (unsigned char) 0x03,
-	Spanish 			= (unsigned char) 0x04,
-	German 				= (unsigned char) 0x05,
-	Italian 			= (unsigned char) 0x06,
-	Portuguese 			= (unsigned char) 0x07,
-	Dutch 				= (unsigned char) 0x08,
-	Japanese  			= (unsigned char) 0x09,
-	Russian 			= (unsigned char) 0x0a,
-	arabic				= (unsigned char) 0x0b,
+	ENGLISH			= (unsigned char) 0x00, // 英语
+	S_CHINESE		= (unsigned char) 0x01, // 简体中文
+	T_CHINESE		= (unsigned char) 0x02, // 繁体中文
+	French 			= (unsigned char) 0x03, // 法语
+	Spanish 		= (unsigned char) 0x04, // 西班牙语
+	German 			= (unsigned char) 0x05, // 德语
+	Italian 		= (unsigned char) 0x06, // 意大利语
+	Portuguese 		= (unsigned char) 0x07, // 葡萄牙语
+	Dutch 			= (unsigned char) 0x08, // 荷兰语
+	Japanese  		= (unsigned char) 0x09, // 日语
+	Russian 		= (unsigned char) 0x0a, // 俄语
+	arabic			= (unsigned char) 0x0b, // 阿拉伯语
 	
-	LANGUAGE_MAX		= (unsigned char) 0x0c,
+	LANGUAGE_MAX	= (unsigned char) 0x0c,
 
-	
-	Czech 				,
-	Hungarian 			,
-	Vietnamese 			,
-	Polish 				,
-	Turkish 			,
-	Swedish 			,
-	Greek 				,
-	Romanian 			,
-	Croation 			,
-	Malay 				,
-	Korean  			,
-	Thai 				,
+	// 以下为新增语言，无注释
+	Czech,
+	Hungarian,
+	Vietnamese,
+	Polish,
+	Turkish,
+	Swedish,
+	Greek,
+	Romanian,
+	Croation,
+	Malay,
+	Korean,
+	Thai,
 } LANGUAGE;
 
+
+/*自动关机(SleepTime)*/
 typedef enum _SLEEPTIME
 {
-	POWER_SAVE_1MIN		= (unsigned char) 0x00,
-	POWER_SAVE_3MIN		= (unsigned char) 0x01,		
-	POWER_SAVE_5MIN		= (unsigned char) 0x02,	
-	POWER_SAVE_OFF		= (unsigned char) 0x03,
+	POWER_SAVE_1MIN		= (unsigned char) 0x00, // 1分钟
+	POWER_SAVE_3MIN		= (unsigned char) 0x01, // 3分钟		    
+	POWER_SAVE_5MIN		= (unsigned char) 0x02,	// 5分钟
+	POWER_SAVE_OFF		= (unsigned char) 0x03, // 关闭
 	POWER_SAVE_MAX		= (unsigned char) 0x04,
 	//POWER_SAVE_OFF
 } SLEEPTIEM;
 
+// 枚举类型：PANELPRO（面板保护时间）
 typedef enum _PANELPRO
 {
-	PANEL_TIME_30S		= (unsigned char) 0x00,	
-	PANEL_TIME_1MIN		= (unsigned char) 0x01,		
-	PANEL_TIME_3MIN		= (unsigned char) 0x02,		
-	PANEL_TIME_OFF		= (unsigned char) 0x03,		
-	PANEL_TIME_MAX		= (unsigned char) 0x04,
+    PANEL_TIME_30S  = (unsigned char)0x00, // 30秒
+    PANEL_TIME_1MIN = (unsigned char)0x01, // 1分钟
+    PANEL_TIME_3MIN = (unsigned char)0x02, // 3分钟
+    PANEL_TIME_OFF  = (unsigned char)0x03, // 关闭
+    PANEL_TIME_MAX  = (unsigned char)0x04, // 最大值
 } PANELPRO;
 
 
+/*USB模式(USBMode)*/
 typedef enum _USBMODE
 {
-	USB_MASS		= (unsigned char) 0x00,
-	USB_PCCAM		= (unsigned char) 0x01,
-	USB_SIDC		= (unsigned char) 0x02,
-	USB_MAX			= (unsigned char) 0x03,	
+    USB_MASS = (unsigned char)0x00,  // 移动硬盘
+    USB_PCCAM = (unsigned char)0x01, // 摄像头
+    USB_SIDC = (unsigned char)0x02,  // 打印机
+    USB_MAX = (unsigned char)0x03,
 } USBMODE;
 
 typedef enum _LCD_BRIGHTNESS
@@ -720,12 +729,12 @@ typedef enum _DPS_FILENAME
 	DPS_FILENAME_ON	= ( unsigned char ) 0x02,
 } DPS_FILENAME;
 
+/*快速捕获枚举(SpeedyCap)*/
 typedef enum _SPEEDYCAPTURE
 {
-	SPEEDY_CAPTURE_ON		= ( unsigned char ) 0x00,
-	SPEEDY_CAPTURE_OFF	= ( unsigned char ) 0x01,
+	SPEEDY_CAPTURE_ON		= ( unsigned char ) 0x00,   // 打开
+	SPEEDY_CAPTURE_OFF	= ( unsigned char ) 0x01,   // 关闭
 	SPEEDY_CAPTURE_MAX	= (unsigned char) 0x02,
-
 } SPEEDYCAPTURE;
 
 typedef enum _SPEEDYCAPTUREREC
@@ -737,14 +746,15 @@ typedef enum _SPEEDYCAPTUREREC
 } SPEEDYCAPTUREREC;
 
 
-
-typedef enum _PRV_ANTISHAKE             
+/*防手震(AntiShake)*/
+typedef enum _PRV_ANTISHAKE
 {
-	PRV_ANTISHAKE_ON 		= (unsigned char) 0x00,
-	PRV_ANTISHAKE_OFF 	= (unsigned char) 0x01,	
-	PRV_ANTISHAKE_MAX	= (unsigned char) 0x02,
+    PRV_ANTISHAKE_ON = (unsigned char)0x00,  // 打开
+    PRV_ANTISHAKE_OFF = (unsigned char)0x01, // 关闭
+    PRV_ANTISHAKE_MAX = (unsigned char)0x02,
 } PRV_ANTISHAKE;
 
+/*AdvanceDenoise*/
 typedef enum _REC_ADVANCEDENOISE
 {
 	REC_ADVANCEDENOISE_ON = (unsigned char) 0x00,

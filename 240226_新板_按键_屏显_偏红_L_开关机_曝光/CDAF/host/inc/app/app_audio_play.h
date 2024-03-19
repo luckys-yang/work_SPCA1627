@@ -39,8 +39,8 @@
 #define VOICE_TYPE_OPEN		2
 #define VOICE_TYPE_CLOSE		3
 
-#define VOICE_PLAYLEVLE_HIGH	1 // The voice must be played 
-#define VOICE_PLAYLEVLE_LOW	0 // if range of the msg  is 0x10 to 0x1f,voice play
+#define VOICE_PLAYLEVLE_HIGH	1 // 必须播放声音
+#define VOICE_PLAYLEVLE_LOW	0 // 如果 msg 的范围是 0x10 至 0x1f，则播放声音
 
 #define APP_AUD_PB_SPD_NORMAL	1
 #define APP_AUD_PB_SPD2			2

@@ -305,30 +305,24 @@ void menuDispParaInit(void)
 	}
 }
 
-/**************************************************************************
- *                                                                        *
- *  Function Name: menuLanguageGet                                        *
- *                                                                        *
- *  Purposes:                                                             *
- *                                                                        *
- *  Descriptions:                                                         *
- *                                                                        *
- *  Arguments: None                                                       *
- *                                                                        *
- *  Returns:                                                              *
- *                                                                        *
- *  See also:                                                             *
- *                                                                        *
- **************************************************************************/
+/**
+* @param    None
+* @retval   None
+* @brief    返回当前的语言设置
+**/
 UINT8 menuLanguageGet(void)
 {
+	// 获取UI参数指针
 	uiPara_t* puiPara = appUiParaGet();
 
+	// 如果语言超出范围，将语言设置为英语
 	if (puiPara->Language >= 24/*LANGUAGE_MAX*/)
 		puiPara->Language = ENGLISH;
 
+	// 返回当前语言设置
 	return puiPara->Language;
 }
+
 
 /**************************************************************************
  *                                                                        *
@@ -1100,6 +1094,11 @@ void menuSpecialSequenceDisp(void)
  *  See also:                                                             *
  *                                                                        *
  **************************************************************************/
+/**
+* @param    None
+* @retval   None
+* @brief    显示菜单
+**/
 void menuProcDisp (void)
 {
 	UINT8 	buf[BUFSIZE];
@@ -1130,7 +1129,7 @@ void menuProcDisp (void)
 	
 	#if 1
 	 /* Highlight the tab */
-	if (menuProcLayerGet() == 0)
+	if (menuProcLayerGet() == 0)    // 高亮显示选项卡
 	{
 		layer = 1;
 		item = 0;
@@ -1189,7 +1188,7 @@ void menuProcDisp (void)
 	#endif
 
 	#if 1 /* Highlight the setting menu */
-	else if (menuProcLayerGet() == 1)
+	else if (menuProcLayerGet() == 1)   // 高亮显示设置菜单
 	{
 		layer = 1;
 		item = 0;
@@ -1266,7 +1265,7 @@ void menuProcDisp (void)
 	#endif
 
 	#if 1 /* Highlight the option menu */
-	else if (menuProcLayerGet() == 2)
+	else if (menuProcLayerGet() == 2)   // 突出显示选项菜单
 	{
 		layer = 1;
 		item = 0;
@@ -1400,7 +1399,7 @@ void menuProcDisp (void)
 	#endif
 
 	#if 1 /* Highlight the option menu */
-	else if (menuProcLayerGet() == 3)
+	else if (menuProcLayerGet() == 3)   // 突出显示选项菜单
 	{
 		layer = 3;
 		item = 0;
@@ -2167,26 +2166,31 @@ void menuProcDispPalette(UINT16 msg)
 
 #endif
 
-// ����ɾ���Ի���
-void app_quick_delete_dialog(UINT8 cur_idx) {
-	UINT8 buf[BUFSIZE];
+/**
+* @param    cur_idx: 当前选中的索引
+* @retval   None
+* @brief    快速删除对话框
+**/
+void app_quick_delete_dialog(UINT8 cur_idx) 
+{
+	UINT8 buf[BUFSIZE];  // 缓冲区
 
-	UINT16 dialog_x = 0, dialog_y = 0;
-	UINT16 select_bar_x = 0, select_bar_y = 0;
-	UINT16 title_x = 0, title_y = 0;
+	UINT16 dialog_x = 0, dialog_y = 0;  // 对话框位置坐标
+	UINT16 select_bar_x = 0, select_bar_y = 0;  // 选择条位置坐标
+	UINT16 title_x = 0, title_y = 0;  // 标题位置坐标
 	
 	
-	// �Ի���
+	// 设置对话框位置
 	dialog_x = MENU_BODY_LAYER3_X_OFFSET;
 	dialog_y = MENU_BODY_LAYER3_Y_OFFSET;
 	
-	// appOsdColorSet(MENU_DLG_GET_FOCUS);
+	// 绘制对话框图标
 	appOsdColorSet(OSD_COLOR_WHITE);
 	osdIconDrawExt(dialog_x, dialog_y, ID_ICON_MUDLG,0);
 
 	
 
-	// ѡ����
+	// 设置选择条位置
 	select_bar_x = dialog_x + 20;
 	select_bar_y = dialog_y + ((cur_idx + 1) * 30) + 10;
 	select_bar_y = cur_idx ? select_bar_y + 4 : select_bar_y;
@@ -2196,32 +2200,32 @@ void app_quick_delete_dialog(UINT8 cur_idx) {
 
 	
 
-	// ������ʾ��
+	// 显示提示信息
 	menuPromptDisp(MENU_PROMPT_OK_ON | MENU_PROMPT_MENU_OFF);
 
 	
 
-	// �Ի������
+	// 显示对话框标题
 	if(enterMacroadjust == 1){
-		strGet(buf,BUFSIZE,ID_STR_ADJUST_MACRO_);
-		//enterMacroadjust = 0;
+		strGet(buf, BUFSIZE, ID_STR_ADJUST_MACRO_);
 	}else{
-		strGet(buf,BUFSIZE,ID_STR_DELETE_THIS_FILE_);
+		strGet(buf, BUFSIZE, ID_STR_DELETE_THIS_FILE_);
 	}
 	title_x = (LCD_WIDTH-strWidthGet(buf))/2;
 	title_y = dialog_y + 4;
 	
 	appOsdColorSet(MENU_STR_GET_FOCUS);
-	menuStrDispExt(title_x,  title_y, buf, 1);
+	menuStrDispExt(title_x, title_y, buf, 1);
 
 	
 
-	// ����:ȷ�Ϻ�ȡ��
-	strGet(buf,BUFSIZE,ID_STR_ENTER);	
+	// 显示确定和取消选项
+	strGet(buf, BUFSIZE, ID_STR_ENTER);	
 	appOsdColorSet(OSD_COLOR_WHITE);
-	menuStrDispExt(select_bar_x + 85,  dialog_y + 30 + 12, buf, 1);
+	menuStrDispExt(select_bar_x + 85, dialog_y + 30 + 12, buf, 1);
 
-	strGet(buf,BUFSIZE,ID_STR_BACK);
-	menuStrDispExt(select_bar_x + 85,  dialog_y + 2 * 30 + 16, buf, 1);
+	strGet(buf, BUFSIZE, ID_STR_BACK);
+	menuStrDispExt(select_bar_x + 85, dialog_y + 2 * 30 + 16, buf, 1);
 }
+
 

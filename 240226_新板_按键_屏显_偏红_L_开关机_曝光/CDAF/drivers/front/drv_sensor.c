@@ -1183,75 +1183,128 @@
  SP1K_BTN_POWER,
  } button_t;
 
- typedef enum keyStatus_e {
- KEY_STATUS_PRESSED = (unsigned char)0x01,
- KEY_STATUS_RELEASED = (unsigned char)0x02,
- KEY_STATUS_REPEAT = (unsigned char)0x04,
+ typedef enum
+ {
+ Flag_false = 0,
+ Flag_true = 1
+ } SystemStatus_et;
+
+ typedef enum
+ {
+ Status_0 = 0,
+ Status_1 = 1,
+ Status_2 = 2,
+ Status_3 = 3,
+ Status_4 = 4,
+ Status_5 = 5,
+ Status_6 = 6
+ } UiStatus_et;
+
+ typedef enum
+ {
+ GPIO_PIN_1 = 0x01,   
+ GPIO_PIN_2 = 0x02,   
+ GPIO_PIN_3 = 0x04,   
+ GPIO_PIN_4 = 0x08,   
+ GPIO_PIN_5 = 0x10,   
+ GPIO_PIN_6 = 0x20,   
+ GPIO_PIN_7 = 0x40,   
+ GPIO_PIN_8 = 0x80    
+ } GPIO_Pin_TypeDef_et;
+
+ typedef enum
+ {
+ GPIO_PIN_RESET = 0,   
+ GPIO_PIN_1_SET   = GPIO_PIN_1,    
+ GPIO_PIN_2_SET   = GPIO_PIN_2,    
+ GPIO_PIN_3_SET   = GPIO_PIN_3,    
+ GPIO_PIN_4_SET   = GPIO_PIN_4,    
+ GPIO_PIN_5_SET   = GPIO_PIN_5,    
+ GPIO_PIN_6_SET   = GPIO_PIN_6,    
+ GPIO_PIN_7_SET   = GPIO_PIN_7,    
+ GPIO_PIN_8_SET   = GPIO_PIN_8,    
+ } GPIO_PinState_et;
+
+ typedef enum keyStatus_e
+ {
+ KEY_STATUS_PRESSED = (unsigned char)0x01,   
+ KEY_STATUS_RELEASED = (unsigned char)0x02,  
+ KEY_STATUS_REPEAT = (unsigned char)0x04,    
  } keyStatus_t;
 
- typedef enum keyType_e {
- KEY_TYPE_ADC_A = (unsigned char)0x01,
- KEY_TYPE_ADC_B = (unsigned char)0x02,
- KEY_TYPE_GPIO = (unsigned char)0x03,
+ typedef enum keyType_e
+ {
+ KEY_TYPE_ADC_A = (unsigned char)0x01,  
+ KEY_TYPE_ADC_B = (unsigned char)0x02,  
+ KEY_TYPE_GPIO = (unsigned char)0x03,   
  } keyType_t;
 
- typedef struct keyAttrAdc_s {
- UINT8 keyNum;
- UINT8 keyType;
- UINT8* pKeyEn;
+ typedef struct keyMsg_s
+ {
+ UINT16 keyMsgPrs;  
+ UINT16 keyMsgRpt;  
+ UINT16 keyMsgRls;  
+ } keyMsg_t;
+
+ typedef struct keyAttrAdc_s
+ {
+ UINT8 keyNum;  
+ UINT8 keyType;  
+ UINT8 *pKeyEn;  
  } keyAttrAdc_t;
 
- typedef struct keyAttrGpio_s {
- UINT8 keyStsPrev;
- UINT8* pKeyEn;
+ typedef struct keyAttrGpio_s
+ {
+ UINT8 keyStsPrev;  
+ UINT8 *pKeyEn;  
  } keyAttrGpio_t;
 
- typedef struct keyMsg_s {
- UINT16 keyMsgPrs;
- UINT16 keyMsgRpt;
- UINT16 keyMsgRls;
- } keyMsg_t; 
-
- typedef struct keyCtrlAdc_s {
- UINT8 keyDec;
- UINT16 code* pKeyVal;
- UINT16 code* pKeyDev;
- UINT16 keyValPrev;
- UINT16 keyValRpt;
+ typedef struct keyCtrlAdc_s
+ {
+ UINT8 keyDec;  
+ UINT16 code *pKeyVal;  
+ UINT16 code *pKeyDev;  
+ UINT16 keyValPrev;  
+ UINT16 keyValRpt;  
  } keyCtrlAdc_t;
 
- typedef struct keyCtrlGpio_s {
- UINT8 keyDec;
- UINT16 keyValRpt;
+ typedef struct keyCtrlGpio_s
+ {
+ UINT8 keyDec;  
+ UINT16 keyValRpt;  
  } keyCtrlGpio_t;
 
- typedef struct keyUnitAdc_s {
- struct keyAttrAdc_s keyAttr;
- struct keyMsg_s code* pKeyMsg;
- struct keyCtrlAdc_s keyCtrl;
- UINT8 keyActiveIdx;
+ typedef struct keyUnitAdc_s
+ {
+ struct keyAttrAdc_s keyAttr;  
+ struct keyMsg_s code *pKeyMsg;  
+ struct keyCtrlAdc_s keyCtrl;  
+ UINT8 keyActiveIdx;  
  } keyUnitAdc_t;
 
- typedef struct keyUnitGpio_s {
- struct keyAttrGpio_s keyAttr[4];
- struct keyMsg_s code* pKeyMsg;
- struct keyCtrlGpio_s keyCtrl;
+ typedef struct keyUnitGpio_s
+ {
+ struct keyAttrGpio_s keyAttr[4];  
+ struct keyMsg_s code *pKeyMsg;  
+ struct keyCtrlGpio_s keyCtrl;  
  } keyUnitGpio_t;
 
- typedef struct battUnitAdc_s {
- UINT8 battLvl;
- UINT8 battDec;
- UINT8 battDetectEn;
- UINT8 battLvlTol;
- UINT16* pbattAdcVal;
- UINT16 battAdcDev;
+ typedef struct battUnitAdc_s
+ {
+ UINT8 battLvl;  
+ UINT8 battDec;  
+ UINT8 battDetectEn;  
+ UINT8 battLvlTol;  
+ UINT16 *pbattAdcVal;  
+ UINT16 battAdcDev;  
  } battUnitAdc_t;
 
- typedef struct scanTag_s {
- struct keyUnitAdc_s keyAdcA;
- struct keyUnitAdc_s keyAdcB;
- struct keyUnitGpio_s keyGpio;
- struct battUnitAdc_s battAdc;
+ typedef struct scanTag_s
+ {
+ struct keyUnitAdc_s keyAdcA;  
+ struct keyUnitAdc_s keyAdcB;  
+ struct keyUnitGpio_s keyGpio;  
+ struct battUnitAdc_s battAdc;  
  } scanTag_t;
 
  void keyScanInit(void);
@@ -3739,9 +3792,9 @@
 
  pcap = &(frontPrevCapabDesc[frontPrevMode]);
 
-  dbgFuncTrack(-1, (unsigned short)2526);
+  dbgFuncTrack(-1, (unsigned short)2532);
   HAL_FrontSignalWait(FRONT_WAIT_VSYNC, FRONT_WAIT_FALLING, 1);	 
-  dbgFuncTrack(-1, (unsigned short)2528);
+  dbgFuncTrack(-1, (unsigned short)2534);
 
   HAL_FrontParaSet(FRONT_PARA_MCLK_CFG, FRONT_MCLK_SRC_INT, pcap->mclkDiv, pcap->mclkPhase, 0, 0);
   HAL_FrontParaSet(FRONT_PARA_PCLK_CFG, (1 << 3), pcap->pclkDiv, pcap->pclkPhase, 0, 0);
@@ -3766,9 +3819,9 @@
 
   HAL_CdspBayerPatternSet(FRONT_BAYER_PTN_GBBRGR);
 
-  dbgFuncTrack(-1, (unsigned short)2555);
+  dbgFuncTrack(-1, (unsigned short)2561);
   HAL_FrontSignalWait(FRONT_WAIT_VSYNC, FRONT_WAIT_FALLING, 1);	 
-  dbgFuncTrack(-1, (unsigned short)2557);
+  dbgFuncTrack(-1, (unsigned short)2563);
 
  }
 
@@ -4323,22 +4376,19 @@
 
  }
 
- static void
- frontBeforePowerOn(
- void
- )
+ static void frontBeforePowerOn(void)
  {
 
-  HAL_GpioByteFuncSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));   
-  HAL_GpioByteDirSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-  HAL_GlobalTimerWait(20);
+  HAL_GpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1);   
+  HAL_GpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1);    
+  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1_SET);    
+  HAL_GlobalTimerWait(20);   
 
-  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (0 << ( 0 & 0x07)));
-  HAL_GlobalTimerWait(100);
+  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_RESET);    
+  HAL_GlobalTimerWait(100);   
 
-  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-  HAL_GlobalTimerWait(20);
+  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1_SET);    
+  HAL_GlobalTimerWait(20);   
 
  }
 
@@ -4503,26 +4553,26 @@
  case SP1K_AE_ISO_100:
 
  isoGainIdx = 0;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3961, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3963, (1));	}	} while (0);
  break;
  case SP1K_AE_ISO_200:
 
  isoGainIdx = 16;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3966, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3968, (1));	}	} while (0);
  break;
  case SP1K_AE_ISO_400:
 
  isoGainIdx = 32;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3971, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3973, (1));	}	} while (0);
  break;
  case SP1K_AE_ISO_800:
 
  isoGainIdx = 48;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3976, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3978, (1));	}	} while (0);
  break;
  default:
 
-  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3980, (1));	}	} while (0);
+  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3982, (1));	}	} while (0);
  break;
  }
 
@@ -4782,7 +4832,7 @@
 
   sp1kDiskRsvSizeGet(fileId, ((void *) 0), &size);  
  if (size > (12UL * 1024UL)) {
-  do {	if (!(!(size > (12UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4321, (0));	}	} while (0); 
+  do {	if (!(!(size > (12UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4323, (0));	}	} while (0); 
  return;
  }
 
@@ -4794,7 +4844,7 @@
 
  if (sts == 1) {
  printf("Sensor command table (0x%x)\n",fileId);
-  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4339, (1));	}	} while (0);
+  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4341, (1));	}	} while (0);
  }
 
  }
@@ -4810,13 +4860,13 @@
  UINT8 sts;
 
  if (byteAddress & 0x0001) {
-  do {	if (!(!(byteAddress & 0x0001))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4426, (0));	}	} while (0); 
+  do {	if (!(!(byteAddress & 0x0001))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4428, (0));	}	} while (0); 
  return;
  }
 
   sp1kDiskRsvSizeGet(fileId, ((void *) 0), &size);  
  if (size > (4UL * 1024UL)) {
-  do {	if (!(!(size > (4UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4433, (0));	}	} while (0); 
+  do {	if (!(!(size > (4UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4435, (0));	}	} while (0); 
  return;
  }
 

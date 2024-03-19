@@ -67,7 +67,11 @@
  * @todo      N/A
  * @bug       N/A
 */
-UINT32 Func_A( UINT32 param1, UINT32 *param2)
+UINT32
+Func_A(
+	UINT32 param1,
+	UINT32* param2
+)
 {
-    return SUCCESS;
+	return SUCCESS;
 }

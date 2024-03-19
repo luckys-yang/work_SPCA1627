@@ -463,7 +463,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STRING.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STRING.H" /0
 
 
 
@@ -476,17 +476,17 @@
  
  
  
-#line 13 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STRING.H" /1
+#line 13 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STRING.H" /1
   
  
  
-#line 16 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STRING.H" /0
+#line 16 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STRING.H" /0
  
  
-#line 18 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STRING.H" /1
+#line 18 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STRING.H" /1
   
  
-#line 20 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STRING.H" /0
+#line 20 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STRING.H" /0
  
  #pragma SAVE
  #pragma REGPARMS
@@ -525,7 +525,7 @@
 #line 146 "..\..\..\KERNEL\INC\GENERAL.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STDLIB.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STDLIB.H" /0
 
 
 
@@ -538,17 +538,17 @@
  
  
  
-#line 13 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STDLIB.H" /1
+#line 13 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STDLIB.H" /1
   
  
  
-#line 16 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STDLIB.H" /0
+#line 16 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STDLIB.H" /0
  
  
-#line 18 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STDLIB.H" /1
+#line 18 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STDLIB.H" /1
   
  
-#line 20 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\STDLIB.H" /0
+#line 20 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\STDLIB.H" /0
  
  
  
@@ -587,7 +587,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\COMMON.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\COMMON.H" /0
 
 
 
@@ -619,10 +619,10 @@
  
  
  
-#line 32 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\COMMON.H" /1
+#line 32 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\COMMON.H" /1
   
  
-#line 34 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\COMMON.H" /0
+#line 34 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\COMMON.H" /0
  
  
  
@@ -781,7 +781,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
 
 
 
@@ -1028,8 +1028,8 @@
  
  
  
-#line 35 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
-#line 35 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
+#line 35 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
+#line 35 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
  
 
 
@@ -1056,10 +1056,10 @@
  
  
  
-#line 61 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /1
+#line 61 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /1
  
  
-#line 63 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
+#line 63 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\FRONT_PARA.H" /0
  
  
  
@@ -1408,7 +1408,7 @@
 #line 38 "..\..\..\KERNEL\INC\MIDDLEWARE\FRONT_LOGI.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
 
 
 
@@ -1445,7 +1445,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\ICAT_STUB.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\ICAT_STUB.H" /0
 
 
 
@@ -1486,7 +1486,7 @@
  
  
  
-#line 41 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\ICAT_STUB.H" /1
+#line 41 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\ICAT_STUB.H" /1
  
 
 
@@ -1682,15 +1682,15 @@
  
  
  
-#line 236 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\ICAT_STUB.H" /0
+#line 236 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\ICAT_STUB.H" /0
  
  
  
  
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /0
 
 
 
@@ -1768,27 +1768,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
  
  
  
@@ -1800,6 +1779,21 @@
  
 
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
@@ -2282,7 +2276,7 @@
  
  
  
-#line 33 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /0
+#line 33 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /0
  
  
 
@@ -2361,11 +2355,11 @@
  UINT16 *gbGain,UINT16 *bGain,UINT16 *grGain,UINT16 *rGain,UINT8 FalloffPer,
  UINT8 maxGbVal,UINT8 maxBVal,UINT8 maxGrVal,UINT8 maxRVal);
  
-#line 111 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /1
+#line 111 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /1
  
  
  
-#line 114 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /0
+#line 114 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\LSC_CAL.H" /0
  
  void lscMaxValGetbyFilter(UINT32 rawAddr,UINT16 hSize,UINT16 vSize,
  UINT8 cfa,UINT8 *maxR,UINT8 *maxGr,UINT8 *maxB,UINT8 *maxGb,UINT8 *warningM);
@@ -2390,7 +2384,7 @@
  
  
  
-#line 37 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 37 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
  
   
 #line 1 "..\..\..\KERNEL\INC\USBOPT.H" /0
@@ -2420,7 +2414,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\KNL_FUNC_OPT.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\KNL_FUNC_OPT.H" /0
 
 
 
@@ -2451,7 +2445,7 @@
  
  
  
-#line 31 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\KNL_FUNC_OPT.H" /1
+#line 31 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\KNL_FUNC_OPT.H" /1
   
  
 
@@ -2609,7 +2603,7 @@
  
  
  
-#line 188 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\KNL_FUNC_OPT.H" /0
+#line 188 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\KNL_FUNC_OPT.H" /0
  
 #line 26 "..\..\..\KERNEL\INC\USBOPT.H" /0
  
@@ -2684,10 +2678,10 @@
  
  
  
-#line 38 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 38 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
 
 
 
@@ -2910,7 +2904,7 @@
  
 #line 188 "..\..\..\KERNEL\INC\KNL_FUNC_OPT.H" /0
  
-#line 31 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
+#line 31 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
  
   
 #line 1 "..\..\..\KERNEL\INC\SP1K\SP1K_MD_API.H" /0
@@ -3221,17 +3215,17 @@
  
  
  
-#line 32 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
+#line 32 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
  
  
  
  
  
  
-#line 38 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /1
+#line 38 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /1
   
  
-#line 40 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
+#line 40 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\MOTION_DET.H" /0
 
 
  
@@ -3320,7 +3314,7 @@
  
  
  
-#line 39 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 39 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
  
  
  
@@ -3347,14 +3341,14 @@
  
  
  
-#line 65 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /1
+#line 65 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /1
  
   
  
   
  
  
-#line 71 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 71 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
  
  
  
@@ -3398,12 +3392,12 @@
  MEM_IDX_MOE_TMP,
  
  
-#line 114 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /1
+#line 114 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /1
  
  
  
  
-#line 118 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 118 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
  MEM_IDX_USB,
  
  MEM_IDX_SMOOTH_ZOOM_FACTOR,
@@ -3467,7 +3461,7 @@
  
  
  
-#line 181 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /1
+#line 181 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /1
  
  
  
@@ -3483,7 +3477,7 @@
  
  
  
-#line 196 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
+#line 196 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\SYS_MEM_INIT.H" /0
  
  MEM_IDX_STILL_PB_START,
  MEM_IDX_STILL_PB_DISP = MEM_IDX_STILL_PB_START,
@@ -4970,27 +4964,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
  
  
  
@@ -5064,124 +5037,240 @@
  
  
  
+#line 14 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+ 
+  
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#line 69 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /1
+  
+ 
+#line 71 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
+ 
+ 
+#line 73 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /1
+  
+ 
+#line 75 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
+ 
+ 
+#line 77 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /1
+  
+ 
+#line 79 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
+ 
+ 
+ 
+ 
+#line 15 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+ 
+ 
+ 
+ 
+  
+#line 1 "..\..\..\USER\USER_CONFIG.H" /0
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ typedef enum
+ {
+ Flag_false = 0,
+ Flag_true = 1
+ } SystemStatus_et;
+ 
+ 
+ typedef enum
+ {
+ Status_0 = 0,
+ Status_1 = 1,
+ Status_2 = 2,
+ Status_3 = 3,
+ Status_4 = 4,
+ Status_5 = 5,
+ Status_6 = 6
+ } UiStatus_et;
+ 
+ 
+ typedef enum
+ {
+ GPIO_PIN_1 = 0x01,   
+ GPIO_PIN_2 = 0x02,   
+ GPIO_PIN_3 = 0x04,   
+ GPIO_PIN_4 = 0x08,   
+ GPIO_PIN_5 = 0x10,   
+ GPIO_PIN_6 = 0x20,   
+ GPIO_PIN_7 = 0x40,   
+ GPIO_PIN_8 = 0x80    
+ } GPIO_Pin_TypeDef_et;
+ 
+ 
+ typedef enum
+ {
+ GPIO_PIN_RESET = 0,   
+ GPIO_PIN_1_SET   = GPIO_PIN_1,    
+ GPIO_PIN_2_SET   = GPIO_PIN_2,    
+ GPIO_PIN_3_SET   = GPIO_PIN_3,    
+ GPIO_PIN_4_SET   = GPIO_PIN_4,    
+ GPIO_PIN_5_SET   = GPIO_PIN_5,    
+ GPIO_PIN_6_SET   = GPIO_PIN_6,    
+ GPIO_PIN_7_SET   = GPIO_PIN_7,    
+ GPIO_PIN_8_SET   = GPIO_PIN_8,    
+ } GPIO_PinState_et;
+ 
+ 
+#line 19 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#line 33 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
+  
+ 
 #line 35 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
-  
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
  
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-
-
-
- 
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
-#line 69 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /1
+#line 39 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
  
-#line 71 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
- 
- 
-#line 73 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /1
-  
- 
-#line 75 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
- 
- 
-#line 77 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /1
-  
- 
-#line 79 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
- 
- 
- 
- 
-#line 36 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
- 
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
-#line 48 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
-  
- 
-#line 50 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
- 
- 
- 
- 
- 
-#line 55 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
-  
- 
-#line 57 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+#line 41 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
  
  
@@ -5197,7 +5286,11 @@
  
  
  
-#line 72 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
+ 
+ 
+ 
+ 
+#line 60 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
   
   
@@ -5210,7 +5303,7 @@
   
   
  
-#line 84 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+#line 72 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
  
  
@@ -5226,7 +5319,8 @@
  
  
  
-#line 99 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
+ 
+#line 88 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
   
   
@@ -5247,12 +5341,11 @@
   
   
  
-#line 119 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+#line 108 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
  
  
- 
-#line 123 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
+#line 111 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
   
   
@@ -5265,7 +5358,7 @@
   
   
  
-#line 135 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+#line 123 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
  
  
@@ -5282,8 +5375,7 @@
  
  
  
- 
-#line 152 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
+#line 139 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
   
   
@@ -5303,50 +5395,30 @@
   
  
  
-#line 171 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+#line 158 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
  
  
-#line 174 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
+#line 161 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
  
-#line 176 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+#line 163 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
  
  
  
  
  
- 
- 
-#line 184 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
-  
- 
+#line 169 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
  
   
  
   
  
-#line 192 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-#line 203 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
   
  
-#line 205 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
- 
- 
- 
+#line 177 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
  
  
  
@@ -5354,95 +5426,122 @@
  
 
 
- 
- 
-
 
  
- typedef enum keyStatus_e {
- KEY_STATUS_PRESSED = (unsigned char)0x01,
- KEY_STATUS_RELEASED = (unsigned char)0x02,
- KEY_STATUS_REPEAT = (unsigned char)0x04,
+ 
+ 
+ 
+#line 189 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /1
+  
+ 
+#line 191 "..\..\..\HOST\INC\CUSTOMIZATION\KEY_SCAN.H" /0
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ typedef enum keyStatus_e
+ {
+ KEY_STATUS_PRESSED = (unsigned char)0x01,   
+ KEY_STATUS_RELEASED = (unsigned char)0x02,  
+ KEY_STATUS_REPEAT = (unsigned char)0x04,    
  } keyStatus_t;
  
- typedef enum keyType_e {
- KEY_TYPE_ADC_A = (unsigned char)0x01,
- KEY_TYPE_ADC_B = (unsigned char)0x02,
- KEY_TYPE_GPIO = (unsigned char)0x03,
+ typedef enum keyType_e
+ {
+ KEY_TYPE_ADC_A = (unsigned char)0x01,  
+ KEY_TYPE_ADC_B = (unsigned char)0x02,  
+ KEY_TYPE_GPIO = (unsigned char)0x03,   
  } keyType_t;
  
- typedef struct keyAttrAdc_s {
- UINT8 keyNum;
- UINT8 keyType;
- UINT8* pKeyEn;
+ typedef struct keyMsg_s
+ {
+ UINT16 keyMsgPrs;  
+ UINT16 keyMsgRpt;  
+ UINT16 keyMsgRls;  
+ } keyMsg_t;
+ 
+ 
+ 
+ typedef struct keyAttrAdc_s
+ {
+ UINT8 keyNum;  
+ UINT8 keyType;  
+ UINT8 *pKeyEn;  
  } keyAttrAdc_t;
  
- typedef struct keyAttrGpio_s {
- UINT8 keyStsPrev;
- UINT8* pKeyEn;
+ typedef struct keyAttrGpio_s
+ {
+ UINT8 keyStsPrev;  
+ UINT8 *pKeyEn;  
  } keyAttrGpio_t;
  
- typedef struct keyMsg_s {
- UINT16 keyMsgPrs;
- UINT16 keyMsgRpt;
- UINT16 keyMsgRls;
- } keyMsg_t; 
  
- typedef struct keyCtrlAdc_s {
- UINT8 keyDec;
- UINT16 code* pKeyVal;
- UINT16 code* pKeyDev;
- UINT16 keyValPrev;
- UINT16 keyValRpt;
+ 
+ typedef struct keyCtrlAdc_s
+ {
+ UINT8 keyDec;  
+ UINT16 code *pKeyVal;  
+ UINT16 code *pKeyDev;  
+ UINT16 keyValPrev;  
+ UINT16 keyValRpt;  
  } keyCtrlAdc_t;
  
- typedef struct keyCtrlGpio_s {
- UINT8 keyDec;
- UINT16 keyValRpt;
+ typedef struct keyCtrlGpio_s
+ {
+ UINT8 keyDec;  
+ UINT16 keyValRpt;  
  } keyCtrlGpio_t;
  
- typedef struct keyUnitAdc_s {
- struct keyAttrAdc_s keyAttr;
- struct keyMsg_s code* pKeyMsg;
- struct keyCtrlAdc_s keyCtrl;
- UINT8 keyActiveIdx;
+ 
+ 
+ typedef struct keyUnitAdc_s
+ {
+ struct keyAttrAdc_s keyAttr;  
+ struct keyMsg_s code *pKeyMsg;  
+ struct keyCtrlAdc_s keyCtrl;  
+ UINT8 keyActiveIdx;  
  } keyUnitAdc_t;
  
- typedef struct keyUnitGpio_s {
- struct keyAttrGpio_s keyAttr[4];
- struct keyMsg_s code* pKeyMsg;
- struct keyCtrlGpio_s keyCtrl;
+ typedef struct keyUnitGpio_s
+ {
+ struct keyAttrGpio_s keyAttr[4];  
+ struct keyMsg_s code *pKeyMsg;  
+ struct keyCtrlGpio_s keyCtrl;  
  } keyUnitGpio_t;
  
- typedef struct battUnitAdc_s {
- UINT8 battLvl;
- UINT8 battDec;
- UINT8 battDetectEn;
- UINT8 battLvlTol;
- UINT16* pbattAdcVal;
- UINT16 battAdcDev;
+ typedef struct battUnitAdc_s
+ {
+ UINT8 battLvl;  
+ UINT8 battDec;  
+ UINT8 battDetectEn;  
+ UINT8 battLvlTol;  
+ UINT16 *pbattAdcVal;  
+ UINT16 battAdcDev;  
  } battUnitAdc_t;
  
- typedef struct scanTag_s {
- struct keyUnitAdc_s keyAdcA;
- struct keyUnitAdc_s keyAdcB;
- struct keyUnitGpio_s keyGpio;
- struct battUnitAdc_s battAdc;
+ 
+ typedef struct scanTag_s
+ {
+ struct keyUnitAdc_s keyAdcA;  
+ struct keyUnitAdc_s keyAdcB;  
+ struct keyUnitGpio_s keyGpio;  
+ struct battUnitAdc_s battAdc;  
  } scanTag_t;
  
  
  
-
-
-
-
- 
- 
-
-
-
-
- 
  
  
 
@@ -5458,15 +5557,14 @@
  
  
  
- 
+
+
 
 
  
  
 
 
- 
- 
 
 
  
@@ -5486,7 +5584,7 @@
 #line 25 "..\..\..\KERNEL\INC\TIMER.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\FUNC_TIMER_DEF.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\FUNC_TIMER_DEF.H" /0
 
 
 
@@ -5527,10 +5625,10 @@
 
  
  
-#line 41 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\FUNC_TIMER_DEF.H" /1
+#line 41 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\FUNC_TIMER_DEF.H" /1
   
  
-#line 43 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\FUNC_TIMER_DEF.H" /0
+#line 43 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\FUNC_TIMER_DEF.H" /0
  
  
  
@@ -5607,7 +5705,7 @@
 #line 34 "..\..\..\KERNEL\INC\SP1K\SP1K_UTIL_API.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
 
 
 
@@ -6464,7 +6562,7 @@
 #line 27 "..\..\..\KERNEL\INC\HAL\HAL.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
 
 
 
@@ -6578,7 +6676,7 @@
  
 #line 82 "..\..\..\HOST\INC\CUSTOMIZATION\SOLUTION.H" /0
  
-#line 28 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
+#line 28 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
  
 
 
@@ -6597,7 +6695,7 @@
  
  
  
-#line 46 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /1
+#line 46 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /1
  
   
  
@@ -6608,7 +6706,7 @@
   
  
  
-#line 56 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
+#line 56 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
 
 
 
@@ -6746,31 +6844,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
-
-
-
-
  
  
  
-#line 31 "..\..\..\HOST\INC\CUSTOMIZATION\HOST_FUNC_OPT.H" /1
+#line 10 "..\..\..\HOST\INC\CUSTOMIZATION\HOST_FUNC_OPT.H" /1
   
  
 
@@ -6782,24 +6859,17 @@
  
  
  
-  
- 
  
   
  
- 
-  
- 
- 
-  
- 
-  
  
  
   
  
  
+ 
   
+ 
  
  
   
@@ -6808,19 +6878,41 @@
   
  
  
-  
- 
  
   
  
- 
-  
  
  
   
  
  
+ 
   
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
  
  
   
@@ -6912,7 +7004,7 @@
  
  
  
-#line 172 "..\..\..\HOST\INC\CUSTOMIZATION\HOST_FUNC_OPT.H" /0
+#line 166 "..\..\..\HOST\INC\CUSTOMIZATION\HOST_FUNC_OPT.H" /0
  
 #line 33 "..\..\..\KERNEL\INC\MACRO_EXPAND.H" /0
  
@@ -6967,7 +7059,7 @@
  
  
  
-#line 151 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
+#line 151 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
  
  
   
@@ -7574,14 +7666,14 @@
  
  
  
-#line 153 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
+#line 153 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_DEVICE.H" /0
  
  
  
 #line 28 "..\..\..\KERNEL\INC\HAL\HAL.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_GPIO.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_GPIO.H" /0
 
 
 
@@ -7611,7 +7703,7 @@
 
  
  
-#line 30 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_GPIO.H" /1
+#line 30 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_GPIO.H" /1
   
 
 
@@ -7678,7 +7770,7 @@
  
  
  
-#line 96 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\HAL\HAL_GPIO.H" /0
+#line 96 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\HAL\HAL_GPIO.H" /0
  
 #line 29 "..\..\..\KERNEL\INC\HAL\HAL.H" /0
  
@@ -9368,7 +9460,7 @@
 #line 29 "..\..\..\KERNEL\INC\SP1K\SP1K_AE_API.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_AE_API.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_AE_API.H" /0
  
 
 
@@ -9391,7 +9483,7 @@
 
  
  
-#line 23 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_AE_API.H" /1
+#line 23 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_AE_API.H" /1
   
  
 
@@ -9789,7 +9881,7 @@
  
  
  
-#line 420 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_AE_API.H" /0
+#line 420 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_AE_API.H" /0
  
 #line 30 "..\..\..\KERNEL\INC\SP1K\SP1K_AE_API.H" /0
  
@@ -11402,7 +11494,7 @@
 #line 30 "..\..\..\KERNEL\INC\SP1K\SP1K_HAL_API.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
 
 
 
@@ -11425,14 +11517,14 @@
 
  
  
-#line 23 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /1
+#line 23 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /1
   
  
  
  
  
  
-#line 29 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
+#line 29 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
  
 #line 31 "..\..\..\KERNEL\INC\SP1K\SP1K_HAL_API.H" /0
  
@@ -12419,7 +12511,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
 
 
 
@@ -12456,7 +12548,7 @@
 
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DRAM.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DRAM.H" /0
  
  
  
@@ -12720,10 +12812,10 @@
  
  
  
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_CDSP.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_CDSP.H" /0
  
  
  
@@ -13171,10 +13263,10 @@
  
  
  
-#line 37 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 37 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_CPU.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_CPU.H" /0
 
 
 
@@ -13299,10 +13391,10 @@
  
  
  
-#line 38 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 38 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DISP.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DISP.H" /0
 
 
 
@@ -13632,10 +13724,10 @@
  
  
  
-#line 39 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 39 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_FRONT.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_FRONT.H" /0
 
 
 
@@ -13819,10 +13911,10 @@
  
  
  
-#line 40 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 40 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_MOE.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_MOE.H" /0
 
 
 
@@ -13859,7 +13951,7 @@
 
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /0
 
 
 
@@ -13883,7 +13975,7 @@
  
  
  
-#line 24 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /1
+#line 24 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /1
   
  
  
@@ -14070,8 +14162,8 @@
  
  
  
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_MOE.H" /0
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_MOE.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_MOE.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_MOE.H" /0
  
 
 
@@ -14235,10 +14327,10 @@
  
  
  
-#line 41 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 41 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_GPRM.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_GPRM.H" /0
 
 
 
@@ -14402,10 +14494,10 @@
  
  
  
-#line 42 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 42 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DMA.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DMA.H" /0
 
 
 
@@ -14484,10 +14576,10 @@
  
  
  
-#line 43 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 43 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_II.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_II.H" /0
 
 
 
@@ -14524,7 +14616,7 @@
 
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /0
 
 
 
@@ -14548,7 +14640,7 @@
  
  
  
-#line 24 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /1
+#line 24 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /1
   
  
  
@@ -14735,8 +14827,8 @@
  
  
  
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_II.H" /0
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_II.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_II.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_II.H" /0
  
 
 
@@ -14815,10 +14907,10 @@
  
  
  
-#line 44 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 44 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_FD.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_FD.H" /0
 
 
 
@@ -14855,7 +14947,7 @@
 
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /0
 
 
 
@@ -14879,7 +14971,7 @@
  
  
  
-#line 24 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /1
+#line 24 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /1
   
  
  
@@ -15066,8 +15158,8 @@
  
  
  
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_FD.H" /0
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_FD.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_FD.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_FD.H" /0
  
 
 
@@ -15183,10 +15275,10 @@
  
  
  
-#line 45 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 45 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_JPEG.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_JPEG.H" /0
 
 
 
@@ -15326,10 +15418,10 @@
  
  
  
-#line 46 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 46 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_FM.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_FM.H" /0
  
  
  
@@ -15512,10 +15604,10 @@
  
  
  
-#line 47 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 47 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_AUDIO.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_AUDIO.H" /0
 
 
 
@@ -15662,10 +15754,10 @@
  
  
  
-#line 48 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 48 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_USB.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_USB.H" /0
 
 
 
@@ -15861,7 +15953,7 @@
  
  
  
-#line 49 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
+#line 49 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\REG_DEF.H" /0
  
 
 
@@ -17617,7 +17709,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
 
 
 
@@ -17640,14 +17732,14 @@
 
  
  
-#line 23 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /1
+#line 23 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /1
   
  
  
  
  
  
-#line 29 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
+#line 29 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\SP1K\SP1K_DEF.H" /0
  
 #line 28 "..\..\..\KERNEL\INC\SP1K\SP1K_RSVBLK_API.H" /0
  
@@ -18148,7 +18240,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /0
 
 
 
@@ -18172,7 +18264,7 @@
  
  
  
-#line 24 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\GENERAL.H" /1
+#line 24 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\GENERAL.H" /1
   
  
  
@@ -18910,7 +19002,7 @@
 
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\OSD_COM.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\OSD_COM.H" /0
 
 
 
@@ -19138,7 +19230,7 @@
  
 #line 188 "..\..\..\KERNEL\INC\KNL_FUNC_OPT.H" /0
  
-#line 36 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\MIDDLEWARE\OSD_COM.H" /0
+#line 36 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\MIDDLEWARE\OSD_COM.H" /0
  
 
 
@@ -19383,7 +19475,7 @@
 #line 30 "..\..\..\KERNEL\INC\INITIO.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DIST_FUNC.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DIST_FUNC.H" /0
 
 
 
@@ -19416,10 +19508,10 @@
  
  
  
-#line 33 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DIST_FUNC.H" /1
+#line 33 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DIST_FUNC.H" /1
   
  
-#line 35 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DIST_FUNC.H" /0
+#line 35 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DIST_FUNC.H" /0
 
 
  
@@ -20497,7 +20589,7 @@
  
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DBG_FILE_LIST.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DBG_FILE_LIST.H" /0
 
 
 
@@ -20529,7 +20621,7 @@
 
  
  
-#line 32 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DBG_FILE_LIST.H" /1
+#line 32 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DBG_FILE_LIST.H" /1
   
  
  
@@ -20730,12 +20822,12 @@
  
  
  
-#line 232 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DBG_FILE_LIST.H" /0
+#line 232 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DBG_FILE_LIST.H" /0
  
 #line 29 "..\..\..\KERNEL\INC\DBG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DBG_ASSERT.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DBG_ASSERT.H" /0
 
 
 
@@ -20800,7 +20892,7 @@
 #line 30 "..\..\..\KERNEL\INC\DBG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DBG_STR.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DBG_STR.H" /0
 
 
 
@@ -20869,7 +20961,7 @@
 #line 31 "..\..\..\KERNEL\INC\DBG_DEF.H" /0
  
   
-#line 1 "\WORK\240226 新板 按键 屏显 偏红 L 开关机 曝光\CDAF\KERNEL\INC\DBG_WDT.H" /0
+#line 1 "\CODE\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\KERNEL\INC\DBG_WDT.H" /0
 
 
 
@@ -21190,6 +21282,123 @@
 #line 59 "front_OV_OV5647_RAW.c" /0
  
  
+ 
+  
+#line 1 "..\..\..\USER\USER_CONFIG.H" /0
+ 
+#line 2 "..\..\..\USER\USER_CONFIG.H" /1
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#line 62 "front_OV_OV5647_RAW.c" /0
+#line 62 "front_OV_OV5647_RAW.c" /0
+ 
+ 
+ 
 
 
  
@@ -21317,9 +21526,7 @@
  
  
  
- 
- 
-#line 190 "front_OV_OV5647_RAW.c" /1
+#line 192 "front_OV_OV5647_RAW.c" /1
   
   
   
@@ -21332,7 +21539,7 @@
   
   
  
-#line 202 "front_OV_OV5647_RAW.c" /0
+#line 204 "front_OV_OV5647_RAW.c" /0
  
  
  
@@ -21345,13 +21552,13 @@
  
  
  
-#line 214 "front_OV_OV5647_RAW.c" /1
+#line 216 "front_OV_OV5647_RAW.c" /1
   
   
   
   
  
-#line 219 "front_OV_OV5647_RAW.c" /0
+#line 221 "front_OV_OV5647_RAW.c" /0
  
  
  
@@ -21367,13 +21574,16 @@
  
  
  
-#line 234 "front_OV_OV5647_RAW.c" /1
+#line 236 "front_OV_OV5647_RAW.c" /1
   
   
   
   
  
-#line 239 "front_OV_OV5647_RAW.c" /0
+#line 241 "front_OV_OV5647_RAW.c" /0
+ 
+ 
+ 
  
  
  
@@ -21545,6 +21755,7 @@
   void frontSensorOpAeFrameRateSet(void *parg);
   void frontSensorOpAwbModeSet(void *parg);
   void frontSensorOpAfterSnapShot(void *parg);
+ 
  
  
  static void frontBeforePowerOn(void);
@@ -22509,10 +22720,10 @@
  
  static code UINT8 frontPrevToSnapBinningRateTbl[3] = {
  
-#line 1374 "front_OV_OV5647_RAW.c" /1
+#line 1380 "front_OV_OV5647_RAW.c" /1
  
  
-#line 1376 "front_OV_OV5647_RAW.c" /0
+#line 1382 "front_OV_OV5647_RAW.c" /0
  
   (1.6),
  
@@ -22523,7 +22734,7 @@
  
  static code frontPreviewTemporalDenoise_t frontPrevTempDenoiseTbl[3] = {
  
-#line 1386 "front_OV_OV5647_RAW.c" /1
+#line 1392 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -22534,7 +22745,7 @@
  
  
  
-#line 1396 "front_OV_OV5647_RAW.c" /0
+#line 1402 "front_OV_OV5647_RAW.c" /0
  
  {   
   11 + 5,
@@ -22569,7 +22780,7 @@
  
  static code frontPrevCapabDesc_t frontPrevCapabDesc[3] = {
  
-#line 1430 "front_OV_OV5647_RAW.c" /1
+#line 1436 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -22604,7 +22815,7 @@
  
  
  
-#line 1464 "front_OV_OV5647_RAW.c" /0
+#line 1470 "front_OV_OV5647_RAW.c" /0
  
  {   
   FRONT_SRAM_MODE_ENABLE,
@@ -22843,10 +23054,10 @@
  0x30, 0x3c, 0x11,		 
  
  
-#line 1702 "front_OV_OV5647_RAW.c" /1
+#line 1708 "front_OV_OV5647_RAW.c" /1
  
  
-#line 1704 "front_OV_OV5647_RAW.c" /0
+#line 1710 "front_OV_OV5647_RAW.c" /0
  
  0x01, 0x00, 0x01,
  
@@ -23076,10 +23287,10 @@
  
  0x36, 0x21, 0xbf,	 
  
-#line 1933 "front_OV_OV5647_RAW.c" /1
+#line 1939 "front_OV_OV5647_RAW.c" /1
  
  
-#line 1935 "front_OV_OV5647_RAW.c" /0
+#line 1941 "front_OV_OV5647_RAW.c" /0
  
  0x37, 0x03, 0x9a,
  0x37, 0x05, 0xdc,
@@ -23095,10 +23306,10 @@
  0x38, 0x02, 0x00,	 
  
  
-#line 1950 "front_OV_OV5647_RAW.c" /1
+#line 1956 "front_OV_OV5647_RAW.c" /1
  
  
-#line 1952 "front_OV_OV5647_RAW.c" /0
+#line 1958 "front_OV_OV5647_RAW.c" /0
  0x38, 0x03, 0x09,	 
  
  
@@ -23124,20 +23335,20 @@
  0x38, 0x18, 0xa2,	 
  
  
-#line 1977 "front_OV_OV5647_RAW.c" /1
- 
- 
-#line 1979 "front_OV_OV5647_RAW.c" /0
- 
-#line 1980 "front_OV_OV5647_RAW.c" /1
- 
- 
-#line 1982 "front_OV_OV5647_RAW.c" /0
- 
 #line 1983 "front_OV_OV5647_RAW.c" /1
  
  
 #line 1985 "front_OV_OV5647_RAW.c" /0
+ 
+#line 1986 "front_OV_OV5647_RAW.c" /1
+ 
+ 
+#line 1988 "front_OV_OV5647_RAW.c" /0
+ 
+#line 1989 "front_OV_OV5647_RAW.c" /1
+ 
+ 
+#line 1991 "front_OV_OV5647_RAW.c" /0
  
  0x38, 0x1a, 0x00,
  0x38, 0x1c, 0x20,
@@ -23151,10 +23362,10 @@
  0x38, 0x26, 0x00,
  
  
-#line 1998 "front_OV_OV5647_RAW.c" /1
+#line 2004 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2000 "front_OV_OV5647_RAW.c" /0
+#line 2006 "front_OV_OV5647_RAW.c" /0
  0x38, 0x27, 0x09,	 
  
  
@@ -23163,11 +23374,11 @@
  0x50, 0x5a, 0x00,	 
  0x50, 0x5b, 0x12,	 
  
-#line 2008 "front_OV_OV5647_RAW.c" /1
+#line 2014 "front_OV_OV5647_RAW.c" /1
  
  
  
-#line 2011 "front_OV_OV5647_RAW.c" /0
+#line 2017 "front_OV_OV5647_RAW.c" /0
  
  0x50, 0x02, 0x02,
  0x59, 0x01, 0x04,
@@ -23176,10 +23387,10 @@
  
  0x40, 0x1d, 0x28,	 
  
-#line 2019 "front_OV_OV5647_RAW.c" /1
+#line 2025 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2021 "front_OV_OV5647_RAW.c" /0
+#line 2027 "front_OV_OV5647_RAW.c" /0
  
  
  0x32, 0x12, 0x10,
@@ -23214,10 +23425,10 @@
  
  0x36, 0x21, 0xbf,	 
  
-#line 2055 "front_OV_OV5647_RAW.c" /1
+#line 2061 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2057 "front_OV_OV5647_RAW.c" /0
+#line 2063 "front_OV_OV5647_RAW.c" /0
  
  0x37, 0x03, 0x9a,
  0x37, 0x05, 0xdc,
@@ -23233,10 +23444,10 @@
  0x38, 0x02, 0x00,	 
  
  
-#line 2072 "front_OV_OV5647_RAW.c" /1
+#line 2078 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2074 "front_OV_OV5647_RAW.c" /0
+#line 2080 "front_OV_OV5647_RAW.c" /0
  0x38, 0x03, 0x08,	 
  
  
@@ -23262,30 +23473,30 @@
  0x50, 0x5a, 0x00,	 
  0x50, 0x5b, 0x12,	 
  
-#line 2099 "front_OV_OV5647_RAW.c" /1
+#line 2105 "front_OV_OV5647_RAW.c" /1
  
  
  
-#line 2102 "front_OV_OV5647_RAW.c" /0
+#line 2108 "front_OV_OV5647_RAW.c" /0
  
  
  0x38, 0x18, 0xa2,	 
  
  
-#line 2107 "front_OV_OV5647_RAW.c" /1
- 
- 
-#line 2109 "front_OV_OV5647_RAW.c" /0
- 
-#line 2110 "front_OV_OV5647_RAW.c" /1
- 
- 
-#line 2112 "front_OV_OV5647_RAW.c" /0
- 
 #line 2113 "front_OV_OV5647_RAW.c" /1
  
  
 #line 2115 "front_OV_OV5647_RAW.c" /0
+ 
+#line 2116 "front_OV_OV5647_RAW.c" /1
+ 
+ 
+#line 2118 "front_OV_OV5647_RAW.c" /0
+ 
+#line 2119 "front_OV_OV5647_RAW.c" /1
+ 
+ 
+#line 2121 "front_OV_OV5647_RAW.c" /0
  
  0x38, 0x1a, 0x00,
  0x38, 0x1c, 0x20,
@@ -23299,10 +23510,10 @@
  0x38, 0x26, 0x00,
  
  
-#line 2128 "front_OV_OV5647_RAW.c" /1
+#line 2134 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2130 "front_OV_OV5647_RAW.c" /0
+#line 2136 "front_OV_OV5647_RAW.c" /0
  0x38, 0x27, 0x09,	 
  
  
@@ -23314,10 +23525,10 @@
  
  0x40, 0x1d, 0x28,	 
  
-#line 2141 "front_OV_OV5647_RAW.c" /1
+#line 2147 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2143 "front_OV_OV5647_RAW.c" /0
+#line 2149 "front_OV_OV5647_RAW.c" /0
  
  
  0x32, 0x12, 0x10,
@@ -23347,7 +23558,7 @@
  
  
  
-#line 2172 "front_OV_OV5647_RAW.c" /1
+#line 2178 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23361,7 +23572,7 @@
  
  
  
-#line 2185 "front_OV_OV5647_RAW.c" /0
+#line 2191 "front_OV_OV5647_RAW.c" /0
  
  static UINT8 frontPrevMode = 0;
  static UINT8 frontSnapMode = 0;
@@ -23408,10 +23619,10 @@
  ) 
  {
  
-#line 2231 "front_OV_OV5647_RAW.c" /1
+#line 2237 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2233 "front_OV_OV5647_RAW.c" /0
+#line 2239 "front_OV_OV5647_RAW.c" /0
  frontOperatingFunc_t opFunc; 
  
  
@@ -23443,7 +23654,7 @@
  frontResTblBinRead(_gainTbl, __gainTbl);
  
  
-#line 2264 "front_OV_OV5647_RAW.c" /1
+#line 2270 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23457,7 +23668,7 @@
  
  
  
-#line 2277 "front_OV_OV5647_RAW.c" /0
+#line 2283 "front_OV_OV5647_RAW.c" /0
  return frontDevOpen(&opFunc, sizeof(frontOperatingFunc_t));
  
  } 
@@ -23632,13 +23843,13 @@
  
  
  
-#line 2451 "front_OV_OV5647_RAW.c" /1
+#line 2457 "front_OV_OV5647_RAW.c" /1
  
  
  
  
  
-#line 2456 "front_OV_OV5647_RAW.c" /0
+#line 2462 "front_OV_OV5647_RAW.c" /0
  
  
   HAL_FrontParaSet(FRONT_PARA_MCLK_CFG, FRONT_MCLK_SRC_INT, pcap->mclkDiv, pcap->mclkPhase, 3, 0);
@@ -23709,9 +23920,9 @@
  
  pcap = &(frontPrevCapabDesc[frontPrevMode]);
  
-  dbgFuncTrack(-1, (unsigned short)2526);
+  dbgFuncTrack(-1, (unsigned short)2532);
   HAL_FrontSignalWait(FRONT_WAIT_VSYNC, FRONT_WAIT_FALLING, 1);	 
-  dbgFuncTrack(-1, (unsigned short)2528);
+  dbgFuncTrack(-1, (unsigned short)2534);
  
   HAL_FrontParaSet(FRONT_PARA_MCLK_CFG, FRONT_MCLK_SRC_INT, pcap->mclkDiv, pcap->mclkPhase, 0, 0);
   HAL_FrontParaSet(FRONT_PARA_PCLK_CFG, (1 << 3), pcap->pclkDiv, pcap->pclkPhase, 0, 0);
@@ -23738,9 +23949,9 @@
  
   HAL_CdspBayerPatternSet(FRONT_BAYER_PTN_GBBRGR);
  
-  dbgFuncTrack(-1, (unsigned short)2555);
+  dbgFuncTrack(-1, (unsigned short)2561);
   HAL_FrontSignalWait(FRONT_WAIT_VSYNC, FRONT_WAIT_FALLING, 1);	 
-  dbgFuncTrack(-1, (unsigned short)2557);
+  dbgFuncTrack(-1, (unsigned short)2563);
  
  }
  
@@ -23773,7 +23984,7 @@
  if ( frontPrevSensorZoomStatus == 0 ) {
  if ( frontPrevMode == 0 ) {   
  
-#line 2590 "front_OV_OV5647_RAW.c" /1
+#line 2596 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23794,14 +24005,14 @@
  
  
  
-#line 2610 "front_OV_OV5647_RAW.c" /0
+#line 2616 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  
  }
  else if (frontPrevMode == 1) {	 
  
-#line 2616 "front_OV_OV5647_RAW.c" /1
+#line 2622 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23822,14 +24033,14 @@
  
  
  
-#line 2636 "front_OV_OV5647_RAW.c" /0
+#line 2642 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  
  }
  else if (frontPrevMode == 2) {	 
  
-#line 2642 "front_OV_OV5647_RAW.c" /1
+#line 2648 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23849,7 +24060,7 @@
  
  
  
-#line 2661 "front_OV_OV5647_RAW.c" /0
+#line 2667 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  
@@ -23858,7 +24069,7 @@
  else if ( frontPrevSensorZoomStatus == 1) {
  if ( frontPrevMode == 0 ) {   
  
-#line 2669 "front_OV_OV5647_RAW.c" /1
+#line 2675 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23879,14 +24090,14 @@
  
  
  
-#line 2689 "front_OV_OV5647_RAW.c" /0
+#line 2695 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  
  }
  else if (frontPrevMode == 1) {	 
  
-#line 2695 "front_OV_OV5647_RAW.c" /1
+#line 2701 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23907,14 +24118,14 @@
  
  
  
-#line 2715 "front_OV_OV5647_RAW.c" /0
+#line 2721 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  
  }
  else if (frontPrevMode == 2) {	 
  
-#line 2721 "front_OV_OV5647_RAW.c" /1
+#line 2727 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23935,7 +24146,7 @@
  
  
  
-#line 2741 "front_OV_OV5647_RAW.c" /0
+#line 2747 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  
@@ -23973,7 +24184,7 @@
  if ( frontPrevSensorZoomStatus == 0 ) {
  if ( frontPrevMode == 0 ) {   
  
-#line 2778 "front_OV_OV5647_RAW.c" /1
+#line 2784 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -23990,7 +24201,7 @@
  
  
  
-#line 2794 "front_OV_OV5647_RAW.c" /0
+#line 2800 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  paraAry = paraAry;
@@ -23998,7 +24209,7 @@
  }
  else if (frontPrevMode == 1) {	 
  
-#line 2801 "front_OV_OV5647_RAW.c" /1
+#line 2807 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -24015,7 +24226,7 @@
  
  
  
-#line 2817 "front_OV_OV5647_RAW.c" /0
+#line 2823 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  paraAry = paraAry;
@@ -24023,7 +24234,7 @@
  }
  else if (frontPrevMode == 2) {	 
  
-#line 2824 "front_OV_OV5647_RAW.c" /1
+#line 2830 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -24039,7 +24250,7 @@
  
  
  
-#line 2839 "front_OV_OV5647_RAW.c" /0
+#line 2845 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  paraAry = paraAry;
@@ -24049,7 +24260,7 @@
  else if ( frontPrevSensorZoomStatus == 1) {
  if ( frontPrevMode == 0 ) {   
  
-#line 2848 "front_OV_OV5647_RAW.c" /1
+#line 2854 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -24066,7 +24277,7 @@
  
  
  
-#line 2864 "front_OV_OV5647_RAW.c" /0
+#line 2870 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  paraAry = paraAry;
@@ -24074,7 +24285,7 @@
  }
  else if (frontPrevMode == 1) {	 
  
-#line 2871 "front_OV_OV5647_RAW.c" /1
+#line 2877 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -24091,7 +24302,7 @@
  
  
  
-#line 2887 "front_OV_OV5647_RAW.c" /0
+#line 2893 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  paraAry = paraAry;
@@ -24099,7 +24310,7 @@
  }
  else if (frontPrevMode == 2) {	 
  
-#line 2894 "front_OV_OV5647_RAW.c" /1
+#line 2900 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -24121,7 +24332,7 @@
  
  
  
-#line 2915 "front_OV_OV5647_RAW.c" /0
+#line 2921 "front_OV_OV5647_RAW.c" /0
  factor = factor;
  pvGainIdxVal = pvGainIdxVal;
  paraAry = paraAry;
@@ -24187,24 +24398,24 @@
  
  if ( first != 0 ) {
  
-#line 2980 "front_OV_OV5647_RAW.c" /1
- 
- 
-#line 2982 "front_OV_OV5647_RAW.c" /0
- 
- 
-  {	UINT8 sts;	do {(sts) = IE; IE &= 0x7f;} while(0);	HAL_FrontSignalWait(FRONT_WAIT_VSYNC,FRONT_WAIT_RISING,1);	do {((unsigned char volatile xdata *) 0)[0x2D00] |= 0x08;IE = (sts);} while(0);	};
- 
 #line 2986 "front_OV_OV5647_RAW.c" /1
  
  
 #line 2988 "front_OV_OV5647_RAW.c" /0
  
  
-#line 2990 "front_OV_OV5647_RAW.c" /1
+  {	UINT8 sts;	do {(sts) = IE; IE &= 0x7f;} while(0);	HAL_FrontSignalWait(FRONT_WAIT_VSYNC,FRONT_WAIT_RISING,1);	do {((unsigned char volatile xdata *) 0)[0x2D00] |= 0x08;IE = (sts);} while(0);	};
+ 
+#line 2992 "front_OV_OV5647_RAW.c" /1
  
  
-#line 2992 "front_OV_OV5647_RAW.c" /0
+#line 2994 "front_OV_OV5647_RAW.c" /0
+ 
+ 
+#line 2996 "front_OV_OV5647_RAW.c" /1
+ 
+ 
+#line 2998 "front_OV_OV5647_RAW.c" /0
  
  
  frontResCmdBinSend(sensor_switch ? _frontSnapCmdTbl : _frontInit4CmdTbl);
@@ -24215,24 +24426,24 @@
  if (mode != CDSP_DO_FRONT){   
  
  
-#line 3002 "front_OV_OV5647_RAW.c" /1
- 
- 
-#line 3004 "front_OV_OV5647_RAW.c" /0
- 
- 
-  {	UINT8 sts;	do {(sts) = IE; IE &= 0x7f;} while(0);	HAL_FrontSignalWait(FRONT_WAIT_VSYNC,FRONT_WAIT_RISING,1);	do {((unsigned char volatile xdata *) 0)[0x2D00] |= 0x08;IE = (sts);} while(0);	};
- 
 #line 3008 "front_OV_OV5647_RAW.c" /1
  
  
 #line 3010 "front_OV_OV5647_RAW.c" /0
  
  
-#line 3012 "front_OV_OV5647_RAW.c" /1
+  {	UINT8 sts;	do {(sts) = IE; IE &= 0x7f;} while(0);	HAL_FrontSignalWait(FRONT_WAIT_VSYNC,FRONT_WAIT_RISING,1);	do {((unsigned char volatile xdata *) 0)[0x2D00] |= 0x08;IE = (sts);} while(0);	};
+ 
+#line 3014 "front_OV_OV5647_RAW.c" /1
  
  
-#line 3014 "front_OV_OV5647_RAW.c" /0
+#line 3016 "front_OV_OV5647_RAW.c" /0
+ 
+ 
+#line 3018 "front_OV_OV5647_RAW.c" /1
+ 
+ 
+#line 3020 "front_OV_OV5647_RAW.c" /0
  
   HAL_CdspVDramSkipWrSet(CDSP_SKIP_AWBAEEDGE,0xff);
   HAL_CdspVDramSkipWrSyncSet(1);
@@ -24240,19 +24451,11 @@
  
   {	UINT8 sts;	do {(sts) = IE; IE &= 0x7f;} while(0);	HAL_FrontSignalWait(FRONT_WAIT_VSYNC,FRONT_WAIT_RISING,1);	do {((unsigned char volatile xdata *) 0)[0x2D00] |= 0x08;IE = (sts);} while(0);	};
  
-#line 3021 "front_OV_OV5647_RAW.c" /1
+#line 3027 "front_OV_OV5647_RAW.c" /1
  
  
-#line 3023 "front_OV_OV5647_RAW.c" /0
+#line 3029 "front_OV_OV5647_RAW.c" /0
  
- 
-#line 3025 "front_OV_OV5647_RAW.c" /1
- 
- 
-#line 3027 "front_OV_OV5647_RAW.c" /0
- 
- 
-  {	UINT8 sts;	do {(sts) = IE; IE &= 0x7f;} while(0);	HAL_FrontSignalWait(FRONT_WAIT_VSYNC,FRONT_WAIT_FALLING,1);	do {((unsigned char volatile xdata *) 0)[0x2D00] |= 0x08;IE = (sts);} while(0);	};
  
 #line 3031 "front_OV_OV5647_RAW.c" /1
  
@@ -24260,27 +24463,35 @@
 #line 3033 "front_OV_OV5647_RAW.c" /0
  
  
-#line 3035 "front_OV_OV5647_RAW.c" /1
+  {	UINT8 sts;	do {(sts) = IE; IE &= 0x7f;} while(0);	HAL_FrontSignalWait(FRONT_WAIT_VSYNC,FRONT_WAIT_FALLING,1);	do {((unsigned char volatile xdata *) 0)[0x2D00] |= 0x08;IE = (sts);} while(0);	};
+ 
+#line 3037 "front_OV_OV5647_RAW.c" /1
  
  
-#line 3037 "front_OV_OV5647_RAW.c" /0
- 
-  HAL_FrontParaSet(FRONT_PARA_FRONT_TO_CDSP_GATING_ENABLE, 1, 0, 0, 0, 1);
+#line 3039 "front_OV_OV5647_RAW.c" /0
  
  
 #line 3041 "front_OV_OV5647_RAW.c" /1
  
  
+#line 3043 "front_OV_OV5647_RAW.c" /0
  
-#line 3044 "front_OV_OV5647_RAW.c" /0
+  HAL_FrontParaSet(FRONT_PARA_FRONT_TO_CDSP_GATING_ENABLE, 1, 0, 0, 0, 1);
+ 
+ 
+#line 3047 "front_OV_OV5647_RAW.c" /1
+ 
+ 
+ 
+#line 3050 "front_OV_OV5647_RAW.c" /0
  
  HAL_CdspEofWait(1);
  
  
-#line 3048 "front_OV_OV5647_RAW.c" /1
+#line 3054 "front_OV_OV5647_RAW.c" /1
  
  
-#line 3050 "front_OV_OV5647_RAW.c" /0
+#line 3056 "front_OV_OV5647_RAW.c" /0
  
  }	
  else{  	 
@@ -24509,7 +24720,7 @@
  break;
  }
  
-#line 3278 "front_OV_OV5647_RAW.c" /1
+#line 3284 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -24542,7 +24753,7 @@
  
  
  
-#line 3310 "front_OV_OV5647_RAW.c" /0
+#line 3316 "front_OV_OV5647_RAW.c" /0
  
  frontLastGain = pcap->gainTbl[val];
  frontLastGainIdx = val;
@@ -24906,19 +25117,11 @@
 
 
 
-
-
-
-
-
  
- static void
- frontBeforePowerOn(
- void
- )
+ static void frontBeforePowerOn(void)
  {
  
-#line 3685 "front_OV_OV5647_RAW.c" /1
+#line 3683 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -24926,7 +25129,7 @@
  
  
  
-#line 3692 "front_OV_OV5647_RAW.c" /0
+#line 3690 "front_OV_OV5647_RAW.c" /0
  
  
 
@@ -24936,18 +25139,22 @@
  
  
  
-  HAL_GpioByteFuncSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));   
-  HAL_GpioByteDirSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-  HAL_GlobalTimerWait(20);
  
-  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (0 << ( 0 & 0x07)));
-  HAL_GlobalTimerWait(100);
  
-  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-  HAL_GlobalTimerWait(20);
+  HAL_GpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1);   
+  HAL_GpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1);    
+  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1_SET);    
+  HAL_GlobalTimerWait(20);   
+ 
+  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_RESET);    
+  HAL_GlobalTimerWait(100);   
+ 
+  HAL_GpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1_SET);    
+  HAL_GlobalTimerWait(20);   
+ 
  
  }
+ 
  
 
 
@@ -24965,11 +25172,11 @@
  )
  {
  
-#line 3730 "front_OV_OV5647_RAW.c" /1
+#line 3732 "front_OV_OV5647_RAW.c" /1
  
  
  
-#line 3733 "front_OV_OV5647_RAW.c" /0
+#line 3735 "front_OV_OV5647_RAW.c" /0
  
  }
  
@@ -25069,12 +25276,12 @@
  compensation_line = espline - ftotal + 6; 
  
  
-#line 3832 "front_OV_OV5647_RAW.c" /1
+#line 3834 "front_OV_OV5647_RAW.c" /1
  
  
  
  
-#line 3836 "front_OV_OV5647_RAW.c" /0
+#line 3838 "front_OV_OV5647_RAW.c" /0
  }
  }
  else {
@@ -25200,26 +25407,26 @@
  case SP1K_AE_ISO_100:
  
  isoGainIdx = 0;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3961, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3963, (1));	}	} while (0);
  break;
  case SP1K_AE_ISO_200:
  
  isoGainIdx = 16;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3966, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3968, (1));	}	} while (0);
  break;
  case SP1K_AE_ISO_400:
  
  isoGainIdx = 32;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3971, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3973, (1));	}	} while (0);
  break;
  case SP1K_AE_ISO_800:
  
  isoGainIdx = 48;
-  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3976, (1));	}	} while (0);
+  do {	if (!(!(isoGainIdx > maxGainTblIdx))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3978, (1));	}	} while (0);
  break;
  default:
  
-  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3980, (1));	}	} while (0);
+  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)3982, (1));	}	} while (0);
  break;
  }
  
@@ -25273,12 +25480,12 @@
  frontSnapLastShutter = isoShutter;
  }
  
-#line 4034 "front_OV_OV5647_RAW.c" /1
+#line 4036 "front_OV_OV5647_RAW.c" /1
  
  
  
  
-#line 4038 "front_OV_OV5647_RAW.c" /0
+#line 4040 "front_OV_OV5647_RAW.c" /0
  }
  else {
  
@@ -25384,10 +25591,10 @@
  LoadBackfrontLastGainIdx = pvGainIdxVal;
  }
  
-#line 4143 "front_OV_OV5647_RAW.c" /1
+#line 4145 "front_OV_OV5647_RAW.c" /1
  
  
-#line 4145 "front_OV_OV5647_RAW.c" /0
+#line 4147 "front_OV_OV5647_RAW.c" /0
  
  
  }
@@ -25410,11 +25617,11 @@
  )
  {
  
-#line 4167 "front_OV_OV5647_RAW.c" /1
+#line 4169 "front_OV_OV5647_RAW.c" /1
  
  
  
-#line 4170 "front_OV_OV5647_RAW.c" /0
+#line 4172 "front_OV_OV5647_RAW.c" /0
  *numerator = (16+(value&0x000F));
  *denominator = (((16/((value&0x0010)?2:1))/((value&0x0020)?2:1))/((value&0x0040)?2:1));	
  
@@ -25566,7 +25773,7 @@
  
   sp1kDiskRsvSizeGet(fileId, ((void *) 0), &size);  
  if (size > (12UL * 1024UL)) {
-  do {	if (!(!(size > (12UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4321, (0));	}	} while (0); 
+  do {	if (!(!(size > (12UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4323, (0));	}	} while (0); 
  return;
  }
  
@@ -25584,11 +25791,11 @@
  
  if (sts == 1) {
  printf("Sensor command table (0x%x)\n",fileId);
-  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4339, (1));	}	} while (0);
+  do {	if (!(0)) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4341, (1));	}	} while (0);
  }
  
  
-#line 4343 "front_OV_OV5647_RAW.c" /1
+#line 4345 "front_OV_OV5647_RAW.c" /1
  
  
  
@@ -25648,7 +25855,7 @@
  
  
  
-#line 4402 "front_OV_OV5647_RAW.c" /0
+#line 4404 "front_OV_OV5647_RAW.c" /0
  }
  
 
@@ -25673,14 +25880,14 @@
  UINT8 sts;
  
  if (byteAddress & 0x0001) {
-  do {	if (!(!(byteAddress & 0x0001))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4426, (0));	}	} while (0); 
+  do {	if (!(!(byteAddress & 0x0001))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4428, (0));	}	} while (0); 
  return;
  }
  
  
   sp1kDiskRsvSizeGet(fileId, ((void *) 0), &size);  
  if (size > (4UL * 1024UL)) {
-  do {	if (!(!(size > (4UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4433, (0));	}	} while (0); 
+  do {	if (!(!(size > (4UL * 1024UL)))) {	__ASSERT(__FILE_ID_SENSOR_DRIVER__, (unsigned short)4435, (0));	}	} while (0); 
  return;
  }
  
@@ -25690,9 +25897,9 @@
  sts = sp1kDiskRsvRead(fileId, ((sysMemSizeGet(MEM_IDX_TEXT) + ((byteAddress - 0x4000) >> 1)) << 1));
  }while(!sts);
  
-#line 4443 "front_OV_OV5647_RAW.c" /1
+#line 4445 "front_OV_OV5647_RAW.c" /1
  
  
  
-#line 4446 "front_OV_OV5647_RAW.c" /0
+#line 4448 "front_OV_OV5647_RAW.c" /0
  }

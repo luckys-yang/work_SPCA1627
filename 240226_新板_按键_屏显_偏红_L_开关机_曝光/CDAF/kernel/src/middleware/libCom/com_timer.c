@@ -56,42 +56,26 @@
  *               F U N C T I O N    D E C L A R A T I O N S               *
  **************************************************************************/
 /**
- * @brief     timer 0 interrupt service function
- * @param     none
- * @retval    none.
- * @see       none
- * @author    Phil Lin
- * @since     2010-01-01
- * @todo      N/A
- * @bug       N/A
-*/
-void
-timer0Svc(
-	void
-) ISR_1 USING_REG_2
+* @param    None
+* @retval   None
+* @brief    Timer0中断服务函数
+**/
+void timer0Svc(void) ISR_1 USING_REG_2
 {	
-	TR0 = 0;
-	TL0 = K_Timer0IntervalCompLo;
-	TH0 = K_Timer0IntervalCompHi;
-	TR0 = 1;
+	TR0 = 0;                 // 关闭定时器0
+	TL0 = K_Timer0IntervalCompLo;  // 设置定时器0的低位计数初始值
+	TH0 = K_Timer0IntervalCompHi;  // 设置定时器0的高位计数初始值
+	TR0 = 1;                 // 启动定时器0
 	
-    TIMER0_Routine();
-}
+    TIMER0_Routine();        // 定时器0中断处理函数
+}
 
 /**
- * @brief     timer 1 interrupt service function
- * @param     none
- * @retval    none.
- * @see       none
- * @author    Phil Lin
- * @since     2010-01-01
- * @todo      N/A
- * @bug       N/A
-*/
-void
-timer1Svc(
-	void
-) ISR_3 USING_REG_3
+* @param    None
+* @retval   None
+* @brief    Timer1中断服务函数 -- 2010-01-01
+**/
+void timer1Svc(void) ISR_3 USING_REG_3
 {
     TIMER1_Routine();
 }

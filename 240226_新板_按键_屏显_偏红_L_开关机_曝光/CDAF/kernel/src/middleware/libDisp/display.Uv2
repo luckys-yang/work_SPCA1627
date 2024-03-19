@@ -5,14 +5,14 @@ Target (display), 0x0000 // Tools: 'MCS-51'
 
 Group (common)
 
-File 1,1,<.\disp_win.c><disp_win.c>
-File 1,1,<.\disp_enable.c><disp_enable.c>
-File 1,1,<.\disp_lcm.c><disp_lcm.c>
-File 1,1,<.\disp_logi.c><disp_logi.c>
-File 1,1,<.\disp_misc.c><disp_misc.c>
-File 1,1,<.\disp_para.c><disp_para.c>
-File 1,1,<.\disp_wait.c><disp_wait.c>
-File 1,1,<.\disp_ver.c><disp_ver.c>
+File 1,1,<.\disp_win.c><disp_win.c> 0x0 
+File 1,1,<.\disp_enable.c><disp_enable.c> 0x0 
+File 1,1,<.\disp_lcm.c><disp_lcm.c> 0x0 
+File 1,1,<.\disp_logi.c><disp_logi.c> 0x0 
+File 1,1,<.\disp_misc.c><disp_misc.c> 0x0 
+File 1,1,<.\disp_para.c><disp_para.c> 0x0 
+File 1,1,<.\disp_wait.c><disp_wait.c> 0x0 
+File 1,1,<.\disp_ver.c><disp_ver.c> 0x0 
 
 
 Options 1,0,0  // Target 'display'

@@ -89,58 +89,67 @@ UINT16	menuProcStrIndexGet (UINT8 layer, UINT8 item, UINT8 sub);
  *                                                                        *
  **************************************************************************/
 
-UINT8 menuProcMoveUp (void)
+/**
+* @param    None
+* @retval   None
+* @brief    菜单选项往上移动
+**/
+UINT8 menuProcMoveUp(void)
 {
-	UINT8 line, col;
-	UINT8 nodeItem;
-	UINT8 i;
-	UINT8 item;
+    UINT8 line, col;
+    UINT8 nodeItem;
+    UINT8 i;
+    UINT8 item;
 
-	menuLayerSizeGet(layerIndex, &line, &col);
-	nodeItem = menuProcNodeItemGet(layerIndex, menuCurrItem);
+    menuLayerSizeGet(layerIndex, &line, &col);  // 获取当前层级的行数和列数
+    nodeItem = menuProcNodeItemGet(layerIndex, menuCurrItem);   // 获取当前节点项数
 
-	for (i=1; i<nodeItem; i++)
-	{
-		if (menuCurrItem < i)
-			item = nodeItem + menuCurrItem - i;
-		else
-			item = menuCurrItem - i;
+    // 从下往上遍历节点项
+    for (i = 1; i < nodeItem; i++)
+    {
+        if (menuCurrItem < i)
+            item = nodeItem + menuCurrItem - i;
+        else
+            item = menuCurrItem - i;
 
-		if (menuProcIsActive(layerIndex, item))
-		{
-			if (menuCurrItem > item)
-			{
-				menuCurrItem = item;
-				menuIndex &= ~((UINT32)0x000000ff << ((3-layerIndex)*8));
-				menuIndex += ((UINT32)(menuCurrItem+1) << ((3-layerIndex)*8));
+        // 如果找到可用的菜单项
+        if (menuProcIsActive(layerIndex, item))
+        {
+            // 根据菜单项位置更新当前菜单项和菜单索引
+            if (menuCurrItem > item)
+            {
+                menuCurrItem = item;
+                menuIndex &= ~((UINT32)0x000000ff << ((3 - layerIndex) * 8));
+                menuIndex += ((UINT32)(menuCurrItem + 1) << ((3 - layerIndex) * 8));
+                // 根据滚动模式更新滚动标签
+                if (menuScrollMode == SCROLL_MODE_PAGE)
+                    layerScrollTab[layerIndex] = (menuCurrItem / line) * line;
+                else if (menuCurrItem < layerScrollTab[layerIndex])
+                {
+                    layerScrollTab[layerIndex] = menuCurrItem;
+                }
+            }
+            else
+            {
+                menuCurrItem = item;
+                menuIndex &= ~((UINT32)0x000000ff << ((3 - layerIndex) * 8));
+                menuIndex += ((UINT32)(menuCurrItem + 1) << ((3 - layerIndex) * 8));
 
-				if (menuScrollMode == SCROLL_MODE_PAGE)
-					layerScrollTab[layerIndex] = (menuCurrItem/line)*line;
-				else if (menuCurrItem < layerScrollTab[layerIndex])
-				{
-					layerScrollTab[layerIndex] = menuCurrItem;
-				}
-			}
-			else
-			{
-				menuCurrItem = item;
-				menuIndex &= ~((UINT32)0x000000ff << ((3-layerIndex)*8));
-				menuIndex += ((UINT32)(menuCurrItem+1) << ((3-layerIndex)*8));
+                if (menuScrollMode == SCROLL_MODE_PAGE)
+                    layerScrollTab[layerIndex] = (menuCurrItem / line) * line;
+                else if ((menuCurrItem + 1) > (layerScrollTab[layerIndex] + line))
+                {
+                    layerScrollTab[layerIndex] = menuCurrItem + 1 - line;
+                }
+            }
+            return SUCCESS;
+        }
+    }
+    // 如果当前菜单项可用，则返回成功，否则返回失败
+    if (menuProcIsActive(layerIndex, menuCurrItem))
+        return SUCCESS;
 
-				if (menuScrollMode == SCROLL_MODE_PAGE)
-					layerScrollTab[layerIndex] = (menuCurrItem/line)*line;
-				else if ((menuCurrItem+1) > (layerScrollTab[layerIndex] + line))
-				{
-					layerScrollTab[layerIndex] = menuCurrItem+1-line;
-				}
-			}
-			return SUCCESS;
-		}
-	}
-	if (menuProcIsActive(layerIndex, menuCurrItem))
-		return SUCCESS;
-
-	return FAIL;
+    return FAIL;
 }
 
 /**************************************************************************
@@ -158,6 +167,11 @@ UINT8 menuProcMoveUp (void)
  *  See also:                                                             *
  *                                                                        *
  **************************************************************************/
+/**
+* @param    None
+* @retval   None
+* @brief    菜单选项往下移动
+**/
 UINT8 menuProcMoveDown (void)
 {
 	UINT8 line, col;
@@ -228,22 +242,29 @@ UINT8 menuProcMoveDown (void)
  *  See also:                                                             *
  *                                                                        *
  **************************************************************************/
+/**
+* @param    None
+* @retval   None
+* @brief    返回到上一级菜单
+**/
 UINT8 menuProcParent (void)
 {
-	layerScrollTab[layerIndex] = 0;
-	menuIndex &= (~((UINT32)0xff << ((3-layerIndex)*8)));
-	layerIndex--;
-	menuCurrItem = ((menuIndex>>((3-layerIndex)*8))&0xff)-1;
+	layerScrollTab[layerIndex] = 0; // 重置当前层级的滚动标签
+	menuIndex &= (~((UINT32)0xff << ((3-layerIndex)*8)));   // 清除当前层级的菜单索引
+	layerIndex--;   // 层级索引减一
+	menuCurrItem = ((menuIndex>>((3-layerIndex)*8))&0xff)-1;    // 获取当前菜单项
 
+    // 当前菜单项不可用时，向下移动直到找到可用项
 	while (!menuProcIsActive(layerIndex, menuCurrItem))
 	{
+        // 如果向下移动失败，则继续向上一级菜单移动
 		if (menuProcMoveDown() == FAIL)
-		{
+		{ 
 			menuProcParent();
 		}
 	}
 
-	return SUCCESS;
+	return SUCCESS; // 返回成功
 }
 
 /**************************************************************************
@@ -483,11 +504,12 @@ UINT8 menuProcLayerGet (void)
  *  See also:                                                             *
  *                                                                        *
  **************************************************************************/
+
 UINT16 menuProcStrIndexGet (UINT8 layer, UINT8 item, UINT8 sub)
 {
-	static UINT8 lastlayer = 0;
-	static UINT8 lastitem = 0;
-	static UINT8 lastsub = 0;
+	static UINT8 lastlayer = 0; // 上一层级
+	static UINT8 lastitem = 0;  // 上一项
+	static UINT8 lastsub = 0;   // 上一个子项
 	static UINT16 strIndex = 0;
 	static UINT32 lastindex = 0;
 
@@ -1006,14 +1028,22 @@ UINT8 menuProcNodeLghGet (UINT8 layer, UINT8 item)
  *  See also:                                                             *
  *                                                                        *
  **************************************************************************/
+
+/**
+* @param    None
+* @retval   None
+* @brief    获取子项目(根据所提供的层和项目检索特定子项目)
+**/
 UINT8 menuProcSubItemGet (UINT8 layer, UINT8 item)
 {
 	UINT16  strIndex;
-	strIndex = menuProcStrIndexGet(layer, item, 0xff);
+	strIndex = menuProcStrIndexGet(layer, item, 0xff);  // 根据层和项目获取索引
 
-	if(strIndex == MENU_UNKNOWN)
-		return 0;
-	return CustomMenuSubItem[menuLanguageGet()][strIndex];
+    if (strIndex == MENU_UNKNOWN) // 检查获取的索引是否未知
+    {
+        return 0;
+    }
+    return CustomMenuSubItem[menuLanguageGet()][strIndex];  // 根据语言和索引返回子项的值
 }
 
 /**************************************************************************
@@ -1131,23 +1161,24 @@ UINT8 menuProcIsActive(UINT8 layer, UINT8 item)
  **************************************************************************/
 UINT8 menuProcExecute(UINT8 layer, UINT8 item, UINT16 msg)
 {
-	UINT16 strIndex;
+	UINT16 strIndex;  // 声明一个UINT16类型的变量strIndex
 
-	strIndex = menuProcStrIndexGet(layer, item, 0xff);
+	strIndex = menuProcStrIndexGet(layer, item, 0xff);  // 调用menuProcStrIndexGet函数获取strIndex的值
 
-	if(strIndex != MENU_UNKNOWN)
+	if(strIndex != MENU_UNKNOWN)  // 如果strIndex不等于MENU_UNKNOWN
 	{
-		if (CustomMenuExe[menuLanguageGet()][strIndex] != NULL)
+		if (CustomMenuExe[menuLanguageGet()][strIndex] != NULL)  // 如果CustomMenuExe[menuLanguageGet()][strIndex]不为空
 		{
-			return CustomMenuExe[menuLanguageGet()][strIndex](layer, item, msg);
+			return CustomMenuExe[menuLanguageGet()][strIndex](layer, item, msg);  // 调用CustomMenuExe[menuLanguageGet()][strIndex]函数，并返回其结果
 		}
-		else
+		else  // 否则
 		{
-			return MENU_CALL_DEFAULT;
+			return MENU_CALL_DEFAULT;  // 返回MENU_CALL_DEFAULT
 		}
 	}
-	return MENU_CALL_DEFAULT;
+	return MENU_CALL_DEFAULT;  // 返回MENU_CALL_DEFAULT
 }
+
 
 /**************************************************************************
  *                                                                        *

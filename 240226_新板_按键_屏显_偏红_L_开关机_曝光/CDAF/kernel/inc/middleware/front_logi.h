@@ -41,7 +41,7 @@
 /**************************************************************************
  *                           C O N S T A N T S                            *
  **************************************************************************/
-#define FRONT_SNAP_BREAK_DOWN	0	/* 1:sensor timing, 2:host+sensor timing, 3:host+sensor+vlc timing */
+#define FRONT_SNAP_BREAK_DOWN	0	/* 1:传感器计时，2:主机+传感器计时，3:主机+传感器+VLC 计时  */
 
 #define FRONT_USE_MACRO 	1  /* fdk internal usage only. */
 

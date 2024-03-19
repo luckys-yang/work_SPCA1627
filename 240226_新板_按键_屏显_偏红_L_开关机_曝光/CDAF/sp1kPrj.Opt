@@ -20,25 +20,25 @@ GRPOPT 5,(app_sts_onoff),0,0,0
 GRPOPT 6,(app_sts_play),0,0,0
 GRPOPT 7,(app_sts_usb),0,0,0
 GRPOPT 8,(app_sts_view),1,0,0
-GRPOPT 9,(app_init),0,0,0
+GRPOPT 9,(app_init),1,0,0
 GRPOPT 10,(app_cal),0,0,0
 GRPOPT 11,(app_cmd),0,0,0
-GRPOPT 12,(app_dev),0,0,0
-GRPOPT 13,(app_para),0,0,0
-GRPOPT 14,(app_power),0,0,0
-GRPOPT 15,(app_ui),0,0,0
-GRPOPT 16,(main),0,0,0
-GRPOPT 17,(drv_hdmi),0,0,0
-GRPOPT 18,(hdmi_list),0,0,0
-GRPOPT 19,(drv_package),0,0,0
-GRPOPT 20,(package_list),0,0,0
-GRPOPT 21,(drv_panel),0,0,0
-GRPOPT 22,(panel_list),0,0,0
-GRPOPT 23,(drv_sensor),0,0,0
-GRPOPT 24,(sensor_list),0,0,0
-GRPOPT 25,(func_ptr),0,0,0
-GRPOPT 26,(lib),0,0,0
-GRPOPT 27,(absolute),0,0,0
+GRPOPT 12,(app_dev),1,0,0
+GRPOPT 13,(app_para),1,0,0
+GRPOPT 14,(app_power),1,0,0
+GRPOPT 15,(app_ui),1,0,0
+GRPOPT 16,(main),1,0,0
+GRPOPT 17,(drv_hdmi),1,0,0
+GRPOPT 18,(hdmi_list),1,0,0
+GRPOPT 19,(drv_package),1,0,0
+GRPOPT 20,(package_list),1,0,0
+GRPOPT 21,(drv_panel),1,0,0
+GRPOPT 22,(panel_list),1,0,0
+GRPOPT 23,(drv_sensor),1,0,0
+GRPOPT 24,(sensor_list),1,0,0
+GRPOPT 25,(func_ptr),1,0,0
+GRPOPT 26,(lib),1,0,0
+GRPOPT 27,(absolute),1,0,0
 
 OPTFFF 1,1,5,805306368,0,0,0,0,<.\script\disp_install.bat><disp_install.bat> 
 OPTFFF 1,2,5,788529152,0,0,0,0,<.\script\front_install.bat><front_install.bat> 
@@ -49,7 +49,7 @@ OPTFFF 1,6,5,50331648,0,0,0,0,<.\sp1kPrj.lin><sp1kPrj.lin>
 OPTFFF 2,7,1,0,0,0,0,0,<.\host\app_status\sts_idle\app_sts_idle.c><app_sts_idle.c> 
 OPTFFF 3,8,1,0,0,0,0,0,<.\host\app_status\sts_main\app_sts_main.c><app_sts_main.c> 
 OPTFFF 4,9,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_sts_menu.c><app_sts_menu.c> 
-OPTFFF 4,10,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_api.c><app_menu_api.c> 
+OPTFFF 4,10,1,603979776,0,3850,3851,0,<.\host\app_status\sts_menu\app_menu_api.c><app_menu_api.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,26,0,0,0,26,0,0,0,172,3,0,0,19,1,0,0 }
 OPTFFF 4,11,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_core.c><app_menu_core.c> 
 OPTFFF 4,12,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_disp.c><app_menu_disp.c> 
 OPTFFF 4,13,1,0,0,0,0,0,<.\host\app_status\sts_menu\app_menu_tab.c><app_menu_tab.c> 
@@ -69,15 +69,15 @@ OPTFFF 6,26,1,0,0,0,0,0,<.\host\app_status\sts_play\app_sts_stillplay.c><app_sts
 OPTFFF 7,27,1,0,0,0,0,0,<.\host\app_status\sts_usb\app_sts_dps.c><app_sts_dps.c> 
 OPTFFF 7,28,1,0,0,0,0,0,<.\host\app_status\sts_usb\app_sts_usb.c><app_sts_usb.c> 
 OPTFFF 8,29,1,0,0,0,0,0,<.\host\app_status\sts_view\app_sts_audiorec.c><app_sts_audiorec.c> 
-OPTFFF 8,30,1,2,0,2523,2526,0,<.\host\app_status\sts_view\app_sts_stillview.c><app_sts_stillview.c> { 44,0,0,0,2,0,0,0,3,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,0,0,0,0,0,0,0,0,129,3,0,0,209,0,0,0 }
-OPTFFF 8,31,1,0,0,1143,1146,0,<.\host\app_status\sts_view\app_sts_videoview.c><app_sts_videoview.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,75,0,0,0,75,0,0,0,204,3,0,0,28,1,0,0 }
-OPTFFF 9,32,1,0,0,0,0,0,<.\host\app_init\app_init.c><app_init.c> 
+OPTFFF 8,30,1,0,0,432,432,0,<.\host\app_status\sts_view\app_sts_stillview.c><app_sts_stillview.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,0,0,0,0,0,0,0,0,146,3,0,0,249,0,0,0 }
+OPTFFF 8,31,1,486539266,0,2710,2710,0,<.\host\app_status\sts_view\app_sts_videoview.c><app_sts_videoview.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,104,0,0,0,104,0,0,0,254,3,0,0,101,1,0,0 }
+OPTFFF 9,32,1,0,0,10,10,0,<.\host\app_init\app_init.c><app_init.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,104,0,0,0,104,0,0,0,250,3,0,0,97,1,0,0 }
 OPTFFF 9,33,1,0,0,0,0,0,<.\host\app_init\dev_init.c><dev_init.c> 
 OPTFFF 10,34,1,0,0,0,0,0,<.\host\app_cal\app_cal_api.c><app_cal_api.c> 
 OPTFFF 10,35,1,0,0,0,0,0,<.\host\app_cal\app_menu_cal.c><app_menu_cal.c> 
 OPTFFF 11,36,1,0,0,0,0,0,<.\host\app_sample\app_cus_cmd.c><app_cus_cmd.c> 
 OPTFFF 11,37,1,0,0,0,0,0,<.\host\app_sample\app_cmd_def.c><app_cmd_def.c> 
-OPTFFF 12,38,1,0,0,0,0,0,<.\host\app_dev\app_dev_disp.c><app_dev_disp.c> 
+OPTFFF 12,38,1,0,0,1,14,0,<.\host\app_dev\app_dev_disp.c><app_dev_disp.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,52,0,0,0,52,0,0,0,202,3,0,0,49,1,0,0 }
 OPTFFF 12,39,1,0,0,0,0,0,<.\host\app_dev\app_dev_storage.c><app_dev_storage.c> 
 OPTFFF 12,40,1,0,0,0,0,0,<.\host\app_dev\app_dev_usb.c><app_dev_usb.c> 
 OPTFFF 13,41,1,0,0,0,0,0,<.\host\app_para\app_ui_para.c><app_ui_para.c> 
@@ -96,7 +96,7 @@ OPTFFF 19,53,1,0,0,0,0,0,<.\drivers\package\drv_package.c><drv_package.c>
 OPTFFF 20,54,1,0,0,0,0,0,<.\drivers\package\package_1627.c><package_1627.c> 
 OPTFFF 20,55,1,0,0,0,0,0,<.\drivers\package\package_1628.c><package_1628.c> 
 OPTFFF 20,56,1,637534208,0,0,0,0,<.\drivers\package\package_1626.c><package_1626.c> 
-OPTFFF 21,57,1,0,0,0,0,0,<.\drivers\display\drv_panel.c><drv_panel.c> 
+OPTFFF 21,57,1,553648128,0,0,0,0,<.\drivers\display\drv_panel.c><drv_panel.c> 
 OPTFFF 21,58,1,0,0,0,0,0,<.\drivers\display\tv\disp_composite_tv_ntsc.c><disp_composite_tv_ntsc.c> 
 OPTFFF 21,59,1,0,0,0,0,0,<.\drivers\display\tv\disp_composite_tv_pal.c><disp_composite_tv_pal.c> 
 OPTFFF 22,60,1,0,0,0,0,0,<.\drivers\display\lcd\disp_auo_a015an02_ups052.c><disp_auo_a015an02_ups052.c> 
@@ -127,7 +127,7 @@ OPTFFF 25,84,1,0,0,0,0,0,<.\host\func_ptr\func_intr_def.c><func_intr_def.c>
 OPTFFF 25,85,1,0,0,0,0,0,<.\host\func_ptr\func_init_def.c><func_init_def.c> 
 OPTFFF 25,86,1,0,0,0,0,0,<.\host\func_ptr\func_os_def.c><func_os_def.c> 
 OPTFFF 25,87,1,0,0,0,0,0,<.\host\func_ptr\func_msg_def.c><func_msg_def.c> 
-OPTFFF 25,88,1,0,0,0,0,0,<.\host\func_ptr\func_ptr.c><func_ptr.c> 
+OPTFFF 25,88,1,419430400,0,30,30,0,<.\host\func_ptr\func_ptr.c><func_ptr.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,26,0,0,0,26,0,0,0,176,3,0,0,23,1,0,0 }
 OPTFFF 25,89,1,0,0,0,0,0,<.\host\func_ptr\func_gui_def.c><func_gui_def.c> 
 OPTFFF 26,90,4,0,0,0,0,0,<.\kernel\lib\libAe.LIB><libAe.LIB> 
 OPTFFF 26,91,4,0,0,0,0,0,<.\kernel\lib\libAf.LIB><libAf.LIB> 
@@ -215,6 +215,7 @@ OPTFFF 27,172,3,0,0,0,0,0,<.\kernel\lib\absolute\L51_BANK.obj><L51_BANK.obj>
 OPTFFF 27,173,3,0,0,0,0,0,<.\kernel\lib\absolute\STARTUP.obj><STARTUP.obj> 
 OPTFFF 27,174,3,0,0,0,0,0,<.\kernel\lib\absolute\INIT.obj><INIT.obj> 
 
+ExtF <E:\code\SPCA1627\240226_新板_按键_屏显_偏红_L_开关机_曝光\CDAF\kernel\inc\os\os_msg.h> 131,131,0,{ 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,248,255,255,255,225,255,255,255,78,0,0,0,78,0,0,0,228,3,0,0,75,1,0,0 }
 
 TARGOPT 1, (NAND)
  CLK51=18000000

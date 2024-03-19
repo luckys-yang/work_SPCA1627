@@ -196,18 +196,21 @@ osdClearChar(
 
 	
 }
-void 
-osdClearCharExt(
-	SINT16 x,
-	SINT16 y,
-	UINT16 w,
-	UINT16 h
-)	
+
+/**
+* @param    x: x坐标
+* @param    y: y坐标
+* @param    w: 宽度
+* @param    h: 高度
+* @retval   None
+* @brief    显示屏上清除特定区域
+**/
+void osdClearCharExt(SINT16 x, SINT16 y, UINT16 w, UINT16 h)
 {
-	osdIndexSave();
-	osdPenCfg(1,1);
-	osdRectDraw(x, y, w, h);
-	osdIndexRestore();
+	osdIndexSave();  // 保存当前OSD索引
+	osdPenCfg(1,1);  // 配置OSD画笔
+	osdRectDraw(x, y, w, h);  // 在指定位置和大小绘制矩形
+	osdIndexRestore();  // 恢复OSD索引
 }
 
 /**

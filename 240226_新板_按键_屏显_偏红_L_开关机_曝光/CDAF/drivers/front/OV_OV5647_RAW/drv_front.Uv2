@@ -189,7 +189,7 @@ Options 2,0,0  // Target 'prj'
  C51MSC ()
  C51DEF (CVT_TOOL,LIB_RELEASE)
  C51UDF ()
- INCC5 (..\..\..\kernel\inc;..\..\..\kernel\inc\hal;..\..\..\kernel\inc\middleware;..\..\..\kernel\inc\os;..\..\..\kernel\inc\sp1k;..\..\..\host\inc;..\..\..\host\inc\app;..\..\..\host\inc\customization)
+ INCC5 (..\..\..\kernel\inc;..\..\..\kernel\inc\hal;..\..\..\kernel\inc\middleware;..\..\..\kernel\inc\os;..\..\..\kernel\inc\sp1k;..\..\..\host\inc;..\..\..\host\inc\app;..\..\..\host\inc\customization;..\..\..\USER)
  AX51FL=4
  AX51MSC ()
  AX51SET ()

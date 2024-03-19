@@ -24,8 +24,9 @@ REM **********************************************************************
 
 REM set "CUSTOM_DRIVER=st7789v_HSDIPS_RT20QV034E_lcm"
 
-set "CUSTOM_DRIVER=hsd2.4ips_st7789v"
-
+REM 2024.3.19 
+REM set "CUSTOM_DRIVER=hsd2.4ips_st7789v"
+set "CUSTOM_DRIVER=ili9340x"
 REM set "CUSTOM_DRIVER=JD9851_BOE2.4_IPS_240x320_1dot_G2.5"
 
 REM set "CUSTOM_DRIVER=ili9340x_BOE2.4_IPS"

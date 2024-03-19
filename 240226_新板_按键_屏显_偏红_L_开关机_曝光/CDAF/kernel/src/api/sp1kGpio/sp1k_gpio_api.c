@@ -96,6 +96,7 @@ extern xdata UINT8 G_DgpioValue;
 extern UINT8 HAL_GlobalICVerGet(void);
 extern UINT8 gLcdCloseFlag;
 
+
 /**************************************************************************
  *               F U N C T I O N    D E C L A R A T I O N S               *
  **************************************************************************/
@@ -460,7 +461,7 @@ UINT8 sp1kpullSelGet(
 }
 /**
  * @fn        void sp1kPullEnSet(UINT8 byteId, UINT8 msk, UINT8 en)
- * @brief     set pull high/low enable in byte
+ * @brief     set c high/low enable in byte
  * @param     [in] byteId: byte id, 0~12.
  * @param     [in] msk: bitmap mask.
  * @param     [in] en: bitmap pull high/low, 0: disable, 1: enable.
@@ -1458,27 +1459,25 @@ UINT8 sp1kTV_PlugGet(void)
 	#endif
 }
 
-//-----------------------------------------------------------------------------
-//sp1kUSB_PlugCfg
-//-----------------------------------------------------------------------------
 /**
- * @brief		sp1k Turnkey USB plug detect configure
- * @param	NONE
- * @retval	NONE
- * @see
- * @author	sun yong
- * @since		2008-03-01
- * @todo		Something need to be done.
- * @bug		NONE.
-*/
+* @param    None
+* @retval   None
+* @brief    sp1k USB 插头检测配置
+**/
 void sp1kUSB_PlugCfg(void)
 {
+#if USE_PKG_DEDICATE_PIN
 
-	#if USE_PKG_DEDICATE_PIN
-	//sp1kPullSelSet(3, 0x01, 0x00);
-	sp1kPullEnSet(4, 0x10, 0);
-	pkgDedicateGpioCfg(PKG_DEDICATE_PIN_USB_PLUG, &gpioByteIdUsbPlug, &gpioBitMskUsbPlug, &gpioPolarityUsbPlug, 0);
-	#endif
+/*-------------------- USER CODE: Custom Begin --------------------*/
+    
+    /*GPIO3*/
+    sp1kPullSelSet(3, 0x01, 0x00);    // 设置为下拉
+    sp1kPullEnSet(4, 0x10, 0);  // 使能内部上下拉 -- 不使能
+
+/*-------------------- USER CODE: Custom End --------------------*/
+
+    pkgDedicateGpioCfg(PKG_DEDICATE_PIN_USB_PLUG, &gpioByteIdUsbPlug, &gpioBitMskUsbPlug, &gpioPolarityUsbPlug, 0); // 配置特殊GPIO，输入
+#endif
 }
 
 //-----------------------------------------------------------------------------

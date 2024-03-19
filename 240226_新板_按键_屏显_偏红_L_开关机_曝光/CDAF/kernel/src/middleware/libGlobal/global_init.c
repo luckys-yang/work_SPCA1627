@@ -98,144 +98,107 @@ extern UINT8 zoomDevInit(void);
 /**************************************************************************
  *               F U N C T I O N    D E C L A R A T I O N S               *
  **************************************************************************/
+
 /**
- * @fn        void uartInit(void)
- * @brief     uartInit
- * @param     NONE
- * @retval    NONE
- * @see       NULL
- * @author    Phil Lin
- * @since     2011-2-15
- * @todo      N/A
- * @bug       N/A
-*/
-static void
-uartInit(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    初始化UART -- 2011-2-15
+**/
+static void uartInit(void)
 {
-	/* The baudrate set in "startup.a51" */
-
-	HAL_GlobalUartSet(1);				/* Pin mux selection for RX/TX */
-
-	globalInitPrintf("\niCatLite\n");	/* First debug message in power on process */
+    // 设置在 "startup.a51" 中定义的波特率
+	HAL_GlobalUartSet(1);   // 选择RX/TX引脚的复用
+	globalInitPrintf("\niCatLite\n");   // 上电过程中的第一条调试信息
 }
 
 /**
- * @fn        void cpuInit(void)
- * @brief     cpuInit
- * @param     NONE
- * @retval    NONE
- * @see       NULL
- * @author    Phil Lin
- * @since     2011-2-15
- * @todo      N/A
- * @bug       N/A
-*/
-static void
-cpuInit(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    初始化CPU -- 2011-2-15
+**/
+static void cpuInit(void)
 {
-    TCON = 0x40;                    //TCON:  IT0=0 INT0 negative edge trigger
-                                    //       IE0=0 INT0 interrupt flag
-                                    //       IT1=0 INT1 negative level trigger
-                                    //       IE1=0 INT1 interrupt flag
-                                    //       TR0=0 TIMER0 disable
-                                    //       TF0=0 TIMER0 overflow flag
-                                    //       TR1=1 TIMER1 enable
-                                    //       TF1=0 TIMER1 overflow flag
+    TCON = 0x40;                    //TCON寄存器: IT0=0 INT0负边沿触发
+                                    //            IE0=0 INT0中断标志位
+                                    //            IT1=0 INT1负电平触发
+                                    //            IE1=0 INT1中断标志位
+                                    //            TR0=0 TIMER0禁用
+                                    //            TF0=0 TIMER0溢出标志位
+                                    //            TR1=1 TIMER1启用
+                                    //            TF1=0 TIMER1溢出标志位
 
-    IP = 0x03;                      //IP:    PX0=1 INT0 priority level
-                                    //       PT0=1 TIMER0 priority level
-                                    //       PX1=0 INT1 priority level
-                                    //       PT1=0 TIMER1 priority level
-                                    //       PS=0  Serial Port priority level
-                                    //       PT2=0 Timer2 priority level
+    IP = 0x03;                      //IP寄存器:   PX0=1 INT0优先级
+                                    //            PT0=1 TIMER0优先级
+                                    //            PX1=0 INT1优先级
+                                    //            PT1=0 TIMER1优先级
+                                    //            PS=0 串口优先级
+                                    //            PT2=0 Timer2优先级
 
-    IE = 0x81;                      //IE:    EX0=1 INT0 interrupt enable
-                                    //       ET0=0 TIMER0 interrupt disable
-                                    //       EX1=0 INT1 interrupt disable
-                                    //       ET1=0 TIMER1 interrupt disable
-                                    //       ES=0  Serial Port interrupt disable
-                                    //       ET2=0 TIMER2 interrupt disable
-                                    //       EA=1  All interrupts enable
+    IE = 0x81;                      //IE寄存器:   EX0=1 INT0中断使能
+                                    //            ET0=0 TIMER0中断禁用
+                                    //            EX1=0 INT1中断禁用
+                                    //            ET1=0 TIMER1中断禁用
+                                    //            ES=0 串口中断禁用
+                                    //            ET2=0 TIMER2中断禁用
+                                    //            EA=1  所有中断使能
 
-    TMOD = 0x11;                    //TMOD:  Timer0 M1M0=1 (Mode1=16-bit counter)
-                                    //       Timer0 C/T~=0 (Timer)
-                                    //       Timer0 GATE=0
-                                    //       Timer1 M1M0=2 (Mode2=8-bit counter)
-                                    //       Timer1 C/T~=0 (Timer)
-                                    //       Timer1 GATE=0
+    TMOD = 0x11;                    //TMOD寄存器: Timer0 M1M0=1 (模式1=16位计数器)
+                                    //            Timer0 C/T~=0 (定时器)
+                                    //            Timer0 GATE=0
+                                    //            Timer1 M1M0=2 (模式2=8位计数器)
+                                    //            Timer1 C/T~=0 (定时器)
+                                    //            Timer1 GATE=0
 
-	IT1 = 1; 						// it determines the EX1 trigger method
+	IT1 = 1; 						// 决定EX1的触发方式
 
-	TH1 = K_Timer1IntervalHi;
-	TL1 = K_Timer1IntervalLo;
+	TH1 = K_Timer1IntervalHi;       // 设置Timer1的高8位初值
+	TL1 = K_Timer1IntervalLo;       // 设置Timer1的低8位初值
 }
 
 /**
- * @fn        void dramInit(void)
- * @brief     dramInit
- * @param     NONE
- * @retval    NONE
- * @see       NULL
- * @author    Phil Lin
- * @since     2011-2-15
- * @todo      N/A
- * @bug       N/A
-*/
-static void
-dramInit(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    初始化DRAM -- 2011-2-15
+**/
+static void dramInit(void)
 {
-	/* Dram access priority setting */
-	XBYTE[REG_Dram_Master0b_Sel] = 0x00;	/* set CDSP priority more than display */
+	/* DRAM访问优先级设置 */
+	XBYTE[REG_Dram_Master0b_Sel] = 0x00;	// 设置CDSP优先级高于显示
 
-	XBYTE[REG_Dram_SdckMode] &= ~0x40;/*ma14 output enable,must set when dram is 16*16*/
-	/* Code sentry setting */ //Phil move to "sysMemAddrUpdate"
-	/* protect 1 word firstly, then for all code area after system memeory initial */
+	XBYTE[REG_Dram_SdckMode] &= ~0x40; // MA14输出使能，当DRAM为16*16时必须设置
+	/* 代码哨兵设置 */ // 移动到"sysMemAddrUpdate"
+	/* 首先保护1个字，然后在系统内存初始化后为所有代码区域进行保护 */
 	HAL_DramCodeSentry(0x00, 0x00, 0x00);
 
-	/* watch dog timer initial */
+	/* 看门狗定时器初始化 */
 	dbgWdtCfg(1, WDT_PROC_DBG_ALL, WDT_TIME_OUT);
 
-	/* global timer initial */
+	/* 全局定时器初始化 */
 	HAL_GlobalTimerInit();
 }
 
 /**
- * @fn        void gpioInit(void)
- * @brief     gpioInit
- * @param     NONE
- * @retval    NONE
- * @see       NULL
- * @author    Phil Lin
- * @since     2011-2-15
- * @todo      N/A
- * @bug       N/A
-*/
-static void
-gpioInit(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    GPIO初始化函数 -- 2011-2-15
+**/
+static void gpioInit(void)
 {
-	XBYTE[0x201a] &= 0xf0;	 /* Mux-pin function : GPIO 28~31 */
+	XBYTE[0x201a] &= 0xf0;	// 复用引脚功能：GPIO 28~31
 
 	XBYTE[0x2474] = 0x01;
-	
+	// 获取当前芯片封装中的芯片ID为0x1627 或 为0x1626
 	if((pkgChipIdGet()== 0x1627)||(pkgChipIdGet()== 0x1626))
 	{
-		XBYTE[0x2009] = 0x00;//only for 1627
+		XBYTE[0x2009] = 0x00; // 仅适用于1627
 		XBYTE[0x2049] = 0xA9;
 		XBYTE[0x204A] = 0x56;
-		XBYTE[0x2060] = 0x56;//mantis for 42697
+		XBYTE[0x2060] = 0x56; // 螳螂为42697
 	}
 
 	#ifndef LIB_RELEASE
 		#if(_HW_SOLUTION_ == _HW_EVB_)
-			XBYTE[0x2048] = 0x75;//only increasing driving for EVB
+			XBYTE[0x2048] = 0x75; // 仅适用于EVB，增加驱动力
 		#endif
 	#endif
 
@@ -267,71 +230,63 @@ gpioInit(
 		}
 	#endif //ICAT_OPTION
 
-	sp1kAdcInit();
+	sp1kAdcInit();  // 初始化 adc gpio
 }
+
 /**
- * @fn        void usbInit(void)
- * @brief     usbInit
- * @param     NONE
- * @retval    NONE
- * @see       NULL
- * @author    Phil Lin
- * @since     2011-2-15
- * @todo      N/A
- * @bug       N/A
-*/
-static void
-usbInit(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    USB初始化函数 -- 2011-2-15
+**/
+static void usbInit(void)
 {
-	G_ucPktStorIntrf = K_StorageInterface1; //current packet belongs to which storage interface
-	G_ucCtrlPhase    = K_CommandPhase;
-	G_ucBulkPhase    = K_CommandPhase;
-	G_USBAudioSetInterface = 0; //CX add
+	G_ucPktStorIntrf = K_StorageInterface1; // 当前数据包属于哪个存储接口
+	G_ucCtrlPhase = K_CommandPhase;
+	G_ucBulkPhase = K_CommandPhase;
+	G_USBAudioSetInterface = 0; // CX 添加
 
 #if (USBMSDC_OPTION == 2)
 	G_USBMSDC_usSizeProcessed = 0;
 	G_USBMSDC_ucSenseCodeIdx = 0x00;
 	G_USBMSDC_ucCSWStatus = K_USBMSDC_CommandPassed;
-	G_UIStatus = 0;//K_UISTATUS_USBMODE_PCCAM; //for prjmode!for video pv size 6/8
+	G_UIStatus = 0; // K_UISTATUS_USBMODE_PCCAM; 用于prjmode！用于视频 pv size 6/8
 #endif
 
 #if 0
 	gUsbMode = K_UIOPTION_STORAGE_SIDC;
 #else
-    gUsbMode = K_UIOPTION_STORAGE_MSDC;
+	gUsbMode = K_UIOPTION_STORAGE_MSDC;
 #endif
 
 	G_MLUN_CardSupport = K_CARD_TYPE;
 
-	XBYTE[REG_Usb_TransactionEn] &= 0xf9;			//reject (NAK)
-									//next EP0 Out packet
-									//next EP0 In packet
+	XBYTE[REG_Usb_TransactionEn] &= 0xf9; // 拒绝(NAK)
+	// 下一个EP0 Out数据包
+	// 下一个EP0 In数据包
 
-	XBYTE[REG_Usb_EpAckIntSts] = 0xff;			//Clear all status
-	XBYTE[REG_Usb_IntSts] = 0xff;			//clear status
-	XBYTE[REG_Usb_EpAckIntEn] = 0x07;			//enable interrupt for
-									//EP0 Setup packet OK
-									//EP0 Out packet OK
-									//EP0 In packet OK
-	XBYTE[REG_Usb_IntEn] |= 0x01;			//USBRstVTEn
+	XBYTE[REG_Usb_EpAckIntSts] = 0xff; // 清除所有状态
+	XBYTE[REG_Usb_IntSts] = 0xff; // 清除状态
+	XBYTE[REG_Usb_EpAckIntEn] = 0x07; // 使能中断
+	// EP0 Setup数据包 OK
+	// EP0 Out数据包 OK
+	// EP0 In数据包 OK
+	XBYTE[REG_Usb_IntEn] |= 0x01; // USBRstVTEn
 #if 1
-	XBYTE[REG_Usb_Status] = 0x00;			//00:Enable HS, 02:Force FS, disable SoftPlugOut !!
+	XBYTE[REG_Usb_Status] = 0x00; // 00:启用HS，02:强制FS，禁用SoftPlugOut !!
 #else
-	XBYTE[REG_Usb_Status] = 0x02;			//00:Enable HS, 02:Force FS, disable SoftPlugOut !!
+	XBYTE[REG_Usb_Status] = 0x02; // 00:启用HS，02:强制FS，禁用SoftPlugOut !!
 #endif
-	//XBYTE[0x2045] |= 0x01;			//enable GPIO8 Falling interrupt (USB detcter)
-	//XBYTE[0x207B] &= ~0x01;			//clear GPIO8 Finter event
-	XBYTE[0x2044] |= 0x08;			//enable GPIO3 Falling interrupt (USB detcter)
-	XBYTE[0x207A] &= ~0x08;			//clear GPIO3 Finter event
+	// XBYTE[0x2045] |= 0x01; // 使能GPIO8下降沿中断 (USB检测器)
+	// XBYTE[0x207B] &= ~0x01; // 清除GPIO8下降沿事件
+	XBYTE[0x2044] |= 0x08; // 使能GPIO3下降沿中断 (USB检测器)
+	XBYTE[0x207A] &= ~0x08; // 清除GPIO3下降沿事件
 
 #if(K_AUDIOINTER)
-    XBYTE[REG_Usb_Alt_If1_NumMax] = 0x05;			/* Set alternating max to 5 */
-    XBYTE[REG_Usb_UsbMode] = 0x01;  //0x256F
-    XBYTE[REG_Usb_LogicEp1_Disable] = 0xe0;  //0x2530
+    XBYTE[REG_Usb_Alt_If1_NumMax] = 0x05; // 设置交替最大为5
+    XBYTE[REG_Usb_UsbMode] = 0x01;  // 0x256F
+    XBYTE[REG_Usb_LogicEp1_Disable] = 0xe0;  // 0x2530
 #else
-    XBYTE[REG_Usb_Alt_If1_NumMax] = 0x08;			/* Set alternating max to 8 */
+    XBYTE[REG_Usb_Alt_If1_NumMax] = 0x08; // 设置交替最大为8
     XBYTE[REG_Usb_UsbMode] = 0x03;
     XBYTE[REG_Usb_LogicEp1_Disable] = 0x00;
 #endif
@@ -341,83 +296,61 @@ usbInit(
 }
 
 /**
- * @fn        void hostInit(void)
- * @brief     hostInit
- * @param     NONE
- * @retval    NONE
- * @see       NULL
- * @author    Phil Lin
- * @since     2011-2-16
- * @todo      N/A
- * @bug       N/A
-*/
-static void
-hostInit(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    主机初始化函数 -- 2011-2-15
+**/
+static void hostInit(void)
 {
 	UINT8 cnt = 0;
 	pFuncInit* pf = &funcInitArray[0];
 
-	/* check the array size */
-	//ASSERT(sizeof(funcInitArray) / sizeof(pFuncInit) < FUNC_SYS_INIT_MAX, 0);
+	/* 检查数组大小 */
+	// ASSERT(sizeof(funcInitArray) / sizeof(pFuncInit) < FUNC_SYS_INIT_MAX, 0);
 
-	while(*pf) {
+	while (*pf) 
+    {
 		(*pf)();
 		pf++;
 		if (++cnt >= FUNC_SYS_INIT_MAX) {
-			/* funcInitArray configure error */
+			/* funcInitArray 配置错误 */
 			ASSERT(0, 0);
 		}
 	}
 }
 
 /**
- * @fn        void globalInit(void)
- * @brief     globalInit
- * @param     NONE
- * @retval    NONE
- * @see       NULL
- * @author    Phil Lin
- * @since     2011-2-15
- * @todo      N/A
- * @bug       N/A
-*/
-void
-globalInit(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    全局初始化函数 -- 2011-2-15
+**/
+void globalInit(void)
 {
-	pFuncInit *pFuncInitMain = &funcInitMain;
+	pFuncInit *pFuncInitMain = &funcInitMain;  // 函数指针赋值 
+	uartInit(); // 串口初始化
+	cpuInit();  // CPU初始化
+	dramInit(); // DRAM 相关功能初始化
+	gpioInit(); // GPIO 初始化
+	hostInit(); // 主机初始化回调
 
-	uartInit();                                          /* Uart initial */
+#if 0 //for NEW ZOOM function 20131213
+	zoomDevInit();     /* 新增用于 v2.1.8 兼容性的功能 */
+	sp1kZoomDevActSet(SP1K_ZOOM_LOGI_VIDEO_MODE, SP1K_ZOOM_LOGI_NONBLOCKING_TYPE);   // 修复 mantis 45825
+#endif
 
-	cpuInit();                                           /* 8051 initial */
-
-	dramInit();                                          /* Dram related function initial */
-
-	gpioInit();                                          /* GPIO initial */
-
-	hostInit();                                          /* host initial callback */
-
-	#if 0 //for NEW ZOOM function 20131213
-	zoomDevInit();     /*Add for v2.1.8 compatibility*/
-	sp1kZoomDevActSet(SP1K_ZOOM_LOGI_VIDEO_MODE,SP1K_ZOOM_LOGI_NONBLOCKING_TYPE);   //  fix mantis 45825
-	#endif
-
-	usbInit();                                           /* Usb initial */
-
-	osInit();                                            /* system basic service initial */
+	usbInit();  // USB 初始化
+    
+	osInit();   // 系统基础服务初始化
 	osTaskCreate(osTaskIdle, OS_PRIO_ACTIVE_FUNC);
 	osMsgInit();
 	cmdInit();
 
-	sp1kDevInit();                                       /* device initial */
+	sp1kDevInit();  // sp1k设备属性初始化
 	sp1kAudioPlayInit();
 	sp1kRTCInit();
 	sp1kDiskMemInit();
 
-	ASSERT(pFuncInitMain, 0);                            /* jump to host device initial flow */
-	(*pFuncInitMain)();
+	ASSERT(pFuncInitMain, 0);  /* 跳转到主机设备初始化流程 */
+	(*pFuncInitMain)(); // 设备初始化devInit
 	HAL_TpPreCfg();
 }

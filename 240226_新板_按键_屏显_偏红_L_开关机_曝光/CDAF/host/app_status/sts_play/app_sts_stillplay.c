@@ -102,7 +102,7 @@ xdata UINT16 G_PlayBackPageCount;
 SIMAGE xdata pbFile;
 UINT16 pbZoomCurLog = 100;
 UINT8 pbPreState = APP_STATE_STILL_VIEW;
-UINT8 cur_idx = 0;
+UINT8 cur_idx = 0;  // 当前选择索引
 static UINT8 delete_key_hot_delete_sta = 0;
 UINT8 delete_key_to_menu = 0;
 
@@ -197,136 +197,159 @@ void appStillPlay (UINT16 msg) USING_0
 	puiPara = appUiParaGet();
 	
 	switch (msg) {
-	case SP1K_MSG_STATE_INIT:
-		if (puiPara->SpeakSound) {
-			sp1kAudioVolumeSet(puiPara->Volume);
-		}
-		
-		if ( cardplug ) {
-			//CPrintf("still playback init\n");
-			cardplug = 0;
-			break;
-		}
-		
-		LastMode = appPreStateGet(0);
-		
-		switch (LastMode) {
-		case APP_STATE_MENU:
-		case APP_STATE_PAN_SHOW:
-		case APP_STATE_SLIDE_SHOW:
-		case APP_STATE_AUDIO_PLAY:
-		case APP_STATE_MUTI_PLAY:
-			InitMode = SP1K_PB_INIT_FULL;//SP1K_PB_INIT_SMART;
-			appPbPreStateSet(LastMode);
-			break;
-			
-		case APP_STATE_STILL_VIEW:
-		case APP_STATE_VIDEO_VIEW:
-			InitMode = SP1K_PB_INIT_FULL;
-			appPbPreStateSet(LastMode);
-			break;
-			
-		case APP_STATE_AUDIO_REC:
-			if (sp1kAudioRecTypeGet() == AUDIO_TYPE_VOICE) {
-				InitMode = SP1K_PB_INIT_SMART;
-			} else {
-				InitMode = SP1K_PB_INIT_FULL;
-				appPbPreStateSet(LastMode);
-			}
-			break;
-			
-		default:
-			InitMode = SP1K_PB_INIT_FULL;
-			break;
-		}
-		
-		if(pbFile.dwIndex == 0xffff){    //xian ++, invalid index for #31928
-			InitMode = SP1K_PB_INIT_FULL;
-			pbFile.dwIndex = sp1kPbFileCntGet();
-		}
+    case SP1K_MSG_STATE_INIT:
+    {
+        if (puiPara->SpeakSound)
+        {
+            sp1kAudioVolumeSet(puiPara->Volume);
+        }
 
-		if (appStillPlayInit(InitMode) == FAIL)
-		{
-			//printf("\n1\n");
-			pbFile.bFileErr = TRUE;
-			sp1kDispImgShow(pbDispBuffGet(1), PB_DECODE_WIDTH, PB_DECODE_HEIGHT, 100);//2008-7-28 mantis #28190 step 1
-			if(sp1kDcfIsOurBaseName(pbFile.FileName)==TRUE)
-			{
-				uiOsdDialogDisp(ID_STR_FILE_ERROR_, 0);
-			}
-			else
-			{
-				uiOsdDialogDisp(ID_STR_NOT_SUPPORT_, 0);
-			}
-		}
-		//printf("\n2\n");
-		/*if(puiPara->redEyePb == REDEYEPB_ON)
-		{
-			uiUpdateSelFrame(0);
-		}*/
+        if (cardplug)
+        {
+            // CPrintf("still playback init\n");
+            cardplug = 0;
+            break;
+        }
 
-		appAutoOffTimeSet();//jintao.liu 2008-3-28 add for mantis 21604
-/***************Just for QA test @start***************************************/
-		if(AutoTestMode == 0xAA)
-		{
-			appFileDelete(SP1K_FILE_PROC_ALL);
-			if((appSDPlugStatusGet()==0) && (sp1kDiskTypeGet()==DEV_TYPE_DISK_NAND)) {
+        LastMode = appPreStateGet(0); // 获取前一个状态
 
-					static UINT8 VSize = MOV_SIZE_D1;
-					VSize ++;
-					if (VSize == MOV_SIZE_MAX) {
-						VSize = MOV_SIZE_VGA;
-					}
-					puiPara->VideoSize=VSize;
+        switch (LastMode)
+        {
+        case APP_STATE_MENU:
+        case APP_STATE_PAN_SHOW:
+        case APP_STATE_SLIDE_SHOW:
+        case APP_STATE_AUDIO_PLAY:
+        case APP_STATE_MUTI_PLAY:
+        {
+            InitMode = SP1K_PB_INIT_FULL; // SP1K_PB_INIT_SMART;
+            appPbPreStateSet(LastMode); // 记录 PB 预置状态
+            break;
+        }
 
-			}
-			else {
-				uiPara_t* puiPara;
-				puiPara = appUiParaGet();
-				puiPara->VideoSize++;
-				if (MOV_SIZE_MAX== puiPara->VideoSize)
-				{
-					puiPara->VideoSize = MOV_SIZE_HD;
-				}
-			}
-			osMsgPost(SP1K_MSG_STATE_TO_VIDEO_VIEW);
-			osMsgPost(SP1K_MSG_KEY_PRESS_S2);
-			break;
-		}
-		else if(AutoTestMode == 0x55)
-		{
-			appFileDelete(SP1K_FILE_PROC_ALL);
-			osMsgPost(SP1K_MSG_STATE_TO_STILL_VIEW);
-			osMsgPost(SP1K_MSG_KEY_PRESS_S2);
-			break;
-		}
-/***************Just for QA test @end***************************************/
+        case APP_STATE_STILL_VIEW:
+        case APP_STATE_VIDEO_VIEW:
+        {
+            InitMode = SP1K_PB_INIT_FULL;
+            appPbPreStateSet(LastMode);
+            break;
+        }
 
-		#if MSG_AUTO_SEND
-		sp1kHalWait(2000);
-		if(dele)
-		{
-			sp1kHalWait(1000);
-			osMsgPost(SP1K_MSG_STATE_TO_MENU);
-		}
-		else
-		{
-			osMsgPost(SP1K_MSG_KEY_PRESS_SNAP);
-		}
-		#endif
+        case APP_STATE_AUDIO_REC:
+        {
+            if (sp1kAudioRecTypeGet() == AUDIO_TYPE_VOICE)
+            {
+                InitMode = SP1K_PB_INIT_SMART;
+            }
+            else
+            {
+                InitMode = SP1K_PB_INIT_FULL;
+                appPbPreStateSet(LastMode);
+            }
+            break;
+        }
 
-		#if SUPPORT_AUTO_TEST
-		if (autoTestOpenFlag) {
-			if (2 == autoTestStatus) {
-				osMsgPost(SP1K_MSG_KEY_PRESS_SNAP);
-			} else if (3 == autoTestStatus) {
-				appButtonAutoTest();
-			}
-		}
-		#endif
-		break;
-		
-	case SP1K_MSG_KEY_PRESS_S1:
+        default:
+        {
+            InitMode = SP1K_PB_INIT_FULL;
+            break;
+        }
+        }
+
+        if (pbFile.dwIndex == 0xffff)
+        { // xian ++, invalid index for #31928
+            InitMode = SP1K_PB_INIT_FULL;
+            pbFile.dwIndex = sp1kPbFileCntGet();
+        }
+
+        if (appStillPlayInit(InitMode) == FAIL)
+        {
+            // printf("\n1\n");
+            pbFile.bFileErr = TRUE;
+            sp1kDispImgShow(pbDispBuffGet(1), PB_DECODE_WIDTH, PB_DECODE_HEIGHT, 100); // 2008-7-28 mantis #28190 step 1
+            if (sp1kDcfIsOurBaseName(pbFile.FileName) == TRUE)
+            {
+                uiOsdDialogDisp(ID_STR_FILE_ERROR_, 0);
+            }
+            else
+            {
+                uiOsdDialogDisp(ID_STR_NOT_SUPPORT_, 0);
+            }
+        }
+        // printf("\n2\n");
+        /*if(puiPara->redEyePb == REDEYEPB_ON)
+        {
+            uiUpdateSelFrame(0);
+        }*/
+
+        appAutoOffTimeSet(); // jintao.liu 2008-3-28 add for mantis 21604
+        /***************Just for QA test @start***************************************/
+        if (AutoTestMode == 0xAA)
+        {
+            appFileDelete(SP1K_FILE_PROC_ALL);
+            if ((appSDPlugStatusGet() == 0) && (sp1kDiskTypeGet() == DEV_TYPE_DISK_NAND))
+            {
+
+                static UINT8 VSize = MOV_SIZE_D1;
+                VSize++;
+                if (VSize == MOV_SIZE_MAX)
+                {
+                    VSize = MOV_SIZE_VGA;
+                }
+                puiPara->VideoSize = VSize;
+            }
+            else
+            {
+                uiPara_t *puiPara;
+                puiPara = appUiParaGet();
+                puiPara->VideoSize++;
+                if (MOV_SIZE_MAX == puiPara->VideoSize)
+                {
+                    puiPara->VideoSize = MOV_SIZE_HD;
+                }
+            }
+            osMsgPost(SP1K_MSG_STATE_TO_VIDEO_VIEW);
+            osMsgPost(SP1K_MSG_KEY_PRESS_S2);
+            break;
+        }
+        else if (AutoTestMode == 0x55)
+        {
+            appFileDelete(SP1K_FILE_PROC_ALL);
+            osMsgPost(SP1K_MSG_STATE_TO_STILL_VIEW);
+            osMsgPost(SP1K_MSG_KEY_PRESS_S2);
+            break;
+        }
+        /***************Just for QA test @end***************************************/
+
+#if MSG_AUTO_SEND
+        sp1kHalWait(2000);
+        if (dele)
+        {
+            sp1kHalWait(1000);
+            osMsgPost(SP1K_MSG_STATE_TO_MENU);
+        }
+        else
+        {
+            osMsgPost(SP1K_MSG_KEY_PRESS_SNAP);
+        }
+#endif
+
+#if SUPPORT_AUTO_TEST
+        if (autoTestOpenFlag)
+        {
+            if (2 == autoTestStatus)
+            {
+                osMsgPost(SP1K_MSG_KEY_PRESS_SNAP);
+            }
+            else if (3 == autoTestStatus)
+            {
+                appButtonAutoTest();
+            }
+        }
+#endif
+        break;
+    }
+
+    case SP1K_MSG_KEY_PRESS_S1:
 		//printf("S1 on still playback\n");
 		break;
 		
@@ -842,103 +865,127 @@ void appStillPlay (UINT16 msg) USING_0
     case SP1K_MSG_KEY_PRESS_F2:
 		//pbImgResize(sp1kPbFileIndexByOrderGet(pbFile.dwIndex), 2592, 1944);
 		break;
-	
-	case SP1K_MSG_KEY_PRESS_MODE:
-		if(fast_delete_back == 1){
-			switch (appPreStateGet(0))
-				{
-					case APP_STATE_STILL_VIEW:
-						msg = SP1K_MSG_STATE_TO_STILL_VIEW;
-						break;
-						
-					case APP_STATE_VIDEO_VIEW:
-						msg = SP1K_MSG_STATE_TO_VIDEO_VIEW;
-						break;
-					case APP_STATE_STILL_PLAY:
-						msg = SP1K_MSG_STATE_TO_STILL_PLAY;
-						break;
-					
-					default:
-						msg = SP1K_MSG_STATE_TO_STILL_VIEW;
-						break;
-				}
-				
-				osMsgPost(msg);
 
-				fast_delete_back = 0;
-		}else{
-		if (app_delete_key_hot_delete_sta_get()) {
-				if(pb_delete_flag){
-					// 清除当前选择索引
-					cur_idx = 0;
-	
-					// 清除删除标志
-					app_delete_key_hot_delete_sta_set(0);
+    case SP1K_MSG_KEY_PRESS_MODE:
+    {
+        if (fast_delete_back == 1)
+        {
+            switch (appPreStateGet(0))
+            {
+            case APP_STATE_STILL_VIEW:
+            {
+                msg = SP1K_MSG_STATE_TO_STILL_VIEW;
+                break;
+            }
+            case APP_STATE_VIDEO_VIEW:
+            {
+                msg = SP1K_MSG_STATE_TO_VIDEO_VIEW;
+                break;
+            }
+            case APP_STATE_STILL_PLAY:
+            {
+                msg = SP1K_MSG_STATE_TO_STILL_PLAY;
+                break;
+            }
+            default:
+            {
+                msg = SP1K_MSG_STATE_TO_STILL_VIEW;
+                break;
+            }
+            }
 
-					pb_delete_flag = 0;
-					
-					osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
-				}else{
-					
-					// 清除当前选择索引
-						cur_idx = 0;
-		
-						// 清除删除标志
-						app_delete_key_hot_delete_sta_set(0);
-					//menuExit();
-					switch (appPreStateGet(0))
-					{
-						case APP_STATE_STILL_VIEW:
-							msg = SP1K_MSG_STATE_TO_STILL_VIEW;
-							break;
-							
-						case APP_STATE_VIDEO_VIEW:
-							msg = SP1K_MSG_STATE_TO_VIDEO_VIEW;
-							break;
-						//case APP_STATE_STILL_PLAY:
-						//	msg = SP1K_MSG_STATE_TO_STILL_PLAY;
-						//	break;
-						
-						default:
-							msg = SP1K_MSG_STATE_TO_STILL_VIEW;
-							break;
-					}
-					
-					osMsgPost(msg);
+            osMsgPost(msg);
 
-				}
-				
-			}else
-				{
-					#if(TV_OPTION == TV_PLAY_OPTION)
-					if(appPanelTypeGet() == 0) {
-						return;
-					}
-					#endif
-					
-					if(dispDevActGet() == 4) {//HDMI in do not suport
-						break;
-					}
-					
-					msg = SP1K_MSG_STATE_TO_STILL_VIEW;//SP1K_MSG_STATE_TO_MENU
-					delete_key_to_menu = 0;
-									
-					#if(TV_OPTION == TV_PLAY_OPTION)
-						if(appPanelTypeGet() == 0) {
-							osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
-						} else {
-							osMsgPost(msg);
-						}
-					#else
-						osMsgPost(msg);
-					#endif
-					//suny add for pb mode -> other mode end
-				}
-			}
-		break;
-	
-		
-	/*jintao.liu 2008-3-28 add for mantis 22007*/
+            fast_delete_back = 0;
+        }
+        else
+        {
+            if (app_delete_key_hot_delete_sta_get())
+            {
+                if (pb_delete_flag)
+                {
+                    // 清除当前选择索引
+                    cur_idx = 0;
+
+                    // 清除删除标志
+                    app_delete_key_hot_delete_sta_set(0);
+
+                    pb_delete_flag = 0;
+
+                    osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
+                }
+                else
+                {
+                    // 清除当前选择索引
+                    cur_idx = 0;
+
+                    // 清除删除标志
+                    app_delete_key_hot_delete_sta_set(0);
+                    // menuExit();
+                    switch (appPreStateGet(0))
+                    {
+                    case APP_STATE_STILL_VIEW:
+                    {
+                        msg = SP1K_MSG_STATE_TO_STILL_VIEW;
+                        break;
+                    }
+
+                    case APP_STATE_VIDEO_VIEW:
+                    {
+                        msg = SP1K_MSG_STATE_TO_VIDEO_VIEW;
+                        break;
+                    }
+                    // case APP_STATE_STILL_PLAY:
+                    // {
+                    //     msg = SP1K_MSG_STATE_TO_STILL_PLAY;
+                    //     break;
+                    // }
+                        default:
+                        {
+                            msg = SP1K_MSG_STATE_TO_STILL_VIEW;
+                            break;
+                        }
+                        }
+
+                        osMsgPost(msg);
+                    }
+                }
+                else
+                {
+#if (TV_OPTION == TV_PLAY_OPTION)
+                    if (appPanelTypeGet() == 0)
+                    {
+                        return;
+                    }
+#endif
+
+                    if (dispDevActGet() == 4)
+                    { // HDMI in do not suport
+                        break;
+                    }
+
+                    msg = SP1K_MSG_STATE_TO_STILL_VIEW; // SP1K_MSG_STATE_TO_MENU
+                    delete_key_to_menu = 0;
+
+#if (TV_OPTION == TV_PLAY_OPTION)
+                    if (appPanelTypeGet() == 0)
+                    {
+                        osMsgPost(SP1K_MSG_STATE_TO_STILL_PLAY);
+                    }
+                    else
+                    {
+                        osMsgPost(msg);
+                    }
+#else
+                    osMsgPost(msg);
+#endif
+                    // suny add for pb mode -> other mode end
+                }
+            }
+            break;
+        }
+
+    /*jintao.liu 2008-3-28 add for mantis 22007*/
 	case SP1K_MSG_CARD_PLUG_IN:
 		appStorageMount(K_MEDIA_SDF);
 		uiRemainPixInit();
@@ -1087,7 +1134,7 @@ void appStillPlay (UINT16 msg) USING_0
     default:
 		//printf("Unknown message:%d\n", (UINT16)msg);
 		break;
-	}
+    }
 }
 
 //-----------------------------------------------------------------------------

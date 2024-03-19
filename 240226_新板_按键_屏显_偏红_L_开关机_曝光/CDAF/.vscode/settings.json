@@ -1,6 +1,22 @@
 {
     "files.associations": {
+        "hal_gprm.h": "c",
+        "dos32.h": "c",
+        "tmr_svc.h": "c",
+        "key_scan.h": "c",
+        "app_ui_para.h": "c",
+        "sp1k_rsvblk_api.h": "c",
+        "app_main.h": "c",
+        "general.h": "c",
+        "type_traits": "c",
+        "os_msg.h": "c",
+        "app_still_view.h": "c",
+        "func_ptr.h": "c",
+        "user_config.h": "c",
+        "app_menu_micro.h": "c",
+        "solution.h": "c"
     },
-    "C_Cpp.intelliSenseEngineFallback": "Disabled", //需要添加的
-    "C_Cpp.intelliSenseEngine": "Tag Parser",  //  需要添加的
+    "C_Cpp.intelliSenseEngineFallback": "enabled",
+    "C_Cpp.errorSquiggles": "disabled", //需要添加的
+    "C_Cpp.intelliSenseEngine": "default",  //  需要添加的
 }

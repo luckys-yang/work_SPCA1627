@@ -58,46 +58,49 @@
 #include "dbg_def.h"
 #include "app_dev_disp.h"
 
+/*-------------------- USER CODE: Include Begin --------------------*/
+#include "User_Config.h"
+/*-------------------- USER CODE: Include End --------------------*/
+
 /**************************************************************************
  *                              C O N S T A N T S
  **************************************************************************/
-#define __FILE	__FILE_ID_SENSOR_DRIVER__
+#define __FILE __FILE_ID_SENSOR_DRIVER__
 
-#define LOAD_RES_OPTION				1	/* load resource option, 1 : resource mode 0 : code mode */
-#define REGISTER_EXTERN_OP_FUNC		0	/* used register extern operating function */
+#define LOAD_RES_OPTION 1         // 载入资源选项，1：资源模式，0：代码模式
+#define REGISTER_EXTERN_OP_FUNC 0 // 注册外部操作函数
 
-#define DBG_SNAP_TIMING		0	/* debug for snapshot timing(RDK), used GPIO12, GPIO13; (EVB), used TP_YN & TP_XN GPIO */
+#define DBG_SNAP_TIMING 0 // 快照时序调试(RDK)，使用GPIO12、GPIO13；(EVB)，使用TP_YN和TP_XN GPIO
 
-#define USED_INTERNAL_LDO	1	/* old HW : 0(external ldo), new HW : 1(internal ldo) */
-#define SNAP_KEEP_FPS		0	/* add dummy line : 0(reduce fps), keep fps : 1(exposure line equal to frame total-6) */
-#define PV_AUTO_OB_BY_GAIN	1	/* pv sensor auto ob by frame : 0, pv sensor auto ob by gain : 1 */
-#define RES_LSC_LOAD		0	/* after power on load lsc resource file */
-#define PV_720_50FPS		0	/* preview 1280*720 h,v binning 50fps sensor initial setting */
+#define USED_INTERNAL_LDO 1  // 旧版硬件：0(外部LDO)，新版硬件：1(内部LDO)
+#define SNAP_KEEP_FPS 0      // 添加虚拟行：0(降低帧率)，保持帧率：1(曝光行等于帧总数减去6)
+#define PV_AUTO_OB_BY_GAIN 1 // 预览传感器根据增益自动进行黑电平：0(按帧)，预览传感器根据增益自动进行黑电平：1(按增益)
+#define RES_LSC_LOAD 0       // 上电后载入LSC资源文件
+#define PV_720_50FPS 0       // 预览 1280*720 h,v 二次抽样 50fps 传感器初始设置
 
 /**************************************************************************
- *                            M I R R O R   &   F L I P	C T R L 
- *			RDK : mirror off, flip on
- *			DDX : mirror on, flip on
+ *                      镜像和翻转控制
+ *          RDK：镜像关闭，翻转开启
+ *          DDX：镜像开启，翻转开启
  **************************************************************************/
-/* mirror, flip ctrl */
-#define MIRROR_CTRL		0	/* mirror off : 0, mirror on : 1 */
-#define FLIP_CTRL		1	/* flip off : 0, flip on : 1 */
+/* 镜像、翻转控制 */
+#define MIRROR_CTRL     0   // 镜像关闭：0，镜像开启：1
+#define FLIP_CTRL       1   // 翻转关闭：0，翻转开启：1
 
-/* mode. */
-#define PREV_MODE_TOT  3
-#define SNAP_MODE_TOT  1
+/* 模式 */
+#define PREV_MODE_TOT   3
+#define SNAP_MODE_TOT   1
 
-/* dimensiion. */
-
+/* 尺寸 */
 /* 960p, 30fps */
-#define WIDTH_30FPS_PREV      1280
-#define HEIGHT_30FPS_PREV     960
-#define XOFF_30FPS_PREV       3 // 1
-#define YOFF_30FPS_PREV       1 // 2
-#define LINE_TOT_30FPS_PREV   1630 // 2132
-#define FRAME_TOT_30FPS_PREV  984 // 1018
-#define PREV_TO_SNAP_BINNING_RATE_30FPS_PREV  (1.6)// 2 // 4
-#define SENSOR_ZOOM_FACTOR_30FPS_PREV         0//200
+#define WIDTH_30FPS_PREV 1280                      // 预览图像宽度
+#define HEIGHT_30FPS_PREV 960                      // 预览图像高度
+#define XOFF_30FPS_PREV 3                          // 预览图像 X 轴偏移
+#define YOFF_30FPS_PREV 1                          // 预览图像 Y 轴偏移
+#define LINE_TOT_30FPS_PREV 1630                   // 预览图像总行数
+#define FRAME_TOT_30FPS_PREV 984                   // 预览图像总帧数
+#define PREV_TO_SNAP_BINNING_RATE_30FPS_PREV (1.6) // 预览到拍照的二次取样率
+#define SENSOR_ZOOM_FACTOR_30FPS_PREV 0            // 传感器缩放因子
 
 /* 720p, 50fps */
 #define WIDTH_50FPS_PREV      1280
@@ -132,24 +135,21 @@
 
 
 /* 5M */
-#define WIDTH_SNAP      2560
-#define HEIGHT_SNAP     1920
-#define XOFF_SNAP       1
-#define YOFF_SNAP       1 // 3
-#define LINE_TOT_SNAP   2700
-#define FRAME_TOT_SNAP  1968
-
-
-
+#define WIDTH_SNAP      2560    // 拍照图像宽度
+#define HEIGHT_SNAP     1920    // 拍照图像高度
+#define XOFF_SNAP       1       // 拍照图像 X 轴偏移
+#define YOFF_SNAP       1       // 拍照图像 Y 轴偏移
+#define LINE_TOT_SNAP   2700    // 拍照图像总行数
+#define FRAME_TOT_SNAP  1968    // 拍照图像总帧数
 
 /* clk. */
-#define MCLK_SRC  FRONT_MCLK_SRC_INT // 522 MHZ
-#define PCLK_SRC  FRONT_PCLK_SRC_EXT
+#define MCLK_SRC  FRONT_MCLK_SRC_INT // 主时钟源选择为内部时钟源，频率为 522 MHZ
+#define PCLK_SRC  FRONT_PCLK_SRC_EXT // 像素时钟源选择为外部时钟源
 
-#define MCLK_DIV_30FPS_PREV    11	// 23.72727272727273 MHZ
-#define MCLK_PHASE_30FPS_PREV  0
-#define PCLK_DIV_30FPS_PREV    11
-#define PCLK_PHASE_30FPS_PREV  0
+#define MCLK_DIV_30FPS_PREV    11  // 主时钟分频系数为 11，对应的主时钟频率约为 23.72727272727273 MHZ
+#define MCLK_PHASE_30FPS_PREV  0   // 主时钟相位设置为 0
+#define PCLK_DIV_30FPS_PREV    11  // 像素时钟分频系数为 11
+#define PCLK_PHASE_30FPS_PREV  0   // 像素时钟相位设置为 0
 
 #define MCLK_DIV_50FPS_PREV    12
 #define MCLK_PHASE_50FPS_PREV  0
@@ -166,12 +166,14 @@
 #define PCLK_DIV_20FPS_PREV    11
 #define PCLK_PHASE_20FPS_PREV  0
 
-#define MCLK_DIV_SNAP          		11
-#define MCLK_DIV_SNAP_BURST     	18
-#define MCLK_DIV_SNAP_BURST_UP 		24
-#define MCLK_PHASE_SNAP         	0
-#define PCLK_DIV_SNAP           	11
-#define PCLK_PHASE_SNAP         	0
+/* 用于快速拍摄模式的时钟设置 */
+#define MCLK_DIV_SNAP          		11          // 主时钟分频系数为 11
+#define MCLK_DIV_SNAP_BURST     	18          // 快速拍摄模式下主时钟分频系数为 18
+#define MCLK_DIV_SNAP_BURST_UP 		24          // 快速拍摄模式下上升边缘主时钟分频系数为 24
+#define MCLK_PHASE_SNAP         	0           // 主时钟相位设置为 0
+#define PCLK_DIV_SNAP           	11          // 像素时钟分频系数为 11
+#define PCLK_PHASE_SNAP         	0           // 像素时钟相位设置为 0
+
 
 #if PCLK_SRC == FRONT_PCLK_SRC_EXT
 #define PCLK_FREQ_30FPS_PREV     48260000L // 44850000L // 48000000L // 65250000L
@@ -245,16 +247,19 @@
 #define RESHAPE_VFALL_20FPS_PREV  2
 #define RESHAPE_VRISE_20FPS_PREV  3
 
-#define RESHAPE_HEN_SNAP    0
-#define RESHAPE_HFALL_SNAP  2
-#define RESHAPE_HRISE_SNAP  3
-#define RESHAPE_VEN_SNAP    0
-#define RESHAPE_VFALL_SNAP  2
-#define RESHAPE_VRISE_SNAP  3
+/* 水平方向重新整形参数设置 */
+#define RESHAPE_HEN_SNAP    0   // 水平方向边沿触发使能，0 表示禁用
+#define RESHAPE_HFALL_SNAP  2   // 水平方向下降沿触发，2 表示下降沿触发
+#define RESHAPE_HRISE_SNAP  3   // 水平方向上升沿触发，3 表示上升沿触发
+/* 垂直方向重新整形参数设置 */
+#define RESHAPE_VEN_SNAP    0   // 垂直方向边沿触发使能，0 表示禁用
+#define RESHAPE_VFALL_SNAP  2   // 垂直方向下降沿触发，2 表示下降沿触发
+#define RESHAPE_VRISE_SNAP  3   // 垂直方向上升沿触发，3 表示上升沿触发
 
-/* preview h,v sync inv. */
-#define HSYNC_INV_PREV  1
-#define VSYNC_INV_PREV  1
+/* 预览水平、垂直同步反向设置 */
+#define HSYNC_INV_PREV  1   // 预览水平同步反向设置为 1，表示反向
+#define VSYNC_INV_PREV  1   // 预览垂直同步反向设置为 1，表示反向
+
 
 /* snapshot h,v sync inv. */
 #define HSYNC_INV_SNAP  1
@@ -264,23 +269,23 @@
 #define BAYER_PTN_PREV  FRONT_BAYER_PTN_GBBRGR
 #define BAYER_PTN_SNAP  FRONT_BAYER_PTN_GBBRGR
 
-/* i2c interface. */
-#define I2C_DEV_ADDR  			0x6C	//0x6D
-#define I2C_REG_CLK_DIV      	I2C_SOURCE_DIV_10
-#define I2C_CLK_DIV          	0 // I2C_REG_CLK_DIV_512
+/* I2C 接口设置 */
+#define I2C_DEV_ADDR  		  0x6C	    // I2C 设备地址设置为 0x6C
+#define I2C_REG_CLK_DIV       I2C_SOURCE_DIV_10	// I2C 时钟分频设置
+#define I2C_CLK_DIV           0         	// I2C 时钟分频设置为 0 
 
-/* gpio interface. */
-#define GPIO_FUNC  0x00
-#define GPIO_DIR   0x04
-#define GPIO_GATE  0x00
-#define GPIO_OUT   0x00
+/* GPIO 接口设置 */
+#define GPIO_FUNC  0x00	// GPIO 功能设置为 0x00
+#define GPIO_DIR   0x04	// GPIO 方向设置为 0x04
+#define GPIO_GATE  0x00	// GPIO 门控设置为 0x00
+#define GPIO_OUT   0x00	// GPIO 输出设置为 0x00
 
-/* ae. */
-#define AE_30FPS_30_MAX_IDX  139
-#define AE_30FPS_30_MIN_IDX  0
-#define AE_30FPS_25_MAX_IDX  138
-#define AE_30FPS_25_MIN_IDX  0
-#define EV10_30FPS_EXP_IDX   100
+/* 自动曝光设置 */
+#define AE_30FPS_30_MAX_IDX  139  // 30帧每秒时的最大自动曝光索引
+#define AE_30FPS_30_MIN_IDX  0    // 30帧每秒时的最小自动曝光索引
+#define AE_30FPS_25_MAX_IDX  138  // 25帧每秒时的最大自动曝光索引
+#define AE_30FPS_25_MIN_IDX  0    // 25帧每秒时的最小自动曝光索引
+#define EV10_30FPS_EXP_IDX   100  // EV10时的30帧每秒曝光索引
 
 #define AE_50FPS_50_MAX_IDX  129
 #define AE_50FPS_50_MIN_IDX  0
@@ -409,6 +414,7 @@ __STATIC void frontOpAwbModeSet(void *parg);
 __STATIC void frontOpAfterSnapShot(void *parg);
 
 /* local function. */
+
 static void frontBeforePowerOn(void);
 static void frontAfterPowerOn(void);
 static void frontBeforePowerOff(void);
@@ -3667,49 +3673,45 @@ frontOpAfterSnapShot(
 }
 
 /**
- * @brief	before power on.
- * @param	None.
- * @retval	None.
- * @see
- * @author	Matt Wang
- * @since	2008-11-11
- * @todo	N/A
- * @bug		N/A
-*/
-static void
-frontBeforePowerOn(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    上电前初始化
+**/
+static void frontBeforePowerOn(void)
 {
 	#if (_HW_SOLUTION_ == _HW_RDK_A_) 
-	/* sensor reset (fmgpio 10) */
-	gpioByteFuncSet(GPIO_BYTE_FM1, 0x04, 0xFF);
-	gpioByteDirSet(GPIO_BYTE_FM1, 0x04, 0xFF);
-	gpioByteOutSet(GPIO_BYTE_FM1, 0x04, 0x00);
-	sp1kHalWait(5);
-	gpioByteOutSet(GPIO_BYTE_FM1, 0x04, 0xFF);
+	/* 如果是 RDK_A 硬件解决方案，则执行传感器复位 */
+	gpioByteFuncSet(GPIO_BYTE_FM1, 0x04, 0xFF);  // 设置 GPIO 功能
+	gpioByteDirSet(GPIO_BYTE_FM1, 0x04, 0xFF);   // 设置 GPIO 方向
+	gpioByteOutSet(GPIO_BYTE_FM1, 0x04, 0x00);   // 设置 GPIO 输出
+	sp1kHalWait(5);  // 等待一段时间
+	gpioByteOutSet(GPIO_BYTE_FM1, 0x04, 0xFF);   // 设置 GPIO 输出
 	#endif	
 	
-	/*Power on*/
+	/* 上电 */
 	/*
 	gpioByteOutSet(GPIO_BYTE_GEN3, 0x01 << (24 & 0x07), 0x01 << (24 & 0x07));
 	gpioByteDirSet(GPIO_BYTE_GEN3, 0x01 << (24 & 0x07), 0x01 << (24 & 0x07));
 	gpioByteFuncSet(GPIO_BYTE_GEN3, 0x01 << (24 & 0x07), 0x01 << (24 & 0x07));
 	*/
 	
-	/*Reset*/
-	gpioByteFuncSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));  //gpio 1 reset
-	gpioByteDirSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-	gpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-	sp1kHalWait(20);
-	
-	gpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (0 << ( 0 & 0x07)));
-	sp1kHalWait(100);
-	
-	gpioByteOutSet(GPIO_BYTE_GEN0, (1 << ( 0 & 0x07)), (1 << ( 0 & 0x07)));
-	sp1kHalWait(20);
+/*-------------------- USER CODE: Custom Begin --------------------*/
 
+    /* 复位 */
+	gpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1);  // 设置 GPIO 功能 -- GPIO
+	gpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1);   // 设置 GPIO 方向 -- 输出
+	gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1_SET);   // 设置 GPIO 输出 -- 高电平
+	sp1kHalWait(20);  // 等待一段时间
+	
+	gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_RESET);   // 设置 GPIO 输出 -- 低电平
+	sp1kHalWait(100);  // 等待一段时间
+	
+	gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_1, GPIO_PIN_1_SET);   // 设置 GPIO 输出 -- 高电平
+	sp1kHalWait(20);  // 等待一段时间
+
+/*-------------------- USER CODE: Custom End --------------------*/
 }
+
 
 /**
  * @brief	after power on.

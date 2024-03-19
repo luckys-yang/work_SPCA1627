@@ -91,7 +91,7 @@
  **************************************************************************/
 static UINT8 startFlag = 0;
 UINT8 speedSdOpen = 0;
-UINT8 power_up_usb_check_flag = 0;
+UINT8 power_up_usb_check_flag = 0;  // USB电源启动检测标志位
 
 /**************************************************************************
  *				   E X T E R N A L	  R E F E R E N C E S				  *
@@ -260,10 +260,13 @@ void appPowerOn(UINT16 msg)
 				#endif
 				/*2008-6-20 add for power on usb end   mantis #26563*/
 
-				#if SUPPORT_AUTO_TEST
-				if (autoTestOpenFlag) {
+				#if SUPPORT_AUTO_TEST   // 【自动测试功能】
+				if (autoTestOpenFlag) 
+                {
 					osMsgPost(SP1K_MSG_STATE_TO_VIDEO_VIEW);
-				} else {
+				} 
+                else 
+                {
 					osMsgPost(STATE_DEFAULT);
 				}
 				#else

@@ -66,10 +66,7 @@
  * @todo      N/A
  * @bug       N/A
 */
-void
-main(
-	void
-) USING_REG_0
+void main(void) USING_REG_0
 {
     __main();
 }

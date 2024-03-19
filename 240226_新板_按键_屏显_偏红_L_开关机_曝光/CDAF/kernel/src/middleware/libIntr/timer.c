@@ -77,7 +77,7 @@ void TIMER0_Handler(void) USING_2
 	UINT8 i;
 	pFuncTmr0 code* ppFunc;
 
-	if (!(--Tmr0Stamp))
+	if (!(--Tmr0Stamp)) // 限制了多少ms进入一次
 	{
 		//5ms * 2 
 		Tmr0Stamp = K_TIMER_PERIOD;

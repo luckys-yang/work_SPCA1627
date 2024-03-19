@@ -112,23 +112,23 @@ typedef struct uiPara_s {	/* Can't be larger than 512Bytes */
 	UINT8 VideoQuality;
 	UINT8 resCreate;
 	UINT8 DisMode;
-	UINT8 BlinkMode;	
-	UINT8 redEyePb;	
+	UINT8 BlinkMode;    // 眨眼检测(0:打开 1:关闭)	
+	UINT8 redEyePb;	    // 红眼校正(0:设置 1:取消)
 	UINT8 tpCorrect;
-	UINT8 ShutterSound;
-	UINT8 StartupSound;
-	UINT8 BeepSound;
-	UINT8 Volume;
-	UINT8 AutoReviewTime;
-	UINT8 TVMode;
+	UINT8 ShutterSound; // 快门(0:打开 1:关闭)
+	UINT8 StartupSound; // 开机声音(0:无 1:声音1 2:声音2 3:声音3)
+	UINT8 BeepSound;    // 按键音(0:打开 1:关闭)
+	UINT8 Volume;       // 音量(0:音量0 1:音量1 2:音量2 3:音量3)
+	UINT8 AutoReviewTime;   // 自动回放(0:关闭 1:1s 2:3s)
+	UINT8 TVMode;   // 电视(0:NTSC 1:PAL)
 	//UINT8 USBMode;
-	UINT8 OpenPic;
+	UINT8 OpenPic;  // 开机页面(0:关闭 1:系统 2:自定义)
 	UINT8 ProtTime;
 	UINT8 Seamless;
-	UINT8 FlashLed;
-	UINT8 SnapAf;
+	UINT8 FlashLed; // 闪光灯(0:关闭 1:自动 2:打开)
+	UINT8 SnapAf;   // 自动对焦(0:关闭 1:打开)
 
-	UINT8 AFMode;
+	UINT8 AFMode;   //  AF模式(0:远焦 1:近焦 2:自动对焦)
 	//UINT8 LightFreq;
 	//UINT8 SleepTime;
 	//UINT8 FDMode;
@@ -144,17 +144,18 @@ typedef struct uiPara_s {	/* Can't be larger than 512Bytes */
 	UINT32 Checksum;
 } uiPara_t;
 
-
-typedef enum uiParaInitMode_e {
-	PARA_INIT_WITH_DEF = 0x00,
-	PARA_INIT_FROM_UDF = 0x01,
+typedef enum uiParaInitMode_e
+{
+    PARA_INIT_WITH_DEF = 0x00,  // 使用默认参数进行初始化
+    PARA_INIT_FROM_UDF = 0x01,  // 从用户定义文件（UDF）中加载参数进行初始化
 } uiParaInitMode_t;
 
-typedef enum uiItemOrder_e {
-	ITEM_EMPTY = 0x80,
-	ITEM_FIRST = 0x81,
-	ITEM_MAX   = 0xfe,
-	ITEM_NULL  = 0xff
+typedef enum uiItemOrder_e
+{
+    ITEM_EMPTY = 0x80,  // 空项目
+    ITEM_FIRST = 0x81,  // 第一个项目
+    ITEM_MAX = 0xfe,    // 最大项目
+    ITEM_NULL = 0xff    // 空项目s
 } uiItemOrder_t;
 
 //-----------------------------------------------------------------------------

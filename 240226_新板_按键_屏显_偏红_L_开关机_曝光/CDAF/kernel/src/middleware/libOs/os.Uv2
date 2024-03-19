@@ -5,10 +5,10 @@ Target (os), 0x0000 // Tools: 'MCS-51'
 
 Group (main)
 
-File 1,1,<.\os_main.c><os_main.c>
-File 1,1,<.\os_msg.c><os_msg.c>
-File 1,1,<.\os_mutex.c><os_mutex.c>
-File 1,1,<.\os_ver.c><os_ver.c>
+File 1,1,<.\os_main.c><os_main.c> 0x0 
+File 1,1,<.\os_msg.c><os_msg.c> 0x0 
+File 1,1,<.\os_mutex.c><os_mutex.c> 0x0 
+File 1,1,<.\os_ver.c><os_ver.c> 0x0 
 
 
 Options 1,0,0  // Target 'os'

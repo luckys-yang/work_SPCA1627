@@ -48,51 +48,58 @@
 #include "gpio.h"
 #include "app_ui_para.h"
 #include "app_dev_disp.h"
+
+/*-------------------- USER CODE: Include Begin --------------------*/
+
+#include "User_Config.h"
+
+/*-------------------- USER CODE: Include End --------------------*/
+
 /**************************************************************************
  *                              C O N S T A N T S
  **************************************************************************/
- 
-/* render dimension. */
-#define DEV_TYPE  DISP_DEVICE_TYPE_LCM
-#define WIDTH    320//240//320 
-#define HEIGHT   240//320//240
-#define HSYNCW    1
-#define VSYNCW    1
-#define HPIXEL    352//251//334 //182//214//182
-#define VLINE     0x806//301 //260 // 0x806 // 260 
-#define PNLH0     5
-#define PNLV0     10
-#define PNLH1     (PNLH0 + WIDTH-1)
-#define PNLV1     (PNLV0 + HEIGHT-1 ) 
 
-/* image region */
-#define PVX0      0
-#define PVY0      0
-#define PVX1      (WIDTH -1)
-#define PVY1      (HEIGHT - 1)
-#define PVH0      PNLH0
-#define PVV0      PNLV0
-#define PVH1      (PVH0 + PVX1)
-#define PVV1      (PVV0 + PVY1)
+/* 渲染尺寸 */
+#define DEV_TYPE DISP_DEVICE_TYPE_LCM // 设备类型为液晶显示器
+#define WIDTH 320                     // 宽度为320   //240//320
+#define HEIGHT 240                    // 高度为240   //320//240
+#define HSYNCW 1                      // 水平同步宽度为1
+#define VSYNCW 1                      // 垂直同步宽度为1
+#define HPIXEL 352                    // 水平像素为352  //251//334 //182//214//182
+#define VLINE 0x806                   // 垂直行数为0x806  //301 //260 // 0x806 // 260
+#define PNLH0 5                       // 面板起始水平坐标为5
+#define PNLV0 10                      // 面板起始垂直坐标为10
+#define PNLH1 (PNLH0 + WIDTH - 1)     // 面板结束水平坐标为起始坐标加上宽度减1
+#define PNLV1 (PNLV0 + HEIGHT - 1)    // 面板结束垂直坐标为起始坐标加上高度减1
 
-/* osd region */
-#define OSDX0     0 
-#define OSDY0     0 
-#define OSDX1     (WIDTH -1) 
-#define OSDY1     (HEIGHT - 1) 
-#define OSDH0     PNLH0 
-#define OSDV0     PNLV0 
-#define OSDH1     (OSDH0 + OSDX1) 
-#define OSDV1     (OSDV0 + OSDY1) 
+/* 图像区域 */
+#define PVX0 0             // 图像区域起始水平坐标为0
+#define PVY0 0             // 图像区域起始垂直坐标为0
+#define PVX1 (WIDTH - 1)   // 图像区域结束水平坐标为宽度减1
+#define PVY1 (HEIGHT - 1)  // 图像区域结束垂直坐标为高度减1
+#define PVH0 PNLH0         // 图像区域起始水平坐标为面板起始水平坐标
+#define PVV0 PNLV0         // 图像区域起始垂直坐标为面板起始垂直坐标
+#define PVH1 (PVH0 + PVX1) // 图像区域结束水平坐标为起始水平坐标加上图像区域结束水平坐标
+#define PVV1 (PVV0 + PVY1) // 图像区域结束垂直坐标为起始垂直坐标加上图像区域结束垂直坐标
 
-/* clock config. */
-#define CLK_SRC       	DISP_CLK_SRC_SYSPLL522M 	// DISP_CLK_SRC_XTAL27M DISP_CLK_SRC_SYSPLL522M
-#define CLK_DIVNX   	29 // 29 28
-#define CLK_DIV1X     	2 // 2 3
-#define UPS_CLK_PHASE  	8
-#define CS0_ACT         0
-#define A0_CMD          0
- 
+/* OSD 区域 */
+#define OSDX0 0               // OSD 区域起始水平坐标为0
+#define OSDY0 0               // OSD 区域起始垂直坐标为0
+#define OSDX1 (WIDTH - 1)     // OSD 区域结束水平坐标为宽度减1
+#define OSDY1 (HEIGHT - 1)    // OSD 区域结束垂直坐标为高度减1
+#define OSDH0 PNLH0           // OSD 区域起始水平坐标为面板起始水平坐标
+#define OSDV0 PNLV0           // OSD 区域起始垂直坐标为面板起始垂直坐标
+#define OSDH1 (OSDH0 + OSDX1) // OSD 区域结束水平坐标为起始水平坐标加上 OSD 区域结束水平坐标
+#define OSDV1 (OSDV0 + OSDY1) // OSD 区域结束垂直坐标为起始垂直坐标加上 OSD 区域结束垂直坐标
+
+/* 时钟配置 */
+#define CLK_SRC DISP_CLK_SRC_SYSPLL522M // 时钟源选择为系统PLL522M
+#define CLK_DIVNX 29                    // 分频系数DIVNX为29
+#define CLK_DIV1X 2                     // 分频系数DIV1X为2
+#define UPS_CLK_PHASE 8                 // UPS时钟相位为8
+#define CS0_ACT 0                       // CS0信号激活为0
+#define A0_CMD 0                        // A0命令为0
+
 /* bus type */
 #define BUS_TYPE        DISP_LCM_CMD_BUS_I80
 
@@ -407,91 +414,90 @@ dispOpCapabilityGet(
 }
 
 /**
- * @brief	operating function to power on device.
- * @param	None.
- * @retval	None.
- * @see
- * @author	Matt Wang
- * @since	2008-07-25
- * @todo	N/A
- * @bug		N/A
-*/
-__STATIC void
-dispOpPowerOn(
-	void
-)
+* @param    None
+* @retval   None
+* @brief    操作功能打开设备电源
+**/
+__STATIC void dispOpPowerOn(void)
 {
-	uiPara_t* puiPara = appUiParaGet();
+    uiPara_t *puiPara = appUiParaGet();
 
-	EA=0;
+    EA = 0;
 
-	if(((pkgChipIdGet()== 0x1627)||(pkgChipIdGet()== 0x1626))&&(HAL_GlobalDGPIOModeGet()!=0x01))
-	{
-		XBYTE[REG_Disp_VsVdIntEn] &= ~0x02;
-	}
-	else if(((pkgChipIdGet()== 0x1627)||(pkgChipIdGet()== 0x1626))&&(HAL_GlobalDGPIOModeGet()==0x01))
-	{
-		XBYTE[REG_Disp_Rsv0] &= ~0x04;
-	}
+    if(((pkgChipIdGet() == 0x1627) || (pkgChipIdGet() == 0x1626)) && (HAL_GlobalDGPIOModeGet() != 0x01))
+    {
+        XBYTE[REG_Disp_VsVdIntEn] &= ~0x02;
+    }
+    else if(((pkgChipIdGet() == 0x1627) || (pkgChipIdGet() == 0x1626)) && (HAL_GlobalDGPIOModeGet() == 0x01))
+    {
+        XBYTE[REG_Disp_Rsv0] &= ~0x04;
+    }
 
-	/* gpio 9 LCM reset */
-	gpioByteFuncSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	gpioByteDirSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	gpioByteOutSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	sp1kHalWait(50);
-	gpioByteOutSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x00 << (7 & 0x07));
-	sp1kHalWait(110);
-	gpioByteOutSet(GPIO_BYTE_GEN0, 0x01 << (7 & 0x07), 0x01 << (7 & 0x07));
-	sp1kHalWait(100);
-	
-	/* set clk and type. */
-	dispParaSet(DISP_PARA_CLK_CFG, CLK_SRC, CLK_DIVNX, CLK_DIV1X, 0, 0);
-	dispParaSet(DISP_PARA_SW_RST, DISP_DEV_RST_ALL, 0, 0, 0, 0);
-	// dispParaSet(DISP_PARA_UPS_CLK_PHASE, UPS_CLK_PHASE, 0, 0, 0, 0);
-	dispParaSet(DISP_PARA_DEVICE_TYPE, DEV_TYPE, 0, 0, 0, 0);
+    /*-------------------- USER CODE: Custom Begin --------------------*/
 
-	/* set vh timing and format */
-	dispParaSet(DISP_PARA_DEVICE_TOTAL_REGION, HPIXEL, VLINE, HSYNCW, VSYNCW, 0);
-	dispParaSet(DISP_PARA_DEVICE_ACTIVE_REGION, PNLH0, PNLV0, PNLH1, PNLV1, 0);
-	dispParaSet(DISP_PARA_DEVICE_IMG_REGION_CROP, PVX0, PVX1, PVY0, PVY1, 0);
-	dispParaSet(DISP_PARA_DEVICE_IMG_REGION_RENDER, PVH0, PVH1, PVV0, PVV1, 0);
-	dispParaSet(DISP_PARA_DEVICE_OSD_REGION_CROP, OSDX0, OSDX1, OSDY0, OSDY1, 0);
-	dispParaSet(DISP_PARA_DEVICE_OSD_REGION_RENDER, OSDH0, OSDH1, OSDV0, OSDV1, 0);
-	dispParaSet(DISP_PARA_INTERLACE_CFG, DISP_PROGRESSIVE, 0, 0, 0, 0);
+    /* gpio 7 REST */
+    gpioByteFuncSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8);    // 初始化GPIO
+    gpioByteDirSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8);     // 方向 -- 输出
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8_SET); // 拉高
+    sp1kHalWait(50);
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_RESET); // 拉低
+    sp1kHalWait(110);
+    gpioByteOutSet(GPIO_BYTE_GEN0, GPIO_PIN_8, GPIO_PIN_8_SET); // 再拉高，完成复位
+    sp1kHalWait(100);
 
-	/* set lcm interface. */
-	dispParaSet(DISP_PARA_LCM_CMD_BUS_TYPE, BUS_TYPE, 0, 0, 0, 0);
-	dispParaSet(DISP_PARA_LCM_CMD_ACTIVE_LEVEL, CS0_ACT, A0_CMD, 0, 0, 0);
-	dispParaSet(DISP_PARA_LCM_DATA_FORMAT, DATA_FMT, 0, 0, 0, 0);
-	
-	/* send lcm command. */
-	dispLcmCmdTableSend(dispPwrOnCmdTbl);
+    /*-------------------- USER CODE: Custom End --------------------*/
 
-	
-	#if 1
-	XBYTE[REG_Disp_GpioSel1] |= 0x01 << (8 & 0x07); //set DGPIO 8 as TE pin in
-	XBYTE[REG_Disp_GpioOutEn1] &= ~(0x01 << (8 & 0x07));
-	XBYTE[REG_Disp_PhsSel_Polar] |= 0x10;
-	XBYTE[REG_Disp_LcmVSUpd_DmaEn] |= 0x03;
-	#endif
+    /* set clk and type. */
+    dispParaSet(DISP_PARA_CLK_CFG, CLK_SRC, CLK_DIVNX, CLK_DIV1X, 0, 0);
+    dispParaSet(DISP_PARA_SW_RST, DISP_DEV_RST_ALL, 0, 0, 0, 0);
+    // dispParaSet(DISP_PARA_UPS_CLK_PHASE, UPS_CLK_PHASE, 0, 0, 0, 0);
+    dispParaSet(DISP_PARA_DEVICE_TYPE, DEV_TYPE, 0, 0, 0, 0);
 
-	/* disp enable */
-	dispParaSet(DISP_PARA_GLOB_ENABLE, 1, 0, 0, 0, 0);
+    /* set vh timing and format */
+    dispParaSet(DISP_PARA_DEVICE_TOTAL_REGION, HPIXEL, VLINE, HSYNCW, VSYNCW, 0);
+    dispParaSet(DISP_PARA_DEVICE_ACTIVE_REGION, PNLH0, PNLV0, PNLH1, PNLV1, 0);
+    dispParaSet(DISP_PARA_DEVICE_IMG_REGION_CROP, PVX0, PVX1, PVY0, PVY1, 0);
+    dispParaSet(DISP_PARA_DEVICE_IMG_REGION_RENDER, PVH0, PVH1, PVV0, PVV1, 0);
+    dispParaSet(DISP_PARA_DEVICE_OSD_REGION_CROP, OSDX0, OSDX1, OSDY0, OSDY1, 0);
+    dispParaSet(DISP_PARA_DEVICE_OSD_REGION_RENDER, OSDH0, OSDH1, OSDV0, OSDV1, 0);
+    dispParaSet(DISP_PARA_INTERLACE_CFG, DISP_PROGRESSIVE, 0, 0, 0, 0);
 
-	if(((pkgChipIdGet()== 0x1627)||(pkgChipIdGet()== 0x1626))&&(HAL_GlobalDGPIOModeGet()!=0x01))
-	{
-		XBYTE[REG_Disp_VsVdIntEn] |= 0x02;
-	}
-	else if(((pkgChipIdGet()== 0x1627)||(pkgChipIdGet()== 0x1626))&&(HAL_GlobalDGPIOModeGet()==0x01))
-	{
-		XBYTE[REG_Disp_Rsv0] |= 0x04;
-	}
-	EA = 1;
+    /* set lcm interface. */
+    dispParaSet(DISP_PARA_LCM_CMD_BUS_TYPE, BUS_TYPE, 0, 0, 0, 0);
+    dispParaSet(DISP_PARA_LCM_CMD_ACTIVE_LEVEL, CS0_ACT, A0_CMD, 0, 0, 0);
+    dispParaSet(DISP_PARA_LCM_DATA_FORMAT, DATA_FMT, 0, 0, 0, 0);
 
-	sp1kHalWait(100);
+    /* send lcm command. */
+    dispLcmCmdTableSend(dispPwrOnCmdTbl);
 
-	app_set_lcd_backlight_status(1);
-	gLcdCloseFlag = 0;
+    /*-------------------- USER CODE: Custom Begin --------------------*/
+
+#if 1   // TF引脚控制
+    XBYTE[REG_Disp_GpioSel1] |= 0x01 << (8 & 0x07); // set DGPIO 8 as TE pin in
+    XBYTE[REG_Disp_GpioOutEn1] &= ~(0x01 << (8 & 0x07));
+    XBYTE[REG_Disp_PhsSel_Polar] |= 0x10;
+    XBYTE[REG_Disp_LcmVSUpd_DmaEn] |= 0x03;
+#endif
+
+    /*-------------------- USER CODE: Custom End --------------------*/
+
+    /* disp enable */
+    dispParaSet(DISP_PARA_GLOB_ENABLE, 1, 0, 0, 0, 0);
+
+    if(((pkgChipIdGet() == 0x1627) || (pkgChipIdGet() == 0x1626)) && (HAL_GlobalDGPIOModeGet() != 0x01))
+    {
+        XBYTE[REG_Disp_VsVdIntEn] |= 0x02;
+    }
+    else if(((pkgChipIdGet() == 0x1627) || (pkgChipIdGet() == 0x1626)) && (HAL_GlobalDGPIOModeGet() == 0x01))
+    {
+        XBYTE[REG_Disp_Rsv0] |= 0x04;
+    }
+    EA = 1;
+
+    sp1kHalWait(100);
+
+    app_set_lcd_backlight_status(1);
+    gLcdCloseFlag = 0;
 }
 
 /**
